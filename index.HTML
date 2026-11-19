@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portofolio Agam Raditya Pratama</title>
+<!-- Font: Cinzel & Nunito dari Google Fonts (sumber: fonts.google.com) -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#12172b; --bg2:#1b2240; --card:#222b4d; --text:#eef0fa; --muted:#a9b1d6;
+  --gold:#e8c675; --gold2:#b8924a; --cryo:#7fd6e6; --line:rgba(232,198,117,.35);
+}
+body.light{
+  --bg:#f6efde; --bg2:#ebe0c5; --card:#fffaf0; --text:#2a2640; --muted:#5d5a73;
+  --gold:#a8741f; --gold2:#7a5212; --cryo:#2a8aa0; --line:rgba(168,116,31,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;transition:background .4s,color .4s;overflow-x:hidden}
+h1,h2,h3,.brand{font-family:'Cinzel',Georgia,serif}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+img.ch{display:block;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 12px 24px rgba(0,0,0,.45))}
+
+/* Bintang jatuh di latar */
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.stars i{position:absolute;top:-10px;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);opacity:.5;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh) rotate(405deg);opacity:0}}
+body.light .stars{opacity:.35}
+
+/* Welcome */
+#welcome{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 40%,#2b3566,#0d1124);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;transition:opacity .8s,visibility .8s;padding:20px}
+#welcome.hide{opacity:0;visibility:hidden}
+#welcome .ch{width:min(210px,50vw);animation:jump 1.2s ease-in-out infinite}
+@keyframes jump{50%{transform:translateY(-20px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+#welcome h1{color:#e8c675;font-size:clamp(1.6rem,5vw,2.6rem);letter-spacing:2px}
+#welcome p{color:#c9d0f0}
+
+/* Tombol */
+.btn{display:inline-block;cursor:pointer;border:2px solid var(--gold);background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1b1630;font:700 1rem 'Nunito',sans-serif;padding:10px 26px;border-radius:999px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(232,198,117,.45)}
+.btn.ghost{background:transparent;color:var(--gold)}
+
+/* Navbar */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:10px 5%;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--gold);font-weight:800;font-size:1.2rem}
+.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);background:var(--bg2);filter:none}
+.links{display:flex;gap:6px;align-items:center;list-style:none}
+.links a{padding:6px 14px;border-radius:999px;font-weight:600;transition:background .2s,color .2s}
+.links a:hover,.links a.active{background:var(--gold);color:#1b1630}
+#theme,#burger{background:none;border:1px solid var(--line);color:var(--gold);width:40px;height:40px;border-radius:50%;font-size:1.1rem;cursor:pointer}
+#burger{display:none}
+
+section{position:relative;z-index:1;padding:90px 5%;max-width:1100px;margin:0 auto}
+h2{font-size:clamp(1.6rem,4vw,2.3rem);color:var(--gold);text-align:center;margin-bottom:8px}
+.sub{text-align:center;color:var(--muted);margin-bottom:40px}
+.orn{display:block;text-align:center;color:var(--gold);letter-spacing:10px;margin-bottom:6px}
+
+/* Hero */
+#home{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding-top:110px}
+#home .hi{color:var(--cryo);font-weight:700}
+#home h1{font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.1;color:var(--gold);margin:6px 0 14px}
+#home p.lead{color:var(--muted);max-width:480px;margin-bottom:24px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tags span{border:1px solid var(--line);padding:3px 14px;border-radius:999px;font-size:.9rem;background:var(--card)}
+.char{position:relative;display:flex;justify-content:center}
+.char::before{content:"";position:absolute;width:min(380px,80vw);aspect-ratio:1;border-radius:50%;border:2px dashed var(--gold);opacity:.6;animation:spin 40s linear infinite;top:50%;left:50%;margin:calc(min(380px,80vw)/-2) 0 0 calc(min(380px,80vw)/-2)}
+.char::after{content:"";position:absolute;inset:10% 10%;border-radius:50%;background:radial-gradient(circle,rgba(127,214,230,.35),transparent 70%)}
+.char img{position:relative;z-index:1;width:min(340px,75vw);animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-16px)}}
+
+/* Lingkaran karakter kecil (dipakai di Profil, Goals, Kontak) */
+.mini{position:relative;display:flex;flex-direction:column;align-items:center}
+.mini::before{content:"";position:absolute;width:min(250px,60vw);aspect-ratio:1;border-radius:50%;border:2px dashed var(--gold);opacity:.55;animation:spin 50s linear infinite;bottom:0;left:50%;margin-left:calc(min(250px,60vw)/-2)}
+.mini::after{content:"";position:absolute;width:min(220px,55vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(127,214,230,.3),transparent 70%);bottom:0;left:50%;margin-left:calc(min(220px,55vw)/-2)}
+.mini .ch{position:relative;z-index:1;width:min(210px,55vw);animation:float 4.5s ease-in-out infinite}
+.mini.flip .ch{transform:scaleX(-1);animation:none}
+.bubble{position:relative;z-index:2;background:#fff;color:#26305a;font-weight:700;border:2px solid var(--gold);border-radius:16px;padding:8px 14px;display:inline-block;max-width:250px;margin-bottom:14px;font-size:.93rem;line-height:1.4;text-align:center}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-10px;margin-left:-8px;border:8px solid transparent;border-top-color:var(--gold);border-bottom:0}
+
+/* Kartu */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 22px;text-align:center;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover,.card:focus-visible{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 12px 28px rgba(0,0,0,.25)}
+.card .ico{font-size:2.4rem}
+.card h3{color:var(--gold);font-size:1.15rem;margin:8px 0 6px}
+.card p{color:var(--muted);font-size:.95rem}
+
+/* Profil */
+.about{display:grid;grid-template-columns:230px 1fr;gap:26px;align-items:center}
+.about .col{display:grid;gap:22px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.panel h3{color:var(--gold);margin-bottom:12px}
+.panel dl{display:grid;grid-template-columns:110px 1fr;gap:8px 10px}
+.panel dt{color:var(--cryo);font-weight:700}
+
+/* Hobi */
+.guide{margin-bottom:34px}
+.guide .card{cursor:pointer}
+
+/* Skill */
+.skill{margin-bottom:16px}
+.skill div{display:flex;justify-content:space-between;font-weight:700;margin-bottom:4px}
+.bar{height:12px;background:var(--bg2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cryo),var(--gold));border-radius:999px}
+
+/* Cita-cita */
+.goalwrap{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:center}
+.goals{display:grid;gap:18px}
+.goal{display:flex;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:18px 22px;transition:transform .25s}
+.goal:hover{transform:translateX(8px)}
+.goal .ico{font-size:2rem}
+.goal h3{color:var(--gold);font-size:1.05rem}
+.goal p{color:var(--muted);font-size:.95rem}
+
+/* Kontak */
+.contact a.card{display:block}
+.contact .card b{display:block;word-break:break-all;color:var(--text)}
+.wave{margin-top:46px}
+footer{position:relative;z-index:1;text-align:center;padding:30px 5% 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);margin:0 auto 8px;filter:none}
+
+#top{position:fixed;right:18px;bottom:20px;z-index:60;width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);background:var(--card);cursor:pointer;padding:0;overflow:hidden;opacity:0;visibility:hidden;transition:.3s;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+#top img{width:100%;height:100%;object-fit:cover;object-position:top;filter:none}
+#top span{position:absolute;right:0;bottom:0;background:var(--gold);color:#1b1630;font-size:.8rem;font-weight:800;width:20px;height:20px;border-radius:50%;line-height:20px}
+#top.show{opacity:1;visibility:visible}
+#top:hover{transform:translateY(-4px)}
+
+@media(max-width:820px){
+  #home,.about,.goalwrap{grid-template-columns:1fr}
+  #home{text-align:center;padding-top:100px}
+  #home p.lead{margin-inline:auto}
+  .tags{justify-content:center}
+  .char{order:-1}
+  #burger{display:block}
+  .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:12px;border-bottom:1px solid var(--line);display:none}
+  .links.open{display:flex}
+}
+/* Kilau pada progress bar */
+.bar b{position:relative;overflow:hidden}
+.bar b::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-100%);animation:shine 1.8s linear infinite}
+@keyframes shine{to{transform:translateX(100%)}}
+
+/* Loading page */
+#loading{position:fixed;inset:0;z-index:120;background:radial-gradient(circle at 50% 40%,#2b3566,#0d1124);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:20px;transition:opacity .7s,visibility .7s;color:#e8c675}
+#loading.hide{opacity:0;visibility:hidden}
+#loading .ch{width:min(160px,42vw);animation:jump 1s ease-in-out infinite}
+.orb{font-size:2.6rem;animation:spin 3s linear infinite;text-shadow:0 0 24px #e8c675}
+#ltip{color:#c9d0f0}
+.lbar{width:min(320px,78vw);height:14px;border-radius:999px;border:2px solid #e8c675;overflow:hidden;background:rgba(255,255,255,.08)}
+.lbar b{display:block;height:100%;width:0;background:linear-gradient(90deg,#7fd6e6,#e8c675)}
+#lpct{font-family:'Cinzel',serif;font-weight:800}
+
+/* Galeri karya */
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.art{position:relative;cursor:pointer;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card);aspect-ratio:4/3;padding:0;text-align:left;color:inherit;font:inherit;transition:transform .25s,border-color .25s,box-shadow .25s}
+.art:hover,.art:focus-visible{transform:translateY(-6px) rotate(-.6deg);border-color:var(--gold);box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.art .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,#2b3566,#3b5a8a);color:#e8c675;font-size:2.6rem}
+.art .ph small{font-size:.78rem;color:#c9d0f0}
+.art img.pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:none}
+.art:hover img.pic{transform:scale(1.08)}
+.art .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;background:linear-gradient(transparent,rgba(10,12,30,.9))}
+.art .cap h3{font-size:1rem;color:#e8c675}
+.art .cap p{font-size:.85rem;color:#d8dcf5}
+#lb{position:fixed;inset:0;z-index:110;background:rgba(8,10,25,.88);display:none;align-items:center;justify-content:center;padding:20px}
+#lb.open{display:flex}
+.lbbox{position:relative;max-width:860px;width:100%;max-height:92vh;overflow:auto;background:var(--card);border:2px solid var(--gold);border-radius:20px}
+.lbimg{min-height:240px;background:linear-gradient(135deg,#2b3566,#3b5a8a);display:flex;align-items:center;justify-content:center;font-size:4.5rem;color:#e8c675}
+.lbimg img{max-width:100%;max-height:60vh;display:block;filter:none}
+.lbtext{padding:16px 24px 22px}
+.lbtext h3{color:var(--gold)}
+.lbtext p{color:var(--muted)}
+.lbx,.lbn{position:absolute;background:var(--card);border:2px solid var(--gold);color:var(--gold);width:42px;height:42px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:2}
+.lbx{top:10px;right:10px}.lbn.p{left:10px;top:110px}.lbn.n{right:10px;top:110px}
+</style>
+</head>
+<body>
+
+<!-- Loading page -->
+<div id="loading">
+  <div class="orb">✦</div>
+  <img class="ch" src="impact.png" alt="" onerror="this.style.opacity=0">
+  <p id="ltip">Memuat dunia Teyvat...</p>
+  <div class="lbar"><b id="lfill"></b></div>
+  <div id="lpct">0%</div>
+</div>
+
+<!-- Animasi pembuka -->
+<div id="welcome">
+  <img class="ch" src="impact.png" alt="Karakter" onerror="this.style.opacity=0">
+  <h1>Selamat datang, Traveler!</h1>
+  <p>Portofolio Agam Raditya Pratama</p>
+  <button class="btn" id="enter">Mulai Petualangan</button>
+</div>
+
+<div class="stars" id="stars"></div>
+
+<nav>
+  <a href="#home" class="brand"><img src="impact.png" alt="" onerror="this.style.opacity=0">Agam</a>
+  <ul class="links" id="links">
+    <li><a href="#home">Beranda</a></li>
+    <li><a href="#profil">Profil</a></li>
+    <li><a href="#hobi">Hobi</a></li>
+    <li><a href="#galeri">Galeri</a></li>
+    <li><a href="#goals">Cita-cita</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+    <li><button id="theme" aria-label="Ganti tema" title="Mode gelap / terang">☾</button></li>
+  </ul>
+  <button id="burger" aria-label="Buka menu">☰</button>
+</nav>
+
+<!-- BERANDA -->
+<section id="home">
+  <div>
+    <p class="hi">Halo, Traveler! Aku</p>
+    <h1>Agam Raditya Pratama</h1>
+    <div class="tags"><span>Dipanggil Agam</span><span>Kelas 9 Utsman</span><span>SMPIT Assyifa Boarding School</span></div>
+    <p class="lead">Pelajar yang suka membaca, berolahraga, menggambar, dan menjelajahi dunia Teyvat di Genshin Impact. Selamat datang di portofolio digitalku!</p>
+    <a href="#kontak" class="btn">Hubungi Aku</a>
+    <button class="btn ghost" id="download">Unduh Profil</button>
+  </div>
+  <div class="char">
+    <img class="ch" src="impact.png" alt="Karakter Genshin Impact" onerror="this.style.opacity=0">
+  </div>
+</section>
+
+<!-- PROFIL -->
+<section id="profil">
+  <span class="orn">◆ ◆ ◆</span>
+  <h2>Profil Traveler</h2>
+  <p class="sub">Kartu identitas petualang</p>
+  <div class="about">
+    <div class="mini">
+      <div class="bubble">Halo, aku Agam! Senang bertemu denganmu!</div>
+      <img class="ch" src="impact.png" alt="Karakter menyapa" onerror="this.style.opacity=0">
+    </div>
+    <div class="col">
+      <div class="panel">
+        <h3>Data Diri</h3>
+        <dl>
+          <dt>Nama</dt><dd>Agam Raditya Pratama</dd>
+          <dt>Panggilan</dt><dd>Agam</dd>
+          <dt>Kelas</dt><dd>9 Utsman</dd>
+          <dt>Sekolah</dt><dd>SMPIT Assyifa Boarding School</dd>
+          <dt>Game favorit</dt><dd>Genshin Impact</dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Tentang Aku</h3>
+        <p>Aku Agam, siswa kelas 9 Utsman di SMPIT Assyifa Boarding School. Di sela belajar dan kegiatan asrama, aku menyalurkan semangat lewat buku, olahraga, gambar, dan game. Seperti Traveler di Teyvat, aku ingin terus belajar dan berkembang setiap hari.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOBI -->
+<section id="hobi">
+  <span class="orn">◆ ◆ ◆</span>
+  <h2>Hobi</h2>
+  <p class="sub">Arahkan kursor atau ketuk kartu, lalu lihat apa kata karakternya</p>
+  <div class="mini guide">
+    <div class="bubble" id="say">Pilih salah satu hobiku!</div>
+    <img class="ch" src="impact.png" alt="Karakter pemandu" onerror="this.style.opacity=0">
+  </div>
+  <div class="grid">
+    <div class="card" tabindex="0" data-say="Aku suka baca buku! Setiap halaman seperti petualangan baru."><div class="ico">📖</div><h3>Membaca Buku</h3><p>Menambah ilmu dan imajinasi, seperti membuka halaman baru di kisah Teyvat.</p></div>
+    <div class="card" tabindex="0" data-say="Basket itu seru! Lincah, cepat, dan harus kompak."><div class="ico">🏀</div><h3>Main Basket</h3><p>Melatih kelincahan, kerja sama tim, dan semangat pantang menyerah.</p></div>
+    <div class="card" tabindex="0" data-say="Voli bareng teman paling asyik. Ayo smash!"><div class="ico">🏐</div><h3>Main Voli</h3><p>Seru dimainkan bersama teman, mengajarkan kekompakan dan sportivitas.</p></div>
+    <div class="card" tabindex="0" data-say="Menggambar bikin imajinasiku hidup di atas kertas."><div class="ico">🎨</div><h3>Menggambar</h3><p>Menuangkan ide dan kreativitas ke dalam gambar.</p></div>
+    <div class="card" tabindex="0" data-say="Genshin Impact! Menjelajah Teyvat adalah favoritku."><div class="ico">🎮</div><h3>Main Game</h3><p>Terutama Genshin Impact: menjelajah, bertualang, dan menyusun tim terbaik.</p></div>
+  </div>
+
+  <h2 style="margin-top:70px">Tingkat Semangat</h2>
+  <p class="sub">Seberapa aku menikmati tiap hobi</p>
+  <div class="panel" style="max-width:700px;margin:auto" id="skills">
+    <div class="skill"><div><span>🎮 Genshin Impact</span><span class="pct">0%</span></div><div class="bar"><b data-w="95"></b></div></div>
+    <div class="skill"><div><span>📖 Membaca</span><span class="pct">0%</span></div><div class="bar"><b data-w="85"></b></div></div>
+    <div class="skill"><div><span>🎨 Menggambar</span><span class="pct">0%</span></div><div class="bar"><b data-w="80"></b></div></div>
+    <div class="skill"><div><span>🏀 Basket</span><span class="pct">0%</span></div><div class="bar"><b data-w="80"></b></div></div>
+    <div class="skill"><div><span>🏐 Voli</span><span class="pct">0%</span></div><div class="bar"><b data-w="75"></b></div></div>
+  </div>
+</section>
+
+<!-- GALERI KARYA -->
+<!-- Taruh gambar karyamu di folder yang sama dengan nama karya1.jpg sampai karya6.jpg.
+     Judul dan deskripsi bisa diubah di bagian "const works" pada script di bawah. -->
+<section id="galeri">
+  <span class="orn">◆ ◆ ◆</span>
+  <h2>Galeri Karya</h2>
+  <p class="sub">Klik karya untuk melihat lebih besar dan membaca ceritanya</p>
+  <div class="gal" id="gal"></div>
+</section>
+
+<!-- GOALS -->
+<section id="goals">
+  <span class="orn">◆ ◆ ◆</span>
+  <h2>Goals / Cita-cita</h2>
+  <p class="sub">Misi utama yang ingin kucapai</p>
+  <!-- Silakan ubah isi cita-cita sesuai keinginanmu -->
+  <div class="goalwrap">
+    <div class="goals">
+      <div class="goal"><div class="ico">🎓</div><div><h3>Lulus dengan Hasil Terbaik</h3><p>Menyelesaikan kelas 9 dengan nilai bagus dan akhlak yang baik.</p></div></div>
+      <div class="goal"><div class="ico">🌟</div><div><h3>Mengembangkan Bakat</h3><p>Terus berlatih menggambar dan olahraga agar semakin mahir.</p></div></div>
+      <div class="goal"><div class="ico">🚀</div><div><h3>Meraih Cita-cita Masa Depan</h3><p>Menjadi orang yang berilmu, sukses, dan bermanfaat bagi keluarga serta sesama.</p></div></div>
+    </div>
+    <div class="mini flip">
+      <img class="ch" src="impact.png" alt="Karakter menatap masa depan" onerror="this.style.opacity=0">
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak" class="contact">
+  <span class="orn">◆ ◆ ◆</span>
+  <h2>Kontak</h2>
+  <p class="sub">Ayo berteman, kirim pesan kapan saja</p>
+  <div class="grid">
+    <a class="card" href="https://instagram.com/agam" target="_blank" rel="noopener"><div class="ico">📸</div><h3>Instagram</h3><b>@agam</b></a>
+    <a class="card" href="https://www.tiktok.com/@agamm_r105" target="_blank" rel="noopener"><div class="ico">🎵</div><h3>TikTok</h3><b>@agamm_r105</b></a>
+    <a class="card" href="mailto:agam.raditya105@smp.belajar.id"><div class="ico">✉️</div><h3>Email</h3><b>agam.raditya105@smp.belajar.id</b></a>
+  </div>
+  <div class="mini wave">
+    <div class="bubble">Sampai jumpa di Teyvat! Jangan lupa hubungi aku ya!</div>
+    <img class="ch" src="impact.png" alt="Karakter melambai" onerror="this.style.opacity=0">
+  </div>
+</section>
+
+<footer>
+  <img src="impact.png" alt="" onerror="this.style.opacity=0">
+  © 2026 Agam Raditya Pratama · SMPIT Assyifa Boarding School<br>
+  Tema dan karakter terinspirasi dari Genshin Impact © HoYoverse. Font: Google Fonts.
+</footer>
+
+<!-- Jendela detail karya -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="Detail karya">
+  <div class="lbbox">
+    <button class="lbx" id="lbx" aria-label="Tutup">✕</button>
+    <button class="lbn p" id="lbp" aria-label="Sebelumnya">‹</button>
+    <button class="lbn n" id="lbn" aria-label="Berikutnya">›</button>
+    <div class="lbimg" id="lbimg"></div>
+    <div class="lbtext"><h3 id="lbt"></h3><p id="lbd"></p></div>
+  </div>
+</div>
+
+<button id="top" aria-label="Kembali ke atas"><img src="impact.png" alt="" onerror="this.style.opacity=0"><span>↑</span></button>
+
+<script>
+// Bintang jatuh
+const st=document.getElementById('stars');
+for(let i=0;i<22;i++){
+  const s=document.createElement('i');
+  s.style.left=Math.random()*100+'%';
+  s.style.animationDuration=(8+Math.random()*12)+'s';
+  s.style.animationDelay=(-Math.random()*15)+'s';
+  s.style.transform='scale('+(0.6+Math.random())+') rotate(45deg)';
+  st.appendChild(s);
+}
+
+// Welcome
+const welcome=document.getElementById('welcome');
+document.getElementById('enter').onclick=()=>welcome.classList.add('hide');
+
+// Menu mobile
+const links=document.getElementById('links');
+document.getElementById('burger').onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+// Mode gelap / terang
+const themeBtn=document.getElementById('theme');
+themeBtn.onclick=()=>{
+  document.body.classList.toggle('light');
+  themeBtn.textContent=document.body.classList.contains('light')?'☀':'☾';
+};
+
+// Tombol kembali ke atas
+const topBtn=document.getElementById('top');
+addEventListener('scroll',()=>topBtn.classList.toggle('show',scrollY>400));
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+// Menu aktif saat scroll
+const secs=[...document.querySelectorAll('section')];
+const navA=[...links.querySelectorAll('a')];
+addEventListener('scroll',()=>{
+  let cur=secs[0].id;
+  secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
+  navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+// Karakter berbicara saat kartu hobi disentuh
+const say=document.getElementById('say');
+document.querySelectorAll('#hobi .card').forEach(c=>{
+  const f=()=>say.textContent=c.dataset.say;
+  c.addEventListener('mouseenter',f);c.addEventListener('focus',f);c.addEventListener('click',f);
+});
+
+// Tingkat semangat: bar naik dan angka berhitung, berulang setiap terlihat
+const skillBox=document.getElementById('skills');
+const skills=[...skillBox.querySelectorAll('.skill')];
+function runBar(sk,delay){
+  const b=sk.querySelector('b'),p=sk.querySelector('.pct'),to=+b.dataset.w;
+  cancelAnimationFrame(sk._r);
+  const t0=performance.now()+delay;
+  const step=t=>{
+    const k=Math.min(Math.max((t-t0)/1400,0),1),e=1-Math.pow(1-k,3);
+    b.style.width=(to*e)+'%';
+    p.textContent=Math.round(to*e)+'%';
+    if(k<1)sk._r=requestAnimationFrame(step);
+  };
+  sk._r=requestAnimationFrame(step);
+}
+function resetBar(sk){
+  cancelAnimationFrame(sk._r);
+  sk.querySelector('b').style.width='0';
+  sk.querySelector('.pct').textContent='0%';
+}
+new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting)skills.forEach((s,i)=>runBar(s,i*180));
+  else skills.forEach(resetBar);
+}),{threshold:.25}).observe(skillBox);
+
+// Loading page
+(function(){
+  const L=document.getElementById('loading'),f=document.getElementById('lfill'),
+        pc=document.getElementById('lpct'),tip=document.getElementById('ltip');
+  const tips=['Memuat dunia Teyvat...','Menyiapkan petualangan...','Mengumpulkan Mora...','Hampir siap, Traveler!'];
+  let loaded=document.readyState==='complete';
+  addEventListener('load',()=>loaded=true);
+  setTimeout(()=>loaded=true,4000);
+  const t0=performance.now();
+  const step=t=>{
+    let v=Math.min((t-t0)/2400,1)*100;
+    if(!loaded)v=Math.min(v,92);
+    f.style.width=v+'%';
+    pc.textContent=Math.floor(v)+'%';
+    tip.textContent=tips[Math.min(3,Math.floor(v/26))];
+    if(v>=100)setTimeout(()=>L.classList.add('hide'),350);
+    else requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+})();
+
+// Galeri karya (ubah judul, deskripsi, dan nama file gambar di sini)
+const works=[
+  {t:'Fan Art Genshin Impact',d:'Gambar bertema Genshin Impact, dunia game favoritku.',img:'karya1.jpg',e:'🎨'},
+  {t:'Sketsa Pemandangan',d:'Latihan menggambar suasana alam dan langit.',img:'karya2.jpg',e:'🏞️'},
+  {t:'Gambar Karakter',d:'Latihan menggambar wajah dan pose karakter.',img:'karya3.jpg',e:'🧑‍🎨'},
+  {t:'Tugas Sekolah',d:'Hasil tugas gambar dari pelajaran di sekolah.',img:'karya4.jpg',e:'📝'},
+  {t:'Coretan Santai',d:'Gambar iseng di waktu luang di asrama.',img:'karya5.jpg',e:'✏️'},
+  {t:'Karya Favorit',d:'Karya yang paling aku banggakan sejauh ini.',img:'karya6.jpg',e:'⭐'}
+];
+const gal=document.getElementById('gal');
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),
+      lbt=document.getElementById('lbt'),lbd=document.getElementById('lbd');
+let cur=0;
+works.forEach((w,i)=>{
+  const b=document.createElement('button');
+  b.className='art';b.type='button';
+  b.innerHTML='<div class="ph"><span>'+w.e+'</span><small>Gambar belum ditambahkan</small></div>'+
+    '<img class="pic" src="'+w.img+'" alt="'+w.t+'" onerror="this.style.display=\'none\'">'+
+    '<div class="cap"><h3>'+w.t+'</h3><p>'+w.d+'</p></div>';
+  b.onclick=()=>openLb(i);
+  gal.appendChild(b);
+});
+function openLb(i){
+  cur=(i+works.length)%works.length;
+  const w=works[cur];
+  lbimg.innerHTML='<span>'+w.e+'</span>';
+  const im=new Image();
+  im.alt=w.t;
+  im.onload=()=>{lbimg.innerHTML='';lbimg.appendChild(im)};
+  im.src=w.img;
+  lbt.textContent=w.t;lbd.textContent=w.d;
+  lb.classList.add('open');
+}
+const closeLb=()=>lb.classList.remove('open');
+document.getElementById('lbx').onclick=closeLb;
+document.getElementById('lbp').onclick=()=>openLb(cur-1);
+document.getElementById('lbn').onclick=()=>openLb(cur+1);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')openLb(cur-1);
+  if(e.key==='ArrowRight')openLb(cur+1);
+});
+
+// Unduh profil (file teks sederhana)
+document.getElementById('download').onclick=()=>{
+  const t=`PROFIL SINGKAT
+Nama     : Agam Raditya Pratama (Agam)
+Kelas    : 9 Utsman
+Sekolah  : SMPIT Assyifa Boarding School
+Hobi     : Membaca buku, basket, voli, menggambar, main game (Genshin Impact)
+Instagram: @agam
+TikTok   : @agamm_r105
+Email    : agam.raditya105@smp.belajar.id`;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([t],{type:'text/plain'}));
+  a.download='Profil-Agam-Raditya-Pratama.txt';
+  a.click();
+};
+</script>
+</body>
+</html>
