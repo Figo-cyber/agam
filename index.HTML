@@ -2,611 +2,408 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Portofolio Agam Raditya Pratama</title>
 <!-- Font: Cinzel & Nunito dari Google Fonts (sumber: fonts.google.com) -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#12172b; --bg2:#1b2240; --card:#222b4d; --text:#eef0fa; --muted:#a9b1d6;
-  --gold:#e8c675; --gold2:#b8924a; --cryo:#7fd6e6; --line:rgba(232,198,117,.35);
-}
-body.light{
-  --bg:#f6efde; --bg2:#ebe0c5; --card:#fffaf0; --text:#2a2640; --muted:#5d5a73;
-  --gold:#a8741f; --gold2:#7a5212; --cryo:#2a8aa0; --line:rgba(168,116,31,.4);
-}
+:root{--bg:#12172b;--bg2:#1b2240;--card:#222b4d;--text:#eef0fa;--muted:#a9b1d6;--gold:#e8c675;--gold2:#b8924a;--cryo:#7fd6e6;--line:rgba(232,198,117,.35);--sh:rgba(0,0,0,.35)}
+body.light{--bg:#f6efde;--bg2:#ebe0c5;--card:#fffaf0;--text:#2a2640;--muted:#5d5a73;--gold:#a8741f;--gold2:#7a5212;--cryo:#2a8aa0;--line:rgba(168,116,31,.4);--sh:rgba(80,60,20,.2)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;transition:background .4s,color .4s;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Nunito',system-ui,sans-serif;background:radial-gradient(80% 50% at 50% 0,color-mix(in srgb,var(--bg2) 90%,#6d5b9e),var(--bg) 70%) fixed;color:var(--text);line-height:1.7;transition:background .4s,color .4s;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;background:repeating-linear-gradient(45deg,var(--gold) 0 1px,transparent 1px 34px),repeating-linear-gradient(-45deg,var(--gold) 0 1px,transparent 1px 34px)}
 h1,h2,h3,.brand{font-family:'Cinzel',Georgia,serif}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-img.ch{display:block;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 12px 24px rgba(0,0,0,.45))}
-
-/* Bintang jatuh di latar */
-.stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.stars i{position:absolute;top:-10px;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);opacity:.5;animation:fall linear infinite}
-@keyframes fall{to{transform:translateY(110vh) rotate(405deg);opacity:0}}
-body.light .stars{opacity:.35}
-
-/* Welcome */
-#welcome{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 40%,#2b3566,#0d1124);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;transition:opacity .8s,visibility .8s;padding:20px}
-#welcome.hide{opacity:0;visibility:hidden}
-#welcome .ch{width:min(210px,50vw);animation:jump 1.2s ease-in-out infinite}
-@keyframes jump{50%{transform:translateY(-20px)}}
+.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.12em;flex:none}
+img.ch{display:block;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 14px 26px rgba(0,0,0,.5))}
+@keyframes float{50%{transform:translateY(-14px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-#welcome h1{color:#e8c675;font-size:clamp(1.6rem,5vw,2.6rem);letter-spacing:2px}
-#welcome p{color:#c9d0f0}
-
-/* Tombol */
-.btn{display:inline-block;cursor:pointer;border:2px solid var(--gold);background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1b1630;font:700 1rem 'Nunito',sans-serif;padding:10px 26px;border-radius:999px;transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(232,198,117,.45)}
-.btn.ghost{background:transparent;color:var(--gold)}
-
-/* Navbar */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:10px 5%;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:10px;color:var(--gold);font-weight:800;font-size:1.2rem}
-.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);background:var(--bg2);filter:none}
-.links{display:flex;gap:6px;align-items:center;list-style:none}
-.links a{padding:6px 14px;border-radius:999px;font-weight:600;transition:background .2s,color .2s}
-.links a:hover,.links a.active{background:var(--gold);color:#1b1630}
-#theme,#burger{background:none;border:1px solid var(--line);color:var(--gold);width:40px;height:40px;border-radius:50%;font-size:1.1rem;cursor:pointer}
-#burger{display:none}
-
-section{position:relative;z-index:1;padding:90px 5%;max-width:1100px;margin:0 auto}
-h2{font-size:clamp(1.6rem,4vw,2.3rem);color:var(--gold);text-align:center;margin-bottom:8px}
-.sub{text-align:center;color:var(--muted);margin-bottom:40px}
-.orn{display:block;text-align:center;color:var(--gold);letter-spacing:10px;margin-bottom:6px}
-
-/* Hero */
-#home{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding-top:110px}
-#home .hi{color:var(--cryo);font-weight:700}
-#home h1{font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.1;color:var(--gold);margin:6px 0 14px}
-#home p.lead{color:var(--muted);max-width:480px;margin-bottom:24px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.tags span{border:1px solid var(--line);padding:3px 14px;border-radius:999px;font-size:.9rem;background:var(--card)}
-.char{position:relative;display:flex;justify-content:center}
-.char::before{content:"";position:absolute;width:min(380px,80vw);aspect-ratio:1;border-radius:50%;border:2px dashed var(--gold);opacity:.6;animation:spin 40s linear infinite;top:50%;left:50%;margin:calc(min(380px,80vw)/-2) 0 0 calc(min(380px,80vw)/-2)}
-.char::after{content:"";position:absolute;inset:10% 10%;border-radius:50%;background:radial-gradient(circle,rgba(127,214,230,.35),transparent 70%)}
-.char img{position:relative;z-index:1;width:min(340px,75vw);animation:float 4s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-16px)}}
-
-/* Lingkaran karakter kecil (dipakai di Profil, Goals, Kontak) */
-.mini{position:relative;display:flex;flex-direction:column;align-items:center}
-.mini::before{content:"";position:absolute;width:min(250px,60vw);aspect-ratio:1;border-radius:50%;border:2px dashed var(--gold);opacity:.55;animation:spin 50s linear infinite;bottom:0;left:50%;margin-left:calc(min(250px,60vw)/-2)}
-.mini::after{content:"";position:absolute;width:min(220px,55vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(127,214,230,.3),transparent 70%);bottom:0;left:50%;margin-left:calc(min(220px,55vw)/-2)}
-.mini .ch{position:relative;z-index:1;width:min(210px,55vw);animation:float 4.5s ease-in-out infinite}
-.mini.flip .ch{transform:scaleX(-1);animation:none}
-.bubble{position:relative;z-index:2;background:#fff;color:#26305a;font-weight:700;border:2px solid var(--gold);border-radius:16px;padding:8px 14px;display:inline-block;max-width:250px;margin-bottom:14px;font-size:.93rem;line-height:1.4;text-align:center}
-.bubble::after{content:"";position:absolute;left:50%;bottom:-10px;margin-left:-8px;border:8px solid transparent;border-top-color:var(--gold);border-bottom:0}
-
-/* Kartu */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 22px;text-align:center;transition:transform .25s,border-color .25s,box-shadow .25s}
-.card:hover,.card:focus-visible{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 12px 28px rgba(0,0,0,.25)}
-.card .ico{font-size:2.4rem}
-.card h3{color:var(--gold);font-size:1.15rem;margin:8px 0 6px}
-.card p{color:var(--muted);font-size:.95rem}
-
-/* Profil */
-.about{display:grid;grid-template-columns:230px 1fr;gap:26px;align-items:center}
-.about .col{display:grid;gap:22px}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
-.panel h3{color:var(--gold);margin-bottom:12px}
-.panel dl{display:grid;grid-template-columns:110px 1fr;gap:8px 10px}
-.panel dt{color:var(--cryo);font-weight:700}
-
-/* Hobi */
-.guide{margin-bottom:34px}
-.guide .card{cursor:pointer}
-
-/* Skill */
-.skill{margin-bottom:16px}
-.skill div{display:flex;justify-content:space-between;font-weight:700;margin-bottom:4px}
-.bar{height:12px;background:var(--bg2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
-.bar b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cryo),var(--gold));border-radius:999px}
-
-/* Cita-cita */
-.goalwrap{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:center}
-.goals{display:grid;gap:18px}
-.goal{display:flex;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:18px 22px;transition:transform .25s}
-.goal:hover{transform:translateX(8px)}
-.goal .ico{font-size:2rem}
-.goal h3{color:var(--gold);font-size:1.05rem}
-.goal p{color:var(--muted);font-size:.95rem}
-
-/* Kontak */
-.contact a.card{display:block}
-.contact .card b{display:block;word-break:break-all;color:var(--text)}
-.wave{margin-top:46px}
-footer{position:relative;z-index:1;text-align:center;padding:30px 5% 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
-footer img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);margin:0 auto 8px;filter:none}
-
-#top{position:fixed;right:18px;bottom:20px;z-index:60;width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);background:var(--card);cursor:pointer;padding:0;overflow:hidden;opacity:0;visibility:hidden;transition:.3s;box-shadow:0 6px 16px rgba(0,0,0,.35)}
-#top img{width:100%;height:100%;object-fit:cover;object-position:top;filter:none}
-#top span{position:absolute;right:0;bottom:0;background:var(--gold);color:#1b1630;font-size:.8rem;font-weight:800;width:20px;height:20px;border-radius:50%;line-height:20px}
-#top.show{opacity:1;visibility:visible}
-#top:hover{transform:translateY(-4px)}
-
-@media(max-width:820px){
-  #home,.about,.goalwrap{grid-template-columns:1fr}
-  #home{text-align:center;padding-top:100px}
-  #home p.lead{margin-inline:auto}
-  .tags{justify-content:center}
-  .char{order:-1}
-  #burger{display:block}
-  .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:12px;border-bottom:1px solid var(--line);display:none}
-  .links.open{display:flex}
-}
-/* Kilau pada progress bar */
-.bar b{position:relative;overflow:hidden}
-.bar b::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-100%);animation:shine 1.8s linear infinite}
+@keyframes fall{to{transform:translateY(110vh) rotate(405deg);opacity:0}}
+@keyframes rise{10%{opacity:1}100%{transform:translate(var(--x),-85vh);opacity:0}}
+@keyframes drift{50%{transform:translateX(60px)}}
+@keyframes shim{to{background-position:0 44px}}
+@keyframes tw{50%{opacity:.15;transform:scale(.5)}}
 @keyframes shine{to{transform:translateX(100%)}}
-
-/* Loading page */
-#loading{position:fixed;inset:0;z-index:120;background:radial-gradient(circle at 50% 40%,#2b3566,#0d1124);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:20px;transition:opacity .7s,visibility .7s;color:#e8c675}
-#loading.hide{opacity:0;visibility:hidden}
-#loading .ch{width:min(160px,42vw);animation:jump 1s ease-in-out infinite}
-.orb{font-size:2.6rem;animation:spin 3s linear infinite;text-shadow:0 0 24px #e8c675}
-#ltip{color:#c9d0f0}
-.lbar{width:min(320px,78vw);height:14px;border-radius:999px;border:2px solid #e8c675;overflow:hidden;background:rgba(255,255,255,.08)}
-.lbar b{display:block;height:100%;width:0;background:linear-gradient(90deg,#7fd6e6,#e8c675)}
-#lpct{font-family:'Cinzel',serif;font-weight:800}
-
-/* Galeri karya */
-.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
-.art{position:relative;cursor:pointer;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card);aspect-ratio:4/3;padding:0;text-align:left;color:inherit;font:inherit;transition:transform .25s,border-color .25s,box-shadow .25s}
-.art:hover,.art:focus-visible{transform:translateY(-6px) rotate(-.6deg);border-color:var(--gold);box-shadow:0 14px 30px rgba(0,0,0,.35)}
-.art .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,#2b3566,#3b5a8a);color:#e8c675;font-size:2.6rem}
-.art .ph small{font-size:.78rem;color:#c9d0f0}
-.art img.pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:none}
-.art:hover img.pic{transform:scale(1.08)}
-.art .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;background:linear-gradient(transparent,rgba(10,12,30,.9))}
-.art .cap h3{font-size:1rem;color:#e8c675}
-.art .cap p{font-size:.85rem;color:#d8dcf5}
-#lb{position:fixed;inset:0;z-index:110;background:rgba(8,10,25,.88);display:none;align-items:center;justify-content:center;padding:20px}
-#lb.open{display:flex}
-.lbbox{position:relative;max-width:860px;width:100%;max-height:92vh;overflow:auto;background:var(--card);border:2px solid var(--gold);border-radius:20px}
-.lbimg{min-height:240px;background:linear-gradient(135deg,#2b3566,#3b5a8a);display:flex;align-items:center;justify-content:center;font-size:4.5rem;color:#e8c675}
-.lbimg img{max-width:100%;max-height:60vh;display:block;filter:none}
-.lbtext{padding:16px 24px 22px}
-.lbtext h3{color:var(--gold)}
-.lbtext p{color:var(--muted)}
-.lbx,.lbn{position:absolute;background:var(--card);border:2px solid var(--gold);color:var(--gold);width:42px;height:42px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:2}
-.lbx{top:10px;right:10px}.lbn.p{left:10px;top:110px}.lbn.n{right:10px;top:110px}
-
-/* Awan di dasar layar: di belakang konten, bergeser ke samping saat scroll */
+@keyframes pulse{50%{box-shadow:0 0 0 14px transparent,0 0 36px rgba(232,198,117,.6)}}
+@keyframes bounce{50%{transform:translateY(8px)}}
+@keyframes fly{to{transform:translateX(130vw)}}
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.stars i{position:absolute;top:-10px;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);opacity:.45;animation:fall linear infinite}
 .clouds{position:fixed;left:0;right:0;bottom:0;height:34vh;z-index:0;pointer-events:none;overflow:hidden}
 .crow{position:absolute;left:0;bottom:0;height:100%;width:100%;will-change:transform}
-.crow img{position:absolute;bottom:0;display:block;height:auto;user-select:none;-webkit-user-drag:none}
-
-/* Prestasi */
+.crow img{position:absolute;bottom:0;display:block;height:auto}
+.pai{position:relative;width:var(--w,110px);aspect-ratio:1;border-radius:50%;border:3px solid var(--gold);background:#fff;box-shadow:0 0 28px rgba(127,214,230,.65),0 0 0 6px rgba(232,198,117,.22);animation:float 4s ease-in-out infinite;flex:none}
+.pai img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.pai::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:2px dashed var(--gold);opacity:.7;animation:spin 18s linear infinite}
+.pai.nf{display:grid;place-items:center;background:var(--card)}.pai.nf img{display:none}.pai.nf::after{content:"Paimon";font:800 .8rem Cinzel;color:var(--gold)}
+#loading,#welcome{position:fixed;inset:0;z-index:120;background:radial-gradient(circle at 50% 40%,#2b3566,#0d1124);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:20px;transition:opacity .8s,visibility .8s,transform .8s;color:#e8c675}
+#welcome{z-index:110}
+.hide{opacity:0;visibility:hidden}#welcome.hide{transform:scale(1.2)}
+.duoW{display:flex;align-items:flex-end;gap:14px;position:relative}
+.duoW .ch{width:min(190px,42vw);animation:float 1.6s ease-in-out infinite}
+.ring{position:absolute;width:min(400px,88vw);aspect-ratio:1;border-radius:50%;background:conic-gradient(transparent,rgba(232,198,117,.8),transparent 40%);-webkit-mask:radial-gradient(circle,transparent 62%,#000 63%);mask:radial-gradient(circle,transparent 62%,#000 63%);animation:spin 5s linear infinite;pointer-events:none}
+#welcome h1{font-size:clamp(1.6rem,5vw,2.6rem);letter-spacing:2px;position:relative}
+#welcome p,#ltip{color:#c9d0f0;position:relative}
+.orb{width:2.6rem;font-size:2.6rem;animation:spin 3s linear infinite;filter:drop-shadow(0 0 14px #e8c675)}
+.lbar{width:min(320px,78vw);height:14px;border-radius:999px;border:2px solid #e8c675;overflow:hidden;background:rgba(255,255,255,.08)}
+.lbar b{display:block;height:100%;width:0;background:linear-gradient(90deg,#7fd6e6,#e8c675)}
+#lpct{font:800 1rem Cinzel}
+.btn{display:inline-flex;gap:8px;align-items:center;cursor:pointer;border:2px solid var(--gold);background:linear-gradient(135deg,#f3d98f,var(--gold2));color:#1b1630;font:700 1rem 'Nunito',sans-serif;padding:11px 28px;border-radius:999px;transition:transform .2s,box-shadow .2s;margin:0 8px 8px 0}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(232,198,117,.55)}
+.btn.ghost{background:rgba(13,17,36,.4);color:#e8c675;backdrop-filter:blur(6px)}
+#enter{animation:pulse 2.4s infinite}
+nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);width:min(1100px,94%);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:7px 12px;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;box-shadow:0 8px 30px var(--sh)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--gold);font-weight:800;font-size:1.15rem}
+.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);background:var(--bg2)}
+.links{display:flex;gap:2px;align-items:center;list-style:none}
+.links a{padding:6px 12px;border-radius:999px;font-weight:600;font-size:.92rem;transition:.2s}
+.links a:hover,.links a.active{background:var(--gold);color:#1b1630}
+#theme,#burger{background:none;border:1px solid var(--line);color:var(--gold);width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:grid;place-items:center}
+#burger{display:none}
+section{position:relative;z-index:1;padding:80px 5%;max-width:1100px;margin:0 auto}
+.hd{text-align:center;margin-bottom:42px}
+.hd small{font:800 .75rem Cinzel;letter-spacing:.4em;color:var(--cryo)}
+h2{font-size:clamp(1.8rem,4.4vw,2.6rem);margin:4px 0 6px;background:linear-gradient(180deg,#fff3c4,var(--gold) 60%,var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 10px rgba(232,198,117,.3))}
+body.light h2{background:linear-gradient(180deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text}
+.sub{color:var(--muted)}
+.dv{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;color:var(--gold)}
+.dv::before,.dv::after{content:"";width:90px;height:2px;background:linear-gradient(90deg,transparent,var(--gold))}.dv::after{transform:scaleX(-1)}
+.dv svg{font-size:1.1rem}
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+#home{position:relative;z-index:1;min-height:100vh;overflow:hidden;--mx:0;--my:0;--sy:0;background:var(--bg)}
+.sky{position:absolute;inset:0;background:linear-gradient(180deg,#5d4d92 0%,#b585b8 30%,#efc3a0 58%,#c3d9e9 80%)}
+.sun{position:absolute;right:20%;top:8%;width:46vmax;aspect-ratio:1;transform:translate(35%,-28%);background:radial-gradient(circle,rgba(255,240,180,1),rgba(255,214,130,.4) 32%,transparent 62%)}
+.rays{position:absolute;right:20%;top:8%;width:150vmax;height:150vmax;transform:translate(50%,-50%);background:repeating-conic-gradient(rgba(255,236,170,.22) 0 5deg,transparent 5deg 16deg);-webkit-mask-image:radial-gradient(circle,#000,transparent 45%);mask-image:radial-gradient(circle,#000,transparent 45%);animation:spin 160s linear infinite;mix-blend-mode:screen}
+#hcl img{position:absolute;height:auto;animation:drift 22s ease-in-out infinite}
+.ly{position:absolute;left:-3%;width:106%;transform:translate(calc(var(--mx)*var(--d)*1px),calc(var(--my)*var(--d)*.5px + var(--sy)*var(--d)*.03px));transition:transform .25s}
+.bl{transform-origin:520px 126px;animation:spin 9s linear infinite}
+.bird{position:absolute;left:-60px;font-size:1.4rem;color:#3a2f5a;animation:fly var(--t) linear infinite var(--d)}
+.lake{position:absolute;left:0;right:0;bottom:0;height:36%;background:linear-gradient(#86a6dc,#4668a8 50%,#27407c);overflow:hidden}
+.lake i{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.15) 0 2px,transparent 2px 22px);animation:shim 3s linear infinite;-webkit-mask-image:linear-gradient(transparent,#000);mask-image:linear-gradient(transparent,#000)}
+.lake::before{content:"";position:absolute;left:55%;top:0;width:14%;height:100%;background:linear-gradient(rgba(255,230,160,.5),transparent);filter:blur(10px)}
+.lake b{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff;animation:tw var(--t) ease-in-out infinite var(--d)}
+.fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,17,36,.8),rgba(13,17,36,.05) 62%),linear-gradient(180deg,rgba(13,17,36,.5),transparent 20%,transparent 72%,var(--bg))}
+.fl{position:absolute;bottom:-10px;width:var(--s);height:var(--s);border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c);opacity:0;animation:rise var(--t) linear infinite var(--d)}
+.hc{position:relative;z-index:5;min-height:100vh;display:flex;flex-direction:column;justify-content:center;max-width:1100px;margin:0 auto;padding:120px 5% 90px}
+.hc .hi{color:var(--cryo);font:800 .85rem Cinzel;letter-spacing:.35em;text-shadow:0 2px 8px #000}
+.hc h1{font-size:clamp(2.4rem,6.4vw,4.3rem);line-height:1.08;margin:8px 0 14px;max-width:640px;background:linear-gradient(180deg,#fff6d0,#e8c675 55%,#b8924a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(0,0,0,.6))}
+.hc .lead{color:#e9ecfb;max-width:480px;margin-bottom:22px;text-shadow:0 2px 8px #000}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;max-width:600px}
+.tags span{border:1px solid var(--line);padding:3px 14px;border-radius:999px;font-size:.9rem;background:rgba(27,34,64,.65);color:#eef0fa;backdrop-filter:blur(6px)}
+.chars{position:absolute;right:6%;bottom:0;z-index:4;display:flex;align-items:flex-end}
+.chars .ch{height:min(68vh,560px);width:auto;animation:float 5s ease-in-out infinite}
+.chars .pai{--w:clamp(86px,12vw,140px);position:absolute;left:-18%;top:16%}
+.scroll{position:absolute;left:50%;bottom:16px;z-index:6;color:#fff;font-size:1.6rem;animation:bounce 1.6s infinite;opacity:.8}
+.duo{display:flex;flex-direction:column;align-items:center;position:relative}
+.pair{position:relative;display:flex;justify-content:center}
+.pair::before{content:"";position:absolute;width:min(270px,64vw);aspect-ratio:1;border-radius:50%;border:2px dashed var(--gold);opacity:.5;animation:spin 50s linear infinite;bottom:0;left:50%;margin-left:calc(min(270px,64vw)/-2)}
+.pair::after{content:"";position:absolute;width:min(240px,58vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(127,214,230,.32),transparent 70%);bottom:0;left:50%;margin-left:calc(min(240px,58vw)/-2)}
+.pair .ch{position:relative;z-index:1;width:min(220px,56vw);animation:float 4.5s ease-in-out infinite}
+.pair .pai{--w:88px;position:absolute;z-index:3;right:-18px;top:40px}
+.duo.flip .ch{transform:scaleX(-1);animation:none}.duo.flip .pai{right:auto;left:-18px}
+.duo.pbig .pai{--w:116px;right:-30px;top:20px}.duo.pbig .ch{width:min(190px,50vw)}
+.bubble{position:relative;z-index:4;background:#fff;color:#26305a;font-weight:700;border:2px solid var(--gold);border-radius:16px;padding:8px 14px;max-width:270px;margin-bottom:18px;font-size:.93rem;line-height:1.4;text-align:center;box-shadow:0 6px 18px var(--sh)}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-10px;margin-left:-8px;border:8px solid transparent;border-top-color:var(--gold);border-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.cr::before,.cr::after{content:"";position:absolute;width:16px;height:16px;border:2px solid var(--gold);opacity:.85;pointer-events:none;transition:.3s}
+.cr::before{top:9px;left:9px;border-right:0;border-bottom:0}.cr::after{bottom:9px;right:9px;border-left:0;border-top:0}
+.cr:hover::before,.cr:hover::after{width:30px;height:30px}
+.card,.panel{position:relative;background:linear-gradient(160deg,color-mix(in srgb,var(--card) 88%,#fff),var(--card));border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px var(--sh),inset 0 0 40px rgba(232,198,117,.04)}
+.card{padding:30px 22px;text-align:center;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover,.card:focus-visible{transform:translateY(-9px);border-color:var(--e,var(--gold));box-shadow:0 18px 40px var(--sh),0 0 30px color-mix(in srgb,var(--e,var(--gold)) 40%,transparent)}
+.ico{width:66px;height:66px;margin:0 auto 6px;border-radius:50%;display:grid;place-items:center;font-size:2rem;color:var(--e,var(--cryo));border:1px solid color-mix(in srgb,var(--e,var(--cryo)) 50%,transparent);background:radial-gradient(circle,color-mix(in srgb,var(--e,var(--cryo)) 30%,transparent),transparent 72%);transition:.3s}
+.card:hover .ico{transform:scale(1.15) rotate(8deg);box-shadow:0 0 24px color-mix(in srgb,var(--e,var(--cryo)) 60%,transparent)}
+.card h3{color:var(--gold);font-size:1.15rem;margin:8px 0 6px}
+.card p{color:var(--muted);font-size:.95rem}
+.about{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center}
+.col{display:grid;gap:22px}
+.panel{padding:28px}.panel h3{color:var(--gold);margin-bottom:12px}
+.panel dl{display:grid;grid-template-columns:120px 1fr;gap:8px 10px}
+.panel dt{color:var(--cryo);font-weight:700}
+.guide{margin-bottom:38px}.guide~.grid .card{cursor:pointer}
+.skill{margin-bottom:16px}.skill>div:first-child{display:flex;justify-content:space-between;font-weight:700;margin-bottom:4px}
+.skill .i{color:var(--cryo);margin-right:6px}
+.bar{height:12px;background:var(--bg2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cryo),var(--gold));border-radius:999px;position:relative;overflow:hidden}
+.bar b::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-100%);animation:shine 1.8s linear infinite}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+.art{position:relative;cursor:pointer;border-radius:14px;overflow:hidden;border:2px solid var(--gold2);outline:1px solid var(--line);outline-offset:5px;background:var(--card);aspect-ratio:3/4;padding:0;text-align:left;color:inherit;font:inherit;transition:transform .35s,box-shadow .35s}
+.art:hover,.art:focus-visible{transform:translateY(-10px) scale(1.03) rotate(-1deg);box-shadow:0 20px 40px var(--sh),0 0 34px rgba(232,198,117,.4)}
+.art .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(160deg,#2b3566,#3b5a8a);color:#e8c675;font-size:2.8rem}
+.art .ph small{font-size:.78rem;color:#c9d0f0}
+.art img.pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.art:hover img.pic{transform:scale(1.1)}
+.art::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);transform:translateX(-120%);transition:transform .8s}
+.art:hover::after{transform:translateX(120%)}
+.art .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 12px;background:linear-gradient(transparent,rgba(10,12,30,.94));z-index:2}
+.art .cap h3{font-size:1.05rem;color:#e8c675}.art .cap p{font-size:.82rem;color:#d8dcf5}
+#lb{position:fixed;inset:0;z-index:130;background:rgba(8,10,25,.9);display:none;align-items:center;justify-content:center;padding:20px}
+#lb.open{display:flex}
+.lbbox{position:relative;max-width:860px;width:100%;max-height:92vh;overflow:auto;background:var(--card);border:2px solid var(--gold);border-radius:20px;box-shadow:0 0 60px rgba(232,198,117,.25)}
+.lbimg{min-height:240px;background:linear-gradient(135deg,#2b3566,#3b5a8a);display:flex;align-items:center;justify-content:center;font-size:4.5rem;color:#e8c675}
+.lbimg img{max-width:100%;max-height:60vh;display:block}
+.lbtext{padding:16px 24px 22px}.lbtext h3{color:var(--gold)}.lbtext p{color:var(--muted)}
+.lbx,.lbn{position:absolute;background:var(--card);border:2px solid var(--gold);color:var(--gold);width:42px;height:42px;border-radius:50%;cursor:pointer;z-index:2;display:grid;place-items:center}
+.lbx{top:10px;right:10px}.lbn.p{left:10px;top:110px}.lbn.n{right:10px;top:110px}
 .stat{display:flex;justify-content:center;margin-bottom:34px}
-.stat span{font-family:'Cinzel',serif;font-weight:800;color:#1b1630;background:linear-gradient(135deg,var(--gold),var(--gold2));padding:8px 26px;border-radius:999px;box-shadow:0 8px 22px rgba(232,198,117,.35)}
-.medal{position:relative;overflow:hidden}
-.medal::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cryo),var(--gold))}
-.medal .rank{display:inline-block;margin-top:6px;background:var(--gold);color:#1b1630;font-weight:800;font-size:.8rem;padding:2px 14px;border-radius:999px}
-.medal .ico{display:inline-block;animation:float 4s ease-in-out infinite}
-.medal:nth-child(2) .ico{animation-delay:-.8s}
-.medal:nth-child(3) .ico{animation-delay:-1.6s}
-.medal:nth-child(4) .ico{animation-delay:-2.4s}
-.medal:nth-child(5) .ico{animation-delay:-3.2s}
+.stat span{display:inline-flex;gap:8px;align-items:center;font:800 1rem Cinzel;color:#1b1630;background:linear-gradient(135deg,#f3d98f,var(--gold2));padding:9px 28px;border-radius:999px;box-shadow:0 8px 24px rgba(232,198,117,.4)}
+.medal{--e:var(--gold)}
+.medal::before{border:0!important;width:auto!important;height:5px!important;top:0!important;left:0!important;right:0;background:linear-gradient(90deg,var(--cryo),var(--gold))}
+.st5{display:flex;justify-content:center;gap:3px;color:var(--gold);margin:8px 0 2px}
+.rank{display:inline-block;background:var(--gold);color:#1b1630;font-weight:800;font-size:.8rem;padding:2px 14px;border-radius:999px}
+.goalwrap{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
+.goals{display:grid;gap:18px}
+.goal{display:flex;gap:18px;align-items:center;background:linear-gradient(160deg,color-mix(in srgb,var(--card) 88%,#fff),var(--card));border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:18px 22px;transition:transform .3s,box-shadow .3s;box-shadow:0 8px 24px var(--sh)}
+.goal:hover{transform:translateX(12px);box-shadow:0 14px 34px var(--sh),0 0 24px rgba(232,198,117,.25)}
+.goal .ico{flex:none;margin:0}.goal small{font:800 .68rem Cinzel;letter-spacing:.25em;color:var(--cryo)}
+.goal h3{color:var(--gold);font-size:1.05rem}.goal p{color:var(--muted);font-size:.95rem}
+.contact a.card{display:block}.contact .card b{display:block;word-break:break-all;color:var(--text)}
+.wave{margin-top:50px}
+footer{position:relative;z-index:1;text-align:center;padding:34px 5% 44px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(6px)}
+footer .fi{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:10px}
+footer .fi img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold)}
+footer .pai{--w:46px;animation:none;box-shadow:none}footer .pai::before{display:none}
+#top{position:fixed;right:18px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:50%;border:2px solid var(--gold);background:var(--card);cursor:pointer;padding:0;opacity:0;visibility:hidden;transition:.3s;box-shadow:0 6px 16px var(--sh)}
+#top img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%}
+#top span{position:absolute;right:-4px;bottom:-4px;background:var(--gold);color:#1b1630;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.8rem}
+#top.show{opacity:1;visibility:visible}#top:hover{transform:translateY(-4px)}
+@media(max-width:820px){
+.about,.goalwrap{grid-template-columns:1fr}
+.hc{text-align:center;align-items:center;justify-content:flex-start;padding-top:110px}.tags{justify-content:center}
+.chars{right:50%;transform:translateX(50%)}.chars .ch{height:36vh}.chars .pai{left:-34%;top:0}
+#burger{display:grid}
+.links{position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;background:var(--bg);padding:12px;border:1px solid var(--line);border-radius:20px;display:none}.links.open{display:flex}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8686cc"/><stop offset="1" stop-color="#cdb0dc"/></linearGradient>
+<linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6674b6"/><stop offset="1" stop-color="#9db2d8"/></linearGradient>
+<linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5cbc76"/><stop offset="1" stop-color="#2c7650"/></linearGradient>
+<symbol id="book" viewBox="0 0 24 24"><path d="M3 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H3zM21 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/></symbol>
+<symbol id="ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18M3 12h18"/></symbol>
+<symbol id="volley" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c0 6 4 9 9 9M12 3c0 6-4 9-9 9M12 21c0-6 4-9 9-9"/></symbol>
+<symbol id="palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.500 0 2-1 1.500-2s0-2 1.500-2h2a3 3 0 0 0 3-3A9 9 0 0 0 12 3zM7.500 11h.01M10 7.500h.01M14.500 7.500h.01M17 11h.01"/></symbol>
+<symbol id="game" viewBox="0 0 24 24"><path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5 2l-2-2H9l-2 2a3 3 0 0 1-5-2v-3a4 4 0 0 1 4-4zM7 11v4M5 13h4M16 12h.01M18 14h.01"/></symbol>
+<symbol id="trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v2a3 3 0 0 0 4 3M16 6h4v2a3 3 0 0 1-4 3M12 13v4M8 20h8M10 17h4"/></symbol>
+<symbol id="medal" viewBox="0 0 24 24"><circle cx="12" cy="15" r="5"/><path d="M8 3l4 7 4-7"/></symbol>
+<symbol id="flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h12l-2 4 2 4H5"/></symbol>
+<symbol id="brush" viewBox="0 0 24 24"><path d="M4 20c3 0 4-1 4-3a3 3 0 0 1 3-3l7-9 3 3-9 7a3 3 0 0 1-3 3c-1 2-3 2-5 2z"/></symbol>
+<symbol id="cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></symbol>
+<symbol id="star" viewBox="0 0 24 24"><path d="M12 3l2.700 5.600 6.100.9-4.400 4.300 1 6.100L12 17l-5.400 2.900 1-6.100L3.200 9.500l6.100-.9z" fill="currentColor"/></symbol>
+<symbol id="rocket" viewBox="0 0 24 24"><path d="M12 3c4 2 6 6 5 11l-3 3h-4l-3-3c-1-5 1-9 5-11zM9 17l-3 4M15 17l3 4M12 9h.01"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></symbol>
+<symbol id="music" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM19 16a3 3 0 1 1-3-3 3 3 0 0 1 3 3z"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="sparkle" viewBox="0 0 24 24"><path d="M12 3l1.800 5.200L19 10l-5.200 1.800L12 17l-1.800-5.200L5 10l5.200-1.800zM19 17l.7 1.800 1.800.7-1.800.7L19 22l-.7-1.800-1.800-.7 1.800-.7z"/></symbol>
+<symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.500 1.500M17.500 17.500L19 19M5 19l1.500-1.500M17.500 6.500L19 5"/></symbol>
+<symbol id="moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></symbol>
+<symbol id="menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+<symbol id="down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+<symbol id="dl" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+<symbol id="prev" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+<symbol id="next" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+<symbol id="play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></symbol>
+</defs></svg>
 
-<!-- Loading page -->
-<div id="loading">
-  <div class="orb">✦</div>
-  <img class="ch" src="impact.png" alt="" onerror="this.style.opacity=0">
-  <p id="ltip">Memuat dunia Teyvat...</p>
-  <div class="lbar"><b id="lfill"></b></div>
-  <div id="lpct">0%</div>
-</div>
+<div id="loading"><svg class="i orb"><use href="#sparkle"/></svg><div class="duoW" data-duoW></div><p id="ltip">Memuat dunia Teyvat...</p><div class="lbar"><b id="lfill"></b></div><div id="lpct">0%</div></div>
+<div id="welcome"><div class="ring"></div><div class="duoW" data-duoW></div><h1>Selamat datang, Traveler!</h1><p>Portofolio Agam Raditya Pratama</p><button class="btn" id="enter"><i data-ic="play"></i> Mulai Petualangan</button></div>
 
-<!-- Animasi pembuka -->
-<div id="welcome">
-  <img class="ch" src="impact.png" alt="Karakter" onerror="this.style.opacity=0">
-  <h1>Selamat datang, Traveler!</h1>
-  <p>Portofolio Agam Raditya Pratama</p>
-  <button class="btn" id="enter">Mulai Petualangan</button>
-</div>
-
-<div class="clouds" id="clouds" aria-hidden="true"></div>
 <div class="stars" id="stars"></div>
+<div class="clouds" id="clouds" aria-hidden="true"></div>
 
 <nav>
-  <a href="#home" class="brand"><img src="impact.png" alt="" onerror="this.style.opacity=0">Agam</a>
-  <ul class="links" id="links">
-    <li><a href="#home">Beranda</a></li>
-    <li><a href="#profil">Profil</a></li>
-    <li><a href="#hobi">Hobi</a></li>
-    <li><a href="#galeri">Galeri</a></li>
-    <li><a href="#prestasi">Prestasi</a></li>
-    <li><a href="#goals">Cita-cita</a></li>
-    <li><a href="#kontak">Kontak</a></li>
-    <li><button id="theme" aria-label="Ganti tema" title="Mode gelap / terang">☾</button></li>
-  </ul>
-  <button id="burger" aria-label="Buka menu">☰</button>
+<a href="#home" class="brand"><img src="impact.png" alt="" onerror="this.style.opacity=0">Agam</a>
+<ul class="links" id="links">
+<li><a href="#home">Beranda</a></li><li><a href="#profil">Profil</a></li><li><a href="#hobi">Hobi</a></li><li><a href="#galeri">Galeri</a></li><li><a href="#prestasi">Prestasi</a></li><li><a href="#goals">Cita-cita</a></li><li><a href="#kontak">Kontak</a></li>
+<li><button id="theme" aria-label="Ganti tema" title="Mode gelap / terang"><i data-ic="moon"></i></button></li>
+</ul>
+<button id="burger" aria-label="Buka menu"><i data-ic="menu"></i></button>
 </nav>
 
-<!-- BERANDA -->
-<section id="home">
-  <div>
-    <p class="hi">Halo, Traveler! Aku</p>
-    <h1>Agam Raditya Pratama</h1>
-    <div class="tags"><span>Dipanggil Agam</span><span>Kelas 9 Utsman</span><span>SMPIT Assyifa Boarding School</span></div>
-    <p class="lead">Pelajar yang suka membaca, berolahraga, menggambar, dan menjelajahi dunia Teyvat di Genshin Impact. Selamat datang di portofolio digitalku!</p>
-    <a href="#kontak" class="btn">Hubungi Aku</a>
-    <button class="btn ghost" id="download">Unduh Profil</button>
-  </div>
-  <div class="char">
-    <img class="ch" src="impact.png" alt="Karakter Genshin Impact" onerror="this.style.opacity=0">
-  </div>
-</section>
-
-<!-- PROFIL -->
-<section id="profil">
-  <span class="orn">◆ ◆ ◆</span>
-  <h2>Profil Traveler</h2>
-  <p class="sub">Kartu identitas petualang</p>
-  <div class="about">
-    <div class="mini">
-      <div class="bubble">Halo, aku Agam! Senang bertemu denganmu!</div>
-      <img class="ch" src="impact.png" alt="Karakter menyapa" onerror="this.style.opacity=0">
-    </div>
-    <div class="col">
-      <div class="panel">
-        <h3>Data Diri</h3>
-        <dl>
-          <dt>Nama</dt><dd>Agam Raditya Pratama</dd>
-          <dt>Panggilan</dt><dd>Agam</dd>
-          <dt>Kelas</dt><dd>9 Utsman</dd>
-          <dt>Sekolah</dt><dd>SMPIT Assyifa Boarding School</dd>
-          <dt>Game favorit</dt><dd>Genshin Impact</dd>
-        </dl>
-      </div>
-      <div class="panel">
-        <h3>Tentang Aku</h3>
-        <p>Aku Agam, siswa kelas 9 Utsman di SMPIT Assyifa Boarding School. Di sela belajar dan kegiatan asrama, aku menyalurkan semangat lewat buku, olahraga, gambar, dan game. Seperti Traveler di Teyvat, aku ingin terus belajar dan berkembang setiap hari.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOBI -->
-<section id="hobi">
-  <span class="orn">◆ ◆ ◆</span>
-  <h2>Hobi</h2>
-  <p class="sub">Arahkan kursor atau ketuk kartu, lalu lihat apa kata karakternya</p>
-  <div class="mini guide">
-    <div class="bubble" id="say">Pilih salah satu hobiku!</div>
-    <img class="ch" src="impact.png" alt="Karakter pemandu" onerror="this.style.opacity=0">
-  </div>
-  <div class="grid">
-    <div class="card" tabindex="0" data-say="Aku suka baca buku! Setiap halaman seperti petualangan baru."><div class="ico">📖</div><h3>Membaca Buku</h3><p>Menambah ilmu dan imajinasi, seperti membuka halaman baru di kisah Teyvat.</p></div>
-    <div class="card" tabindex="0" data-say="Basket itu seru! Lincah, cepat, dan harus kompak."><div class="ico">🏀</div><h3>Main Basket</h3><p>Melatih kelincahan, kerja sama tim, dan semangat pantang menyerah.</p></div>
-    <div class="card" tabindex="0" data-say="Voli bareng teman paling asyik. Ayo smash!"><div class="ico">🏐</div><h3>Main Voli</h3><p>Seru dimainkan bersama teman, mengajarkan kekompakan dan sportivitas.</p></div>
-    <div class="card" tabindex="0" data-say="Menggambar bikin imajinasiku hidup di atas kertas."><div class="ico">🎨</div><h3>Menggambar</h3><p>Menuangkan ide dan kreativitas ke dalam gambar.</p></div>
-    <div class="card" tabindex="0" data-say="Genshin Impact! Menjelajah Teyvat adalah favoritku."><div class="ico">🎮</div><h3>Main Game</h3><p>Terutama Genshin Impact: menjelajah, bertualang, dan menyusun tim terbaik.</p></div>
-  </div>
-
-  <h2 style="margin-top:70px">Tingkat Semangat</h2>
-  <p class="sub">Seberapa aku menikmati tiap hobi</p>
-  <div class="panel" style="max-width:700px;margin:auto" id="skills">
-    <div class="skill"><div><span>🎮 Genshin Impact</span><span class="pct">0%</span></div><div class="bar"><b data-w="95"></b></div></div>
-    <div class="skill"><div><span>📖 Membaca</span><span class="pct">0%</span></div><div class="bar"><b data-w="85"></b></div></div>
-    <div class="skill"><div><span>🎨 Menggambar</span><span class="pct">0%</span></div><div class="bar"><b data-w="80"></b></div></div>
-    <div class="skill"><div><span>🏀 Basket</span><span class="pct">0%</span></div><div class="bar"><b data-w="80"></b></div></div>
-    <div class="skill"><div><span>🏐 Voli</span><span class="pct">0%</span></div><div class="bar"><b data-w="75"></b></div></div>
-  </div>
-</section>
-
-<!-- GALERI KARYA -->
-<!-- Taruh gambar karyamu di folder yang sama dengan nama karya1.png sampai karya6.png.
-     Urutan: 1 Furina, 2 Hu Tao, 3 Paimon, 4 Venti, 5 Raiden, 6 Columbina. Judul dan deskripsi bisa diubah di bagian "const works" pada script di bawah. -->
-<section id="galeri">
-  <span class="orn">◆ ◆ ◆</span>
-  <h2>Galeri Karya</h2>
-  <p class="sub">Klik karya untuk melihat lebih besar dan membaca ceritanya</p>
-  <div class="gal" id="gal"></div>
-</section>
-
-<!-- PRESTASI -->
-<section id="prestasi">
-  <span class="orn">◆ ◆ ◆</span>
-  <h2>Prestasi</h2>
-  <p class="sub">Penghargaan yang berhasil kuraih</p>
-  <div class="stat"><span>🥇 5× Juara 1</span></div>
-  <div class="grid">
-    <div class="card medal" tabindex="0"><div class="ico">🏆</div><h3>Liga Pelajar Assyifa</h3><p>Meraih gelar juara dalam kompetisi Liga Pelajar Assyifa.</p><span class="rank">Juara 1</span></div>
-    <div class="card medal" tabindex="0"><div class="ico">🎨</div><h3>Poster Ramadhan</h3><p>Lomba poster bertema Ramadhan.</p><span class="rank">Juara 1</span></div>
-    <div class="card medal" tabindex="0"><div class="ico">🏃</div><h3>Estafet Sarung</h3><p>Lomba estafet sarung yang seru dan penuh kekompakan.</p><span class="rank">Juara 1</span></div>
-    <div class="card medal" tabindex="0"><div class="ico">🏅</div><h3>Assyifa League Champion</h3><p>Juara dalam kompetisi Assyifa League.</p><span class="rank">Juara 1</span></div>
-    <div class="card medal" tabindex="0"><div class="ico">🖌️</div><h3>Poster Hari Santri</h3><p>Lomba poster bertema Hari Santri.</p><span class="rank">Juara 1</span></div>
-  </div>
-</section>
-
-<!-- GOALS -->
-<section id="goals">
-  <span class="orn">◆ ◆ ◆</span>
-  <h2>Goals / Cita-cita</h2>
-  <p class="sub">Misi utama yang ingin kucapai</p>
-  <!-- Silakan ubah isi cita-cita sesuai keinginanmu -->
-  <div class="goalwrap">
-    <div class="goals">
-      <div class="goal"><div class="ico">🎓</div><div><h3>Lulus dengan Hasil Terbaik</h3><p>Menyelesaikan kelas 9 dengan nilai bagus dan akhlak yang baik.</p></div></div>
-      <div class="goal"><div class="ico">🌟</div><div><h3>Mengembangkan Bakat</h3><p>Terus berlatih menggambar dan olahraga agar semakin mahir.</p></div></div>
-      <div class="goal"><div class="ico">🚀</div><div><h3>Meraih Cita-cita Masa Depan</h3><p>Menjadi orang yang berilmu, sukses, dan bermanfaat bagi keluarga serta sesama.</p></div></div>
-    </div>
-    <div class="mini flip">
-      <img class="ch" src="impact.png" alt="Karakter menatap masa depan" onerror="this.style.opacity=0">
-    </div>
-  </div>
-</section>
-
-<!-- KONTAK -->
-<section id="kontak" class="contact">
-  <span class="orn">◆ ◆ ◆</span>
-  <h2>Kontak</h2>
-  <p class="sub">Ayo berteman, kirim pesan kapan saja</p>
-  <div class="grid">
-    <a class="card" href="https://x.com/Agaamm_0" target="_blank" rel="noopener"><div class="ico">📸</div><h3>X</h3><b>@Agaamm_0</b></a>
-    <a class="card" href="https://www.tiktok.com/@agamm_radityap05" target="_blank" rel="noopener"><div class="ico">🎵</div><h3>TikTok</h3><b>@agamm_radityap05</b></a>
-    <a class="card" href="mailto:agam.raditya105@smp.belajar.id"><div class="ico">✉️</div><h3>Email</h3><b>agam.raditya105@smp.belajar.id</b></a>
-  </div>
-  <div class="mini wave">
-    <div class="bubble">Sampai jumpa di Teyvat! Jangan lupa hubungi aku ya!</div>
-    <img class="ch" src="impact.png" alt="Karakter melambai" onerror="this.style.opacity=0">
-  </div>
-</section>
-
-<footer>
-  <img src="impact.png" alt="" onerror="this.style.opacity=0">
-  © 2026 Agam Raditya Pratama · SMPIT Assyifa Boarding School<br>
-  Tema dan karakter terinspirasi dari Genshin Impact © HoYoverse. Font: Google Fonts.
-</footer>
-
-<!-- Jendela detail karya -->
-<div id="lb" role="dialog" aria-modal="true" aria-label="Detail karya">
-  <div class="lbbox">
-    <button class="lbx" id="lbx" aria-label="Tutup">✕</button>
-    <button class="lbn p" id="lbp" aria-label="Sebelumnya">‹</button>
-    <button class="lbn n" id="lbn" aria-label="Berikutnya">›</button>
-    <div class="lbimg" id="lbimg"></div>
-    <div class="lbtext"><h3 id="lbt"></h3><p id="lbd"></p></div>
-  </div>
+<header id="home">
+<div class="sky"></div><div class="sun"></div><div class="rays"></div><div id="hcl"></div>
+<svg class="ly" style="bottom:30%;height:50%;--d:4" viewBox="0 0 1440 420" preserveAspectRatio="none"><path d="M0 330L120 260 260 300 420 210 560 280 700 70 840 250 980 200 1120 290 1280 230 1440 300V420H0z" fill="url(#m1)"/><path d="M700 70L650 160 690 148 720 175 750 150z" fill="#fff" opacity=".85"/><path d="M0 365L200 305 380 350 600 295 820 345 1040 300 1240 340 1440 305V420H0z" fill="url(#m2)"/><path d="M0 395Q240 345 480 383T960 377 1440 365V420H0z" fill="#5f9a74"/></svg>
+<svg class="ly" style="bottom:27%;height:38%;left:28%;width:66%;--d:9" viewBox="0 0 600 300"><ellipse cx="300" cy="272" rx="292" ry="26" fill="url(#gr)"/><rect x="50" y="206" width="500" height="62" fill="#cdb8a6"/><path d="M50 206h500" stroke="#b5a08e" stroke-width="3"/><g><rect x="78" y="168" width="52" height="42" fill="#e4d3c0"/><path d="M72 170l32-34 32 34z" fill="#b8524a"/><rect x="146" y="150" width="62" height="60" fill="#e8d9c6"/><path d="M138 152l39-40 39 40z" fill="#c25a4d"/><rect x="228" y="176" width="46" height="34" fill="#dccab5"/><path d="M222 178l29-28 29 28z" fill="#a8483f"/><rect x="316" y="80" width="38" height="130" fill="#efe2d0"/><path d="M308 82l27-70 27 70z" fill="#5a7ac0"/><path d="M335 12v-12" stroke="#e8c675" stroke-width="2"/><rect x="372" y="160" width="56" height="50" fill="#e6d5c1"/><path d="M364 162l36-36 36 36z" fill="#c9763f"/><rect x="440" y="180" width="38" height="30" fill="#dccab5"/><path d="M434 182l25-24 25 24z" fill="#a8483f"/></g><path d="M505 232l12-100h6l12 100z" fill="#e9dcc9"/><path d="M509 134l11-22 11 22z" fill="#b8524a"/><g class="bl" stroke="#f3e8d4" stroke-width="5" stroke-linecap="round"><path d="M520 126V62M520 126V190M520 126H456M520 126H584"/><path d="M524 66h14M516 186h-14M458 122v-14M582 130v14" stroke-width="9"/></g><g fill="#2f7a50"><circle cx="44" cy="236" r="20"/><circle cx="296" cy="238" r="16"/><circle cx="486" cy="236" r="18"/><circle cx="566" cy="232" r="22"/></g></svg>
+<i class="bird" style="top:22%;--t:26s;--d:-4s">&#8964;</i><i class="bird" style="top:30%;font-size:1rem;--t:34s;--d:-18s">&#8964;</i>
+<div class="lake" id="lake"><i></i></div>
+<svg class="ly" style="bottom:0;height:34%;--d:18" viewBox="0 0 1440 300" preserveAspectRatio="none"><path d="M0 70Q120 40 210 110L270 300H0z" fill="#5a7a6c"/><path d="M0 210Q300 140 600 215T1200 195 1440 175V300H0z" fill="url(#gr)"/><g fill="#3a9a5a"><ellipse cx="1260" cy="200" rx="170" ry="80"/><ellipse cx="1120" cy="252" rx="130" ry="60"/><ellipse cx="500" cy="285" rx="200" ry="50"/></g><g fill="#80d28e" opacity=".75"><ellipse cx="1300" cy="170" rx="90" ry="40"/><ellipse cx="160" cy="252" rx="110" ry="36"/></g><g fill="#fff" opacity=".9"><circle cx="90" cy="236" r="4"/><circle cx="140" cy="258" r="3"/><circle cx="330" cy="240" r="4"/><circle cx="420" cy="262" r="3"/><circle cx="1180" cy="230" r="4"/><circle cx="1010" cy="250" r="3"/></g><g fill="#ffd1e6"><circle cx="110" cy="262" r="3"/><circle cx="380" cy="250" r="3"/><circle cx="1230" cy="248" r="3"/></g></svg>
+<div class="fade"></div><div id="fl"></div>
+<div class="chars"><div class="pai" data-pai></div><img class="ch" src="impact.png" alt="Furina" onerror="this.style.opacity=0"></div>
+<div class="hc">
+<p class="hi">HALO, TRAVELER! AKU</p>
+<h1>Agam Raditya Pratama</h1>
+<div class="tags"><span>Dipanggil Agam</span><span>Kelas 9 Utsman</span><span>SMPIT Assyifa Boarding School</span></div>
+<p class="lead">Pelajar yang suka membaca, berolahraga, menggambar, dan menjelajahi dunia Teyvat di Genshin Impact. Selamat datang di portofolio digitalku!</p>
+<div><a href="#kontak" class="btn"><i data-ic="mail"></i> Hubungi Aku</a><button class="btn ghost" id="download"><i data-ic="dl"></i> Unduh Profil</button></div>
 </div>
+<a href="#profil" class="scroll" aria-label="Gulir ke bawah"><i data-ic="down"></i></a>
+</header>
 
-<button id="top" aria-label="Kembali ke atas"><img src="impact.png" alt="" onerror="this.style.opacity=0"><span>↑</span></button>
+<section id="profil" data-k="BAB I" data-t="Profil Traveler" data-s="Kartu identitas petualang">
+<div class="about">
+<div class="duo" data-duo data-b="Halo, aku Agam! Senang bertemu denganmu!"></div>
+<div class="col">
+<div class="panel cr"><h3>Data Diri</h3><dl><dt>Nama</dt><dd>Agam Raditya Pratama</dd><dt>Panggilan</dt><dd>Agam</dd><dt>Kelas</dt><dd>9 Utsman</dd><dt>Sekolah</dt><dd>SMPIT Assyifa Boarding School</dd><dt>Game favorit</dt><dd>Genshin Impact</dd></dl></div>
+<div class="panel cr"><h3>Tentang Aku</h3><p>Aku Agam, siswa kelas 9 Utsman di SMPIT Assyifa Boarding School. Di sela belajar dan kegiatan asrama, aku menyalurkan semangat lewat buku, olahraga, gambar, dan game. Seperti Traveler di Teyvat, aku ingin terus belajar dan berkembang setiap hari.</p></div>
+</div></div>
+</section>
+
+<section id="hobi" data-k="BAB II" data-t="Hobi" data-s="Arahkan kursor atau ketuk kartu, lalu dengarkan kata Paimon">
+<div class="duo pbig guide" data-duo data-b="Pilih salah satu hobinya Agam!" data-id="say"></div>
+<div class="grid">
+<div class="card cr" tabindex="0" style="--e:#7fd6e6" data-say="Agam suka baca buku! Setiap halaman seperti petualangan baru."><div class="ico"><i data-ic="book"></i></div><h3>Membaca Buku</h3><p>Menambah ilmu dan imajinasi, seperti membuka halaman baru di kisah Teyvat.</p></div>
+<div class="card cr" tabindex="0" style="--e:#ff9a5c" data-say="Basket itu seru! Lincah, cepat, dan harus kompak."><div class="ico"><i data-ic="ball"></i></div><h3>Main Basket</h3><p>Melatih kelincahan, kerja sama tim, dan semangat pantang menyerah.</p></div>
+<div class="card cr" tabindex="0" style="--e:#c9a0ff" data-say="Voli bareng teman paling asyik. Ayo smash!"><div class="ico"><i data-ic="volley"></i></div><h3>Main Voli</h3><p>Seru dimainkan bersama teman, mengajarkan kekompakan dan sportivitas.</p></div>
+<div class="card cr" tabindex="0" style="--e:#6fb6ff" data-say="Menggambar bikin imajinasi Agam hidup di atas kertas. Paimon juga digambar lho!"><div class="ico"><i data-ic="palette"></i></div><h3>Menggambar</h3><p>Menuangkan ide dan kreativitas ke dalam gambar.</p></div>
+<div class="card cr" tabindex="0" style="--e:#8fe08a" data-say="Genshin Impact! Menjelajah Teyvat bareng Paimon adalah favorit Agam."><div class="ico"><i data-ic="game"></i></div><h3>Main Game</h3><p>Terutama Genshin Impact: menjelajah, bertualang, dan menyusun tim terbaik.</p></div>
+</div>
+<div class="hd" style="margin:70px 0 30px"><h2>Tingkat Semangat</h2><p class="sub">Seberapa Agam menikmati tiap hobi</p></div>
+<div class="panel cr" style="max-width:700px;margin:auto" id="skills">
+<div class="skill"><div><span><i data-ic="game"></i>Genshin Impact</span><span class="pct">0%</span></div><div class="bar"><b data-w="95"></b></div></div>
+<div class="skill"><div><span><i data-ic="book"></i>Membaca</span><span class="pct">0%</span></div><div class="bar"><b data-w="85"></b></div></div>
+<div class="skill"><div><span><i data-ic="palette"></i>Menggambar</span><span class="pct">0%</span></div><div class="bar"><b data-w="80"></b></div></div>
+<div class="skill"><div><span><i data-ic="ball"></i>Basket</span><span class="pct">0%</span></div><div class="bar"><b data-w="80"></b></div></div>
+<div class="skill"><div><span><i data-ic="volley"></i>Voli</span><span class="pct">0%</span></div><div class="bar"><b data-w="75"></b></div></div>
+</div>
+</section>
+
+<!-- Taruh gambar karya di folder yang sama: karya1.png sampai karya6.png (1 Furina, 2 Hu Tao, 3 Paimon, 4 Venti, 5 Raiden, 6 Columbina). Judul dan deskripsi diubah di "const works". karya3.png juga dipakai sebagai Paimon pendamping. -->
+<section id="galeri" data-k="BAB III" data-t="Galeri Karya" data-s="Klik karya untuk melihat lebih besar dan membaca ceritanya"><div class="gal" id="gal"></div></section>
+
+<section id="prestasi" data-k="BAB IV" data-t="Prestasi" data-s="Penghargaan yang berhasil kuraih">
+<div class="stat"><span><i data-ic="medal"></i> 5x Juara 1</span></div>
+<div class="grid">
+<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="trophy"></i></div><h3>Liga Pelajar Assyifa</h3><p>Meraih gelar juara dalam kompetisi Liga Pelajar Assyifa.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
+<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="palette"></i></div><h3>Poster Ramadhan</h3><p>Lomba poster bertema Ramadhan.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
+<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="flag"></i></div><h3>Estafet Sarung</h3><p>Lomba estafet sarung yang seru dan penuh kekompakan.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
+<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="medal"></i></div><h3>Assyifa League Champion</h3><p>Juara dalam kompetisi Assyifa League.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
+<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="brush"></i></div><h3>Poster Hari Santri</h3><p>Lomba poster bertema Hari Santri.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
+</div>
+</section>
+
+<section id="goals" data-k="BAB V" data-t="Goals / Cita-cita" data-s="Misi utama yang ingin kucapai">
+<div class="goalwrap">
+<div class="goals">
+<div class="goal"><div class="ico"><i data-ic="cap"></i></div><div><small>MISI 1</small><h3>Lulus dengan Hasil Terbaik</h3><p>Menyelesaikan kelas 9 dengan nilai bagus dan akhlak yang baik.</p></div></div>
+<div class="goal"><div class="ico"><i data-ic="star"></i></div><div><small>MISI 2</small><h3>Mengembangkan Bakat</h3><p>Terus berlatih menggambar dan olahraga agar semakin mahir.</p></div></div>
+<div class="goal"><div class="ico"><i data-ic="rocket"></i></div><div><small>MISI 3</small><h3>Meraih Cita-cita Masa Depan</h3><p>Menjadi orang yang berilmu, sukses, dan bermanfaat bagi keluarga serta sesama.</p></div></div>
+</div>
+<div class="duo flip" data-duo></div>
+</div>
+</section>
+
+<section id="kontak" class="contact" data-k="BAB VI" data-t="Kontak" data-s="Ayo berteman, kirim pesan kapan saja">
+<div class="grid">
+<a class="card cr" href="https://x.com/Agaamm_0" target="_blank" rel="noopener"><div class="ico"><i data-ic="x"></i></div><h3>X</h3><b>@Agaamm_0</b></a>
+<a class="card cr" href="https://www.tiktok.com/@agamm_radityap05" target="_blank" rel="noopener"><div class="ico"><i data-ic="music"></i></div><h3>TikTok</h3><b>@agamm_radityap05</b></a>
+<a class="card cr" href="mailto:agam.raditya105@smp.belajar.id"><div class="ico"><i data-ic="mail"></i></div><h3>Email</h3><b>agam.raditya105@smp.belajar.id</b></a>
+</div>
+<div class="duo wave" data-duo data-b="Sampai jumpa di Teyvat! Jangan lupa hubungi Agam ya!"></div>
+</section>
+
+<footer><div class="fi"><img src="impact.png" alt="" onerror="this.style.opacity=0"><div class="pai" data-pai></div></div>
+&copy; 2026 Agam Raditya Pratama &middot; SMPIT Assyifa Boarding School<br>Tema dan karakter terinspirasi dari Genshin Impact &copy; HoYoverse. Font: Google Fonts.</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Detail karya"><div class="lbbox">
+<button class="lbx" id="lbx" aria-label="Tutup"><i data-ic="x"></i></button>
+<button class="lbn p" id="lbp" aria-label="Sebelumnya"><i data-ic="prev"></i></button>
+<button class="lbn n" id="lbn" aria-label="Berikutnya"><i data-ic="next"></i></button>
+<div class="lbimg" id="lbimg"></div><div class="lbtext"><h3 id="lbt"></h3><p id="lbd"></p></div></div></div>
+<button id="top" aria-label="Kembali ke atas"><img src="impact.png" alt="" onerror="this.style.opacity=0"><span><i data-ic="up"></i></span></button>
 
 <script>
-// Bintang jatuh
-const st=document.getElementById('stars');
-for(let i=0;i<22;i++){
-  const s=document.createElement('i');
-  s.style.left=Math.random()*100+'%';
-  s.style.animationDuration=(8+Math.random()*12)+'s';
-  s.style.animationDelay=(-Math.random()*15)+'s';
-  s.style.transform='scale('+(0.6+Math.random())+') rotate(45deg)';
-  st.appendChild(s);
-}
-
-// Awan realistis di dasar layar: bergeser ke samping saat scroll dan melayang pelan
+const $=id=>document.getElementById(id);
+const IC=n=>'<svg class="i"><use href="#'+n+'"/></svg>';
+const PAI='<img src="karya3.png" alt="Paimon" onerror="this.parentNode.classList.add(\'nf\')">';
+const FUR='<img class="ch" src="impact.png" alt="Furina" onerror="this.style.opacity=0">';
+const fill=()=>{document.querySelectorAll('i[data-ic]').forEach(e=>{e.outerHTML=IC(e.dataset.ic)});
+document.querySelectorAll('[data-pai]').forEach(e=>e.innerHTML=PAI);
+document.querySelectorAll('[data-duoW]').forEach(e=>e.innerHTML=FUR+'<div class="pai" style="--w:96px;margin-bottom:30px">'+PAI+'</div>');
+document.querySelectorAll('[data-duo]').forEach(e=>{e.innerHTML=(e.dataset.b?'<div class="bubble"'+(e.dataset.id?' id="'+e.dataset.id+'"':'')+'>'+e.dataset.b+'</div>':'')+'<div class="pair">'+FUR+'<div class="pai">'+PAI+'</div></div>'});
+document.querySelectorAll('section[data-t]').forEach(s=>{s.insertAdjacentHTML('afterbegin','<div class="hd"><small>'+s.dataset.k+'</small><h2>'+s.dataset.t+'</h2><p class="sub">'+s.dataset.s+'</p><div class="dv">'+IC('sparkle')+'</div></div>')});
+document.querySelectorAll('.st5').forEach(e=>e.innerHTML=IC('star').repeat(5))};
+fill();
+// Bintang jatuh & partikel cahaya & kilau danau
+const st=$('stars');for(let i=0;i<22;i++){const s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.animationDuration=(8+Math.random()*12)+'s';s.style.animationDelay=(-Math.random()*15)+'s';st.appendChild(s)}
+const fl=$('fl');for(let i=0;i<30;i++){const e=document.createElement('i');e.className='fl';e.style.cssText='left:'+Math.random()*100+'%;--s:'+(3+Math.random()*5)+'px;--t:'+(7+Math.random()*9)+'s;--d:'+(-Math.random()*14)+'s;--x:'+((Math.random()-.5)*200)+'px;--c:'+(i%3?'#ffe9a8':'#7fd6e6');fl.appendChild(e)}
+const lk=$('lake');for(let i=0;i<26;i++){const e=document.createElement('b');e.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--t:'+(1.5+Math.random()*3)+'s;--d:'+(-Math.random()*4)+'s';lk.appendChild(e)}
+// Parallax beranda
+const hm=$('home');hm.addEventListener('pointermove',e=>{const r=hm.getBoundingClientRect();hm.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5)*2);hm.style.setProperty('--my',((e.clientY-r.top)/r.height-.5)*2)});
+addEventListener('scroll',()=>hm.style.setProperty('--sy',Math.min(scrollY,innerHeight)));
+// Awan realistis (kanvas): di beranda dan di dasar layar yang bergeser saat scroll
 (function(){
-  const box=document.getElementById('clouds');
-  const rnd=s=>()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
-  const rgba=(h,a)=>'rgba('+[1,3,5].map(i=>parseInt(h.substr(i,2),16)).join(',')+','+a+')';
-  const PAL={
-    light:{shade:'#9db3d1',base:'#e8f0fa',hi:'#ffffff'},
-    dark:{shade:'#1d2650',base:'#4a5688',hi:'#9aa6dc'}
-  };
-  function sprite(seed,pal){
-    const W=900,H=480,c=document.createElement('canvas');c.width=W;c.height=H;
-    const g=c.getContext('2d'),r=rnd(seed),pts=[];
-    for(let i=0;i<80;i++){
-      const x=W*(.1+.8*r()),p=Math.sin(Math.PI*(x-W*.1)/(W*.8));
-      const rad=45+r()*75*(.45+p);
-      pts.push({x,y:H*.7-p*H*.36*(.35+.65*r()),rad});
-    }
-    const puff=(x,y,rad,col,a)=>{
-      const gr=g.createRadialGradient(x,y,rad*.1,x,y,rad);
-      gr.addColorStop(0,rgba(col,a));gr.addColorStop(.55,rgba(col,a*.75));gr.addColorStop(1,rgba(col,0));
-      g.fillStyle=gr;g.beginPath();g.arc(x,y,rad,0,7);g.fill();
-    };
-    pts.forEach(p=>puff(p.x,p.y+p.rad*.28,p.rad*1.05,pal.shade,.9));
-    pts.forEach(p=>puff(p.x,p.y,p.rad,pal.base,.9));
-    pts.forEach(p=>{if(p.y<H*.58)puff(p.x-p.rad*.15,p.y-p.rad*.32,p.rad*.6,pal.hi,.75)});
-    return c.toDataURL('image/png');
-  }
-  const N=5; // jumlah awan per baris (diulang 2x agar mulus)
-  // Dua baris: belakang (kecil, pelan, ke kiri) dan depan (besar, ke kanan)
-  const rows=[
-    {seed:31,sc:.75,drop:.30,op:{light:.75,dark:.55},sp:.35,idle:.012,dir:-1},
-    {seed:77,sc:1,drop:.46,op:{light:1,dark:.85},sp:.6,idle:.02,dir:1}
-  ];
-  const sets={light:{},dark:{}},items=[];
-  rows.forEach((row,ri)=>{
-    row.el=document.createElement('div');row.el.className='crow';
-    for(let i=0;i<N;i++){
-      sets.light[ri+'-'+i]=sprite(row.seed+i*17,PAL.light);
-      sets.dark[ri+'-'+i]=sprite(row.seed+i*17,PAL.dark);
-    }
-    for(let j=0;j<N*2;j++){
-      const im=document.createElement('img');im.alt='';
-      row.el.appendChild(im);
-      items.push({im,key:ri+'-'+(j%N),row,j});
-    }
-    box.appendChild(row.el);
-  });
-  const theme=()=>document.body.classList.contains('light')?'light':'dark';
-  function paint(){
-    const t=theme();
-    items.forEach(it=>it.im.src=sets[t][it.key]);
-    rows.forEach(r=>r.el.style.opacity=r.op[t]);
-  }
-  paint();
-  new MutationObserver(paint).observe(document.body,{attributes:true,attributeFilter:['class']});
-
-  function layout(){
-    const W=Math.min(innerWidth*.5,560);
-    rows.forEach(r=>{
-      r.w=W*r.sc;r.step=r.w*.68;r.P=r.step*N;
-    });
-    items.forEach(it=>{
-      it.im.style.width=it.row.w+'px';
-      it.im.style.left=(it.j*it.row.step)+'px';
-      it.im.style.bottom=(-it.row.w*.533*it.row.drop)+'px';
-    });
-  }
-  layout();addEventListener('resize',layout);
-
-  let target=scrollY,now=scrollY;
-  addEventListener('scroll',()=>target=scrollY,{passive:true});
-  function frame(tm){
-    now+=(target-now)*.1;
-    rows.forEach(r=>{
-      const off=now*r.sp+tm*r.idle;
-      const m=((off%r.P)+r.P)%r.P;
-      const x=r.dir<0?-m:m-r.P;
-      r.el.style.transform='translate3d('+x+'px,0,0)';
-    });
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
+const rnd=s=>()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+const rgba=(h,a)=>'rgba('+[1,3,5].map(i=>parseInt(h.substr(i,2),16)).join(',')+','+a+')';
+const PAL={light:{shade:'#9db3d1',base:'#e8f0fa',hi:'#ffffff'},dark:{shade:'#1d2650',base:'#4a5688',hi:'#9aa6dc'},gold:{shade:'#d79aa0',base:'#ffe0a8',hi:'#fffbe6'}};
+const cache={};
+function sprite(seed,k){const key=seed+k;if(cache[key])return cache[key];const pal=PAL[k],W=900,H=480,c=document.createElement('canvas');c.width=W;c.height=H;
+const g=c.getContext('2d'),r=rnd(seed),pts=[];
+for(let i=0;i<70;i++){const x=W*(.1+.8*r()),p=Math.sin(Math.PI*(x-W*.1)/(W*.8)),rad=45+r()*75*(.45+p);pts.push({x,y:H*.7-p*H*.36*(.35+.65*r()),rad})}
+const puff=(x,y,rad,col,a)=>{const gr=g.createRadialGradient(x,y,rad*.1,x,y,rad);gr.addColorStop(0,rgba(col,a));gr.addColorStop(.55,rgba(col,a*.75));gr.addColorStop(1,rgba(col,0));g.fillStyle=gr;g.beginPath();g.arc(x,y,rad,0,7);g.fill()};
+pts.forEach(p=>puff(p.x,p.y+p.rad*.28,p.rad*1.05,pal.shade,.9));pts.forEach(p=>puff(p.x,p.y,p.rad,pal.base,.9));
+pts.forEach(p=>{if(p.y<H*.58)puff(p.x-p.rad*.15,p.y-p.rad*.32,p.rad*.6,pal.hi,.75)});
+return cache[key]=c.toDataURL('image/png')}
+// Awan emas di langit beranda
+[[11,'6%','2%',58,.95],[23,'10%','42%',50,.85],[37,'26%','-6%',44,.7],[41,'24%','62%',48,.75]].forEach(a=>{const im=document.createElement('img');im.alt='';im.src=sprite(a[0],'gold');im.style.cssText='top:'+a[1]+';left:'+a[2]+';width:'+a[3]+'vw;opacity:'+a[4]+';animation-delay:'+(-a[0])+'s';$('hcl').appendChild(im)});
+// Awan dasar layar
+const box=$('clouds'),N=4,rows=[{seed:31,sc:.75,drop:.30,op:{light:.75,dark:.55},sp:.35,idle:.012,dir:-1},{seed:77,sc:1,drop:.46,op:{light:1,dark:.85},sp:.6,idle:.02,dir:1}],items=[];
+rows.forEach((row,ri)=>{row.el=document.createElement('div');row.el.className='crow';for(let j=0;j<N*2;j++){const im=document.createElement('img');im.alt='';row.el.appendChild(im);items.push({im,seed:row.seed+(j%N)*17,row,j})}box.appendChild(row.el)});
+const th=()=>document.body.classList.contains('light')?'light':'dark';
+function paint(){const t=th();items.forEach(it=>it.im.src=sprite(it.seed,t));rows.forEach(r=>r.el.style.opacity=r.op[t])}
+setTimeout(paint,50);new MutationObserver(paint).observe(document.body,{attributes:true,attributeFilter:['class']});
+function layout(){const W=Math.min(innerWidth*.5,560);rows.forEach(r=>{r.w=W*r.sc;r.step=r.w*.68;r.P=r.step*N});items.forEach(it=>{it.im.style.width=it.row.w+'px';it.im.style.left=(it.j*it.row.step)+'px';it.im.style.bottom=(-it.row.w*.533*it.row.drop)+'px'})}
+layout();addEventListener('resize',layout);
+let target=scrollY,now=scrollY;addEventListener('scroll',()=>target=scrollY,{passive:true});
+(function frame(tm){now+=(target-now)*.1;rows.forEach(r=>{const off=now*r.sp+tm*r.idle,m=((off%r.P)+r.P)%r.P;r.el.style.transform='translate3d('+(r.dir<0?-m:m-r.P)+'px,0,0)'});requestAnimationFrame(frame)})(0);
 })();
-
-// Welcome
-const welcome=document.getElementById('welcome');
-document.getElementById('enter').onclick=()=>welcome.classList.add('hide');
-
-// Menu mobile
-const links=document.getElementById('links');
-document.getElementById('burger').onclick=()=>links.classList.toggle('open');
-links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
-
-// Mode gelap / terang
-const themeBtn=document.getElementById('theme');
-themeBtn.onclick=()=>{
-  document.body.classList.toggle('light');
-  themeBtn.textContent=document.body.classList.contains('light')?'☀':'☾';
-};
-
-// Tombol kembali ke atas
-const topBtn=document.getElementById('top');
-addEventListener('scroll',()=>topBtn.classList.toggle('show',scrollY>400));
-topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-
-// Menu aktif saat scroll
-const secs=[...document.querySelectorAll('section')];
-const navA=[...links.querySelectorAll('a')];
-addEventListener('scroll',()=>{
-  let cur=secs[0].id;
-  secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
-  navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
-});
-
-// Karakter berbicara saat kartu hobi disentuh
-const say=document.getElementById('say');
-document.querySelectorAll('#hobi .card').forEach(c=>{
-  const f=()=>say.textContent=c.dataset.say;
-  c.addEventListener('mouseenter',f);c.addEventListener('focus',f);c.addEventListener('click',f);
-});
-
-// Tingkat semangat: bar naik dan angka berhitung, berulang setiap terlihat
-const skillBox=document.getElementById('skills');
-const skills=[...skillBox.querySelectorAll('.skill')];
-function runBar(sk,delay){
-  const b=sk.querySelector('b'),p=sk.querySelector('.pct'),to=+b.dataset.w;
-  cancelAnimationFrame(sk._r);
-  const t0=performance.now()+delay;
-  const step=t=>{
-    const k=Math.min(Math.max((t-t0)/1400,0),1),e=1-Math.pow(1-k,3);
-    b.style.width=(to*e)+'%';
-    p.textContent=Math.round(to*e)+'%';
-    if(k<1)sk._r=requestAnimationFrame(step);
-  };
-  sk._r=requestAnimationFrame(step);
-}
-function resetBar(sk){
-  cancelAnimationFrame(sk._r);
-  sk.querySelector('b').style.width='0';
-  sk.querySelector('.pct').textContent='0%';
-}
-new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting)skills.forEach((s,i)=>runBar(s,i*180));
-  else skills.forEach(resetBar);
-}),{threshold:.25}).observe(skillBox);
-
-// Loading page
-(function(){
-  const L=document.getElementById('loading'),f=document.getElementById('lfill'),
-        pc=document.getElementById('lpct'),tip=document.getElementById('ltip');
-  const tips=['Memuat dunia Teyvat...','Menyiapkan petualangan...','Mengumpulkan Mora...','Hampir siap, Traveler!'];
-  let loaded=document.readyState==='complete';
-  addEventListener('load',()=>loaded=true);
-  setTimeout(()=>loaded=true,4000);
-  const t0=performance.now();
-  const step=t=>{
-    let v=Math.min((t-t0)/2400,1)*100;
-    if(!loaded)v=Math.min(v,92);
-    f.style.width=v+'%';
-    pc.textContent=Math.floor(v)+'%';
-    tip.textContent=tips[Math.min(3,Math.floor(v/26))];
-    if(v>=100)setTimeout(()=>L.classList.add('hide'),350);
-    else requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-})();
-
-// Galeri karya (ubah judul, deskripsi, dan nama file gambar di sini)
+// Loading & welcome
+(function(){const L=$('loading'),f=$('lfill'),p=$('lpct'),tp=$('ltip'),tips=['Memuat dunia Teyvat...','Menyiapkan petualangan...','Mengumpulkan Mora...','Hampir siap, Traveler!'];
+let ok=document.readyState==='complete';addEventListener('load',()=>ok=true);setTimeout(()=>ok=true,4000);const t0=performance.now();
+const s=t=>{let v=Math.min((t-t0)/2600,1)*100;if(!ok)v=Math.min(v,92);f.style.width=v+'%';p.textContent=Math.floor(v)+'%';tp.textContent=tips[Math.min(3,Math.floor(v/26))];
+if(v>=100)setTimeout(()=>L.classList.add('hide'),350);else requestAnimationFrame(s)};requestAnimationFrame(s)})();
+$('enter').onclick=()=>$('welcome').classList.add('hide');
+// Menu, tema, atas
+const links=$('links');$('burger').onclick=()=>links.classList.toggle('open');links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const tb=$('theme');tb.onclick=()=>{document.body.classList.toggle('light');tb.innerHTML=IC(document.body.classList.contains('light')?'sun':'moon')};
+const tp=$('top');addEventListener('scroll',()=>tp.classList.toggle('show',scrollY>400));tp.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+const secs=[...document.querySelectorAll('section,header')],navA=[...links.querySelectorAll('a')];
+addEventListener('scroll',()=>{let c=secs[0].id;secs.forEach(s=>{if(scrollY>=s.offsetTop-140)c=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))});
+// Paimon berbicara
+const say=$('say');document.querySelectorAll('#hobi .card[data-say]').forEach(c=>{const f=()=>say.textContent=c.dataset.say;['mouseenter','focus','click'].forEach(e=>c.addEventListener(e,f))});
+// Bar semangat
+const skills=[...document.querySelectorAll('.skill')];
+function run(sk,d){const b=sk.querySelector('b'),p=sk.querySelector('.pct'),to=+b.dataset.w,t0=performance.now()+d;cancelAnimationFrame(sk._r);
+const s=t=>{const k=Math.min(Math.max((t-t0)/1400,0),1),e=1-Math.pow(1-k,3);b.style.width=to*e+'%';p.textContent=Math.round(to*e)+'%';if(k<1)sk._r=requestAnimationFrame(s)};sk._r=requestAnimationFrame(s)}
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)skills.forEach((s,i)=>run(s,i*180));else skills.forEach(s=>{cancelAnimationFrame(s._r);s.querySelector('b').style.width='0';s.querySelector('.pct').textContent='0%'})}),{threshold:.25}).observe($('skills'));
+// Galeri karya
 const works=[
-  {t:'Furina',d:'Gambar Furina dari Genshin Impact, sang Hydro Archon.',img:'karya1.png',e:'💧'},
-  {t:'Hu Tao',d:'Gambar Hu Tao dari Genshin Impact, Direktur Wangsheng Funeral Parlor.',img:'karya2.png',e:'🔥'},
-  {t:'Paimon',d:'Gambar Paimon, teman perjalanan terbaik Traveler.',img:'karya3.png',e:'✨'},
-  {t:'Venti',d:'Gambar Venti dari Genshin Impact, sang Bard dari Mondstadt.',img:'karya4.png',e:'🍃'},
-  {t:'Raiden Shogun',d:'Gambar Raiden Shogun dari Genshin Impact, penguasa Inazuma.',img:'karya5.png',e:'⚡'},
-  {t:'Columbina',d:'Gambar Columbina dari Genshin Impact.',img:'karya6.png',e:'🕊️'}
-];
-const gal=document.getElementById('gal');
-const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),
-      lbt=document.getElementById('lbt'),lbd=document.getElementById('lbd');
-let cur=0;
-works.forEach((w,i)=>{
-  const b=document.createElement('button');
-  b.className='art';b.type='button';
-  b.innerHTML='<div class="ph"><span>'+w.e+'</span><small>Gambar belum ditambahkan</small></div>'+
-    '<img class="pic" src="'+w.img+'" alt="'+w.t+'" onerror="this.style.display=\'none\'">'+
-    '<div class="cap"><h3>'+w.t+'</h3><p>'+w.d+'</p></div>';
-  b.onclick=()=>openLb(i);
-  gal.appendChild(b);
-});
-function openLb(i){
-  cur=(i+works.length)%works.length;
-  const w=works[cur];
-  lbimg.innerHTML='<span>'+w.e+'</span>';
-  const im=new Image();
-  im.alt=w.t;
-  im.onload=()=>{lbimg.innerHTML='';lbimg.appendChild(im)};
-  im.src=w.img;
-  lbt.textContent=w.t;lbd.textContent=w.d;
-  lb.classList.add('open');
-}
+{t:'Furina',d:'Gambar Furina dari Genshin Impact, sang Hydro Archon.',img:'karya1.png'},
+{t:'Hu Tao',d:'Gambar Hu Tao dari Genshin Impact, Direktur Wangsheng Funeral Parlor.',img:'karya2.png'},
+{t:'Paimon',d:'Gambar Paimon, teman perjalanan terbaik Traveler.',img:'karya3.png'},
+{t:'Venti',d:'Gambar Venti dari Genshin Impact, sang Bard dari Mondstadt.',img:'karya4.png'},
+{t:'Raiden Shogun',d:'Gambar Raiden Shogun dari Genshin Impact, penguasa Inazuma.',img:'karya5.png'},
+{t:'Columbina',d:'Gambar Columbina dari Genshin Impact.',img:'karya6.png'}];
+const lb=$('lb');let cur=0;
+works.forEach((w,i)=>{const b=document.createElement('button');b.className='art';b.type='button';
+b.innerHTML='<div class="ph">'+IC('sparkle')+'<small>Gambar belum ditambahkan</small></div><img class="pic" src="'+w.img+'" alt="'+w.t+'" onerror="this.style.display=\'none\'"><div class="cap"><h3>'+w.t+'</h3><p>'+w.d+'</p></div>';
+b.onclick=()=>openLb(i);$('gal').appendChild(b)});
+function openLb(i){cur=(i+works.length)%works.length;const w=works[cur];$('lbimg').innerHTML=IC('sparkle');
+const im=new Image();im.alt=w.t;im.onload=()=>{$('lbimg').innerHTML='';$('lbimg').appendChild(im)};im.src=w.img;
+$('lbt').textContent=w.t;$('lbd').textContent=w.d;lb.classList.add('open')}
 const closeLb=()=>lb.classList.remove('open');
-document.getElementById('lbx').onclick=closeLb;
-document.getElementById('lbp').onclick=()=>openLb(cur-1);
-document.getElementById('lbn').onclick=()=>openLb(cur+1);
+$('lbx').onclick=closeLb;$('lbp').onclick=()=>openLb(cur-1);$('lbn').onclick=()=>openLb(cur+1);
 lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
-addEventListener('keydown',e=>{
-  if(!lb.classList.contains('open'))return;
-  if(e.key==='Escape')closeLb();
-  if(e.key==='ArrowLeft')openLb(cur-1);
-  if(e.key==='ArrowRight')openLb(cur+1);
-});
-
-// Unduh profil (file teks sederhana)
-document.getElementById('download').onclick=()=>{
-  const t=`PROFIL SINGKAT
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')openLb(cur-1);if(e.key==='ArrowRight')openLb(cur+1)});
+// Muncul saat scroll
+const io=new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');o.unobserve(e.target);setTimeout(()=>e.target.classList.remove('rv','in'),900)}),{threshold:.12});
+document.querySelectorAll('.card,.panel,.goal,.art,.stat,.hd,.duo').forEach((e,i)=>{e.classList.add('rv');e.style.transitionDelay=(i%4)*70+'ms';io.observe(e)});
+// Unduh profil
+$('download').onclick=()=>{const t=`PROFIL SINGKAT
 Nama     : Agam Raditya Pratama (Agam)
 Kelas    : 9 Utsman
 Sekolah  : SMPIT Assyifa Boarding School
@@ -615,11 +412,7 @@ Prestasi : Juara 1 Liga Pelajar Assyifa, Poster Ramadhan, Estafet Sarung, Assyif
 X        : @agaamm_0
 TikTok   : @agam_radityap05
 Email    : agam.raditya105@smp.belajar.id`;
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([t],{type:'text/plain'}));
-  a.download='Profil-Agam-Raditya-Pratama.txt';
-  a.click();
-};
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/plain'}));a.download='Profil-Agam-Raditya-Pratama.txt';a.click()};
 </script>
 </body>
 </html>
