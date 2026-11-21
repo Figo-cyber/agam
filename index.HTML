@@ -2,417 +2,353 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Portofolio Agam Raditya Pratama</title>
-<!-- Font: Cinzel & Nunito dari Google Fonts (sumber: fonts.google.com) -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agam Raditya Pratama – Portofolio Traveler</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#12172b;--bg2:#1b2240;--card:#222b4d;--text:#eef0fa;--muted:#a9b1d6;--gold:#e8c675;--gold2:#b8924a;--cryo:#7fd6e6;--line:rgba(232,198,117,.35);--sh:rgba(0,0,0,.35)}
-body.light{--bg:#f6efde;--bg2:#ebe0c5;--card:#fffaf0;--text:#2a2640;--muted:#5d5a73;--gold:#a8741f;--gold2:#7a5212;--cryo:#2a8aa0;--line:rgba(168,116,31,.4);--sh:rgba(80,60,20,.2)}
+:root{--n:#3b4255;--cr:#ece5d8;--gd:#d3bc8e;--gd2:#b8985a;--hy:#3ec5f5;--py:#f4784f;--an:#74c2a8;--el:#af8ec1;--ge:#f9b94b}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{font-family:'Nunito',system-ui,sans-serif;background:radial-gradient(80% 50% at 50% 0,color-mix(in srgb,var(--bg2) 90%,#6d5b9e),var(--bg) 70%) fixed;color:var(--text);line-height:1.7;transition:background .4s,color .4s;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;background:repeating-linear-gradient(45deg,var(--gold) 0 1px,transparent 1px 34px),repeating-linear-gradient(-45deg,var(--gold) 0 1px,transparent 1px 34px)}
-h1,h2,h3,.brand{font-family:'Cinzel',Georgia,serif}
+html{scroll-behavior:smooth}
+body{font-family:Mulish,system-ui,sans-serif;line-height:1.6;color:var(--cr);background:radial-gradient(60% 45% at 85% 0,rgba(62,120,200,.35),transparent),radial-gradient(50% 40% at 0 65%,rgba(120,70,170,.3),transparent),#131936;overflow-x:hidden}
+h1,h2,h3,.mc{font-family:Marcellus,Georgia,serif;font-weight:400}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.12em;flex:none}
-img.ch{display:block;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 14px 26px rgba(0,0,0,.5))}
-@keyframes float{50%{transform:translateY(-14px)}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes fall{to{transform:translateY(110vh) rotate(405deg);opacity:0}}
-@keyframes rise{10%{opacity:1}100%{transform:translate(var(--x),-85vh);opacity:0}}
-@keyframes drift{50%{transform:translateX(60px)}}
-@keyframes shim{to{background-position:0 44px}}
-@keyframes tw{50%{opacity:.15;transform:scale(.5)}}
-@keyframes shine{to{transform:translateX(100%)}}
-@keyframes pulse{50%{box-shadow:0 0 0 14px transparent,0 0 36px rgba(232,198,117,.6)}}
-@keyframes bounce{50%{transform:translateY(8px)}}
-@keyframes fly{to{transform:translateX(130vw)}}
-.stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.stars i{position:absolute;top:-10px;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);opacity:.45;animation:fall linear infinite}
-.clouds{position:fixed;left:0;right:0;bottom:0;height:34vh;z-index:0;pointer-events:none;overflow:hidden}
-.crow{position:absolute;left:0;bottom:0;height:100%;width:100%;will-change:transform}
-.crow img{position:absolute;bottom:0;display:block;height:auto}
-.pai{position:relative;width:var(--w,110px);aspect-ratio:1;border-radius:50%;border:3px solid var(--gold);background:#fff;box-shadow:0 0 28px rgba(127,214,230,.65),0 0 0 6px rgba(232,198,117,.22);animation:float 4s ease-in-out infinite;flex:none}
-.pai img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
-.pai::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:2px dashed var(--gold);opacity:.7;animation:spin 18s linear infinite}
-.pai.nf{display:grid;place-items:center;background:var(--card)}.pai.nf img{display:none}.pai.nf::after{content:"Paimon";font:800 .8rem Cinzel;color:var(--gold)}
-#loading,#welcome{position:fixed;inset:0;z-index:120;background:radial-gradient(circle at 50% 40%,#2b3566,#0d1124);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:20px;transition:opacity .8s,visibility .8s,transform .8s;color:#e8c675}
-#welcome{z-index:110}
-.hide{opacity:0;visibility:hidden}#welcome.hide{transform:scale(1.2)}
-.duoW{display:flex;align-items:flex-end;gap:14px;position:relative}
-.duoW .ch{width:min(190px,42vw);animation:float 1.6s ease-in-out infinite}
-.ring{position:absolute;width:min(400px,88vw);aspect-ratio:1;border-radius:50%;background:conic-gradient(transparent,rgba(232,198,117,.8),transparent 40%);-webkit-mask:radial-gradient(circle,transparent 62%,#000 63%);mask:radial-gradient(circle,transparent 62%,#000 63%);animation:spin 5s linear infinite;pointer-events:none}
-#welcome h1{font-size:clamp(1.6rem,5vw,2.6rem);letter-spacing:2px;position:relative}
-#welcome p,#ltip{color:#c9d0f0;position:relative}
-.orb{width:2.6rem;font-size:2.6rem;animation:spin 3s linear infinite;filter:drop-shadow(0 0 14px #e8c675)}
-.lbar{width:min(320px,78vw);height:14px;border-radius:999px;border:2px solid #e8c675;overflow:hidden;background:rgba(255,255,255,.08)}
-.lbar b{display:block;height:100%;width:0;background:linear-gradient(90deg,#7fd6e6,#e8c675)}
-#lpct{font:800 1rem Cinzel}
-.btn{display:inline-flex;gap:8px;align-items:center;cursor:pointer;border:2px solid var(--gold);background:linear-gradient(135deg,#f3d98f,var(--gold2));color:#1b1630;font:700 1rem 'Nunito',sans-serif;padding:11px 28px;border-radius:999px;transition:transform .2s,box-shadow .2s;margin:0 8px 8px 0}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(232,198,117,.55)}
-.btn.ghost{background:rgba(13,17,36,.4);color:#e8c675;backdrop-filter:blur(6px)}
-#enter{animation:pulse 2.4s infinite}
-nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);width:min(1100px,94%);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:7px 12px;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;box-shadow:0 8px 30px var(--sh)}
-.brand{display:flex;align-items:center;gap:10px;color:var(--gold);font-weight:800;font-size:1.15rem}
-.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);background:var(--bg2)}
-.links{display:flex;gap:2px;align-items:center;list-style:none}
-.links a{padding:6px 12px;border-radius:999px;font-weight:600;font-size:.92rem;transition:.2s}
-.links a:hover,.links a.active{background:var(--gold);color:#1b1630}
-#theme,#burger{background:none;border:1px solid var(--line);color:var(--gold);width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:grid;place-items:center}
-#burger{display:none}
-section{position:relative;z-index:1;padding:80px 5%;max-width:1100px;margin:0 auto}
-.hd{text-align:center;margin-bottom:42px}
-.hd small{font:800 .75rem Cinzel;letter-spacing:.4em;color:var(--cryo)}
-h2{font-size:clamp(1.8rem,4.4vw,2.6rem);margin:4px 0 6px;background:linear-gradient(180deg,#fff3c4,var(--gold) 60%,var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 10px rgba(232,198,117,.3))}
-body.light h2{background:linear-gradient(180deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text}
-.sub{color:var(--muted)}
-.dv{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;color:var(--gold)}
-.dv::before,.dv::after{content:"";width:90px;height:2px;background:linear-gradient(90deg,transparent,var(--gold))}.dv::after{transform:scaleX(-1)}
-.dv svg{font-size:1.1rem}
-.rv{opacity:0;transform:translateY(36px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
-#home{position:relative;z-index:1;min-height:100vh;overflow:hidden;--mx:0;--my:0;--sy:0;background:var(--bg)}
-.sky{position:absolute;inset:0;background:linear-gradient(180deg,#5d4d92 0%,#b585b8 30%,#efc3a0 58%,#c3d9e9 80%)}
-.sun{position:absolute;right:20%;top:8%;width:46vmax;aspect-ratio:1;transform:translate(35%,-28%);background:radial-gradient(circle,rgba(255,240,180,1),rgba(255,214,130,.4) 32%,transparent 62%)}
-.rays{position:absolute;right:20%;top:8%;width:150vmax;height:150vmax;transform:translate(50%,-50%);background:repeating-conic-gradient(rgba(255,236,170,.22) 0 5deg,transparent 5deg 16deg);-webkit-mask-image:radial-gradient(circle,#000,transparent 45%);mask-image:radial-gradient(circle,#000,transparent 45%);animation:spin 160s linear infinite;mix-blend-mode:screen}
-#hcl img{position:absolute;height:auto;animation:drift 22s ease-in-out infinite}
-.ly{position:absolute;left:-3%;width:106%;transform:translate(calc(var(--mx)*var(--d)*1px),calc(var(--my)*var(--d)*.5px + var(--sy)*var(--d)*.03px));transition:transform .25s}
-.bl{transform-origin:520px 126px;animation:spin 9s linear infinite}
-.bird{position:absolute;left:-60px;font-size:1.4rem;color:#3a2f5a;animation:fly var(--t) linear infinite var(--d)}
-.lake{position:absolute;left:0;right:0;bottom:0;height:36%;background:linear-gradient(#86a6dc,#4668a8 50%,#27407c);overflow:hidden}
-.lake i{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.15) 0 2px,transparent 2px 22px);animation:shim 3s linear infinite;-webkit-mask-image:linear-gradient(transparent,#000);mask-image:linear-gradient(transparent,#000)}
-.lake::before{content:"";position:absolute;left:55%;top:0;width:14%;height:100%;background:linear-gradient(rgba(255,230,160,.5),transparent);filter:blur(10px)}
-.lake b{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff;animation:tw var(--t) ease-in-out infinite var(--d)}
-.fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,17,36,.8),rgba(13,17,36,.05) 62%),linear-gradient(180deg,rgba(13,17,36,.5),transparent 20%,transparent 72%,var(--bg))}
-.fl{position:absolute;bottom:-10px;width:var(--s);height:var(--s);border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c);opacity:0;animation:rise var(--t) linear infinite var(--d)}
-.hc{position:relative;z-index:5;min-height:100vh;display:flex;flex-direction:column;justify-content:center;max-width:1100px;margin:0 auto;padding:120px 5% 90px}
-.hc .hi{color:var(--cryo);font:800 .85rem Cinzel;letter-spacing:.35em;text-shadow:0 2px 8px #000}
-.hc h1{font-size:clamp(2.4rem,6.4vw,4.3rem);line-height:1.08;margin:8px 0 14px;max-width:640px;background:linear-gradient(180deg,#fff6d0,#e8c675 55%,#b8924a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(0,0,0,.6))}
-.hc .lead{color:#e9ecfb;max-width:480px;margin-bottom:22px;text-shadow:0 2px 8px #000}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;max-width:600px}
-.tags span{border:1px solid var(--line);padding:3px 14px;border-radius:999px;font-size:.9rem;background:rgba(27,34,64,.65);color:#eef0fa;backdrop-filter:blur(6px)}
-.chars{position:absolute;right:6%;bottom:0;z-index:4;display:flex;align-items:flex-end}
-.chars .ch{height:min(68vh,560px);width:auto;animation:float 5s ease-in-out infinite}
-.chars .pai{--w:clamp(86px,12vw,140px);position:absolute;left:-18%;top:16%}
-.scroll{position:absolute;left:50%;bottom:16px;z-index:6;color:#fff;font-size:1.6rem;animation:bounce 1.6s infinite;opacity:.8}
-.duo{display:flex;flex-direction:column;align-items:center;position:relative}
-.pair{position:relative;display:flex;justify-content:center}
-.pair::before{content:"";position:absolute;width:min(270px,64vw);aspect-ratio:1;border-radius:50%;border:2px dashed var(--gold);opacity:.5;animation:spin 50s linear infinite;bottom:0;left:50%;margin-left:calc(min(270px,64vw)/-2)}
-.pair::after{content:"";position:absolute;width:min(240px,58vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(127,214,230,.32),transparent 70%);bottom:0;left:50%;margin-left:calc(min(240px,58vw)/-2)}
-.pair .ch{position:relative;z-index:1;width:min(220px,56vw);animation:float 4.5s ease-in-out infinite}
-.pair .pai{--w:88px;position:absolute;z-index:3;right:-18px;top:40px}
-.duo.flip .ch{transform:scaleX(-1);animation:none}.duo.flip .pai{right:auto;left:-18px}
-.duo.pbig .pai{--w:116px;right:-30px;top:20px}.duo.pbig .ch{width:min(190px,50vw)}
-.bubble{position:relative;z-index:4;background:#fff;color:#26305a;font-weight:700;border:2px solid var(--gold);border-radius:16px;padding:8px 14px;max-width:270px;margin-bottom:18px;font-size:.93rem;line-height:1.4;text-align:center;box-shadow:0 6px 18px var(--sh)}
-.bubble::after{content:"";position:absolute;left:50%;bottom:-10px;margin-left:-8px;border:8px solid transparent;border-top-color:var(--gold);border-bottom:0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
-.cr::before,.cr::after{content:"";position:absolute;width:16px;height:16px;border:2px solid var(--gold);opacity:.85;pointer-events:none;transition:.3s}
-.cr::before{top:9px;left:9px;border-right:0;border-bottom:0}.cr::after{bottom:9px;right:9px;border-left:0;border-top:0}
-.cr:hover::before,.cr:hover::after{width:30px;height:30px}
-.card,.panel{position:relative;background:linear-gradient(160deg,color-mix(in srgb,var(--card) 88%,#fff),var(--card));border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px var(--sh),inset 0 0 40px rgba(232,198,117,.04)}
-.card{padding:30px 22px;text-align:center;transition:transform .3s,border-color .3s,box-shadow .3s}
-.card:hover,.card:focus-visible{transform:translateY(-9px);border-color:var(--e,var(--gold));box-shadow:0 18px 40px var(--sh),0 0 30px color-mix(in srgb,var(--e,var(--gold)) 40%,transparent)}
-.ico{width:66px;height:66px;margin:0 auto 6px;border-radius:50%;display:grid;place-items:center;font-size:2rem;color:var(--e,var(--cryo));border:1px solid color-mix(in srgb,var(--e,var(--cryo)) 50%,transparent);background:radial-gradient(circle,color-mix(in srgb,var(--e,var(--cryo)) 30%,transparent),transparent 72%);transition:.3s}
-.card:hover .ico{transform:scale(1.15) rotate(8deg);box-shadow:0 0 24px color-mix(in srgb,var(--e,var(--cryo)) 60%,transparent)}
-.card h3{color:var(--gold);font-size:1.15rem;margin:8px 0 6px}
-.card p{color:var(--muted);font-size:.95rem}
-.about{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center}
-.col{display:grid;gap:22px}
-.panel{padding:28px}.panel h3{color:var(--gold);margin-bottom:12px}
-.panel dl{display:grid;grid-template-columns:120px 1fr;gap:8px 10px}
-.panel dt{color:var(--cryo);font-weight:700}
-.guide{margin-bottom:38px}.guide~.grid .card{cursor:pointer}
-.skill{margin-bottom:16px}.skill>div:first-child{display:flex;justify-content:space-between;font-weight:700;margin-bottom:4px}
-.skill .i{color:var(--cryo);margin-right:6px}
-.bar{height:12px;background:var(--bg2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
-.bar b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cryo),var(--gold));border-radius:999px;position:relative;overflow:hidden}
-.bar b::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-100%);animation:shine 1.8s linear infinite}
-.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
-.art{position:relative;cursor:pointer;border-radius:14px;overflow:hidden;border:2px solid var(--gold2);outline:1px solid var(--line);outline-offset:5px;background:var(--card);aspect-ratio:3/4;padding:0;text-align:left;color:inherit;font:inherit;transition:transform .35s,box-shadow .35s}
-.art:hover,.art:focus-visible{transform:translateY(-10px) scale(1.03) rotate(-1deg);box-shadow:0 20px 40px var(--sh),0 0 34px rgba(232,198,117,.4)}
-.art .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(160deg,#2b3566,#3b5a8a);color:#e8c675;font-size:2.8rem}
-.art .ph small{font-size:.78rem;color:#c9d0f0}
-.art img.pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.art:hover img.pic{transform:scale(1.1)}
-.art::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);transform:translateX(-120%);transition:transform .8s}
-.art:hover::after{transform:translateX(120%)}
-.art .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 12px;background:linear-gradient(transparent,rgba(10,12,30,.94));z-index:2}
-.art .cap h3{font-size:1.05rem;color:#e8c675}.art .cap p{font-size:.82rem;color:#d8dcf5}
-#lb{position:fixed;inset:0;z-index:130;background:rgba(8,10,25,.9);display:none;align-items:center;justify-content:center;padding:20px}
-#lb.open{display:flex}
-.lbbox{position:relative;max-width:860px;width:100%;max-height:92vh;overflow:auto;background:var(--card);border:2px solid var(--gold);border-radius:20px;box-shadow:0 0 60px rgba(232,198,117,.25)}
-.lbimg{min-height:240px;background:linear-gradient(135deg,#2b3566,#3b5a8a);display:flex;align-items:center;justify-content:center;font-size:4.5rem;color:#e8c675}
-.lbimg img{max-width:100%;max-height:60vh;display:block}
-.lbtext{padding:16px 24px 22px}.lbtext h3{color:var(--gold)}.lbtext p{color:var(--muted)}
-.lbx,.lbn{position:absolute;background:var(--card);border:2px solid var(--gold);color:var(--gold);width:42px;height:42px;border-radius:50%;cursor:pointer;z-index:2;display:grid;place-items:center}
-.lbx{top:10px;right:10px}.lbn.p{left:10px;top:110px}.lbn.n{right:10px;top:110px}
-.stat{display:flex;justify-content:center;margin-bottom:34px}
-.stat span{display:inline-flex;gap:8px;align-items:center;font:800 1rem Cinzel;color:#1b1630;background:linear-gradient(135deg,#f3d98f,var(--gold2));padding:9px 28px;border-radius:999px;box-shadow:0 8px 24px rgba(232,198,117,.4)}
-.medal{--e:var(--gold)}
-.medal::before{border:0!important;width:auto!important;height:5px!important;top:0!important;left:0!important;right:0;background:linear-gradient(90deg,var(--cryo),var(--gold))}
-.st5{display:flex;justify-content:center;gap:3px;color:var(--gold);margin:8px 0 2px}
-.rank{display:inline-block;background:var(--gold);color:#1b1630;font-weight:800;font-size:.8rem;padding:2px 14px;border-radius:999px}
-.goalwrap{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
-.goals{display:grid;gap:18px}
-.goal{display:flex;gap:18px;align-items:center;background:linear-gradient(160deg,color-mix(in srgb,var(--card) 88%,#fff),var(--card));border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:18px 22px;transition:transform .3s,box-shadow .3s;box-shadow:0 8px 24px var(--sh)}
-.goal:hover{transform:translateX(12px);box-shadow:0 14px 34px var(--sh),0 0 24px rgba(232,198,117,.25)}
-.goal .ico{flex:none;margin:0}.goal small{font:800 .68rem Cinzel;letter-spacing:.25em;color:var(--cryo)}
-.goal h3{color:var(--gold);font-size:1.05rem}.goal p{color:var(--muted);font-size:.95rem}
-.contact a.card{display:block}.contact .card b{display:block;word-break:break-all;color:var(--text)}
-.wave{margin-top:50px}
-footer{position:relative;z-index:1;text-align:center;padding:34px 5% 44px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(6px)}
-footer .fi{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:10px}
-footer .fi img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold)}
-footer .pai{--w:46px;animation:none;box-shadow:none}footer .pai::before{display:none}
-#top{position:fixed;right:18px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:50%;border:2px solid var(--gold);background:var(--card);cursor:pointer;padding:0;opacity:0;visibility:hidden;transition:.3s;box-shadow:0 6px 16px var(--sh)}
-#top img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%}
-#top span{position:absolute;right:-4px;bottom:-4px;background:var(--gold);color:#1b1630;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.8rem}
-#top.show{opacity:1;visibility:visible}#top:hover{transform:translateY(-4px)}
+:focus-visible{outline:3px solid var(--gd);outline-offset:3px}
+.sp{position:fixed;z-index:0;pointer-events:none;width:var(--s);height:var(--s);background:#fff3c4;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:tw var(--t) ease-in-out infinite var(--d)}
+@keyframes tw{50%{opacity:.1;transform:scale(.4) rotate(45deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes fl{50%{transform:translateY(-14px)}}
+/* rail */
+#rail{position:fixed;z-index:50;left:14px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;padding:10px;background:var(--cr);border:2px solid var(--gd);border-radius:40px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+#rail a{position:relative;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:1.35rem;background:var(--n);transition:.2s}
+#rail a:hover{transform:scale(1.1)}
+#rail a.on{background:var(--gd);box-shadow:0 0 0 3px var(--n),0 0 0 5px var(--gd)}
+#rail a::after{content:attr(data-l);position:absolute;left:62px;white-space:nowrap;background:var(--cr);color:var(--n);font:700 .85rem Mulish;padding:3px 12px;border-radius:999px;border:2px solid var(--gd);opacity:0;pointer-events:none;transition:.2s}
+#rail a:hover::after{opacity:1}
+main,header,footer{position:relative;z-index:1}
+section{max-width:1100px;margin:auto;padding:90px 5% 30px 104px}
+.sh{margin-bottom:26px}.sh h2{font-size:clamp(2.2rem,5.5vw,3.4rem);color:#f6e7bf;display:flex;align-items:center;gap:14px;line-height:1.1}
+.sh h2::before{content:"";width:18px;height:18px;flex:none;background:var(--gd);transform:rotate(45deg);box-shadow:0 0 14px var(--gd)}
+.sh p{color:#b9c0e0;margin:4px 0 0 32px}
+.sh::after{content:"";display:block;height:2px;margin-top:12px;background:linear-gradient(90deg,var(--gd),transparent)}
+.pn{position:relative;color:var(--n);background:linear-gradient(#f4eee1,#e6dfd0);border:2px solid var(--gd);border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.4),inset 0 0 0 4px rgba(255,255,255,.4)}
+.gb{display:inline-block;cursor:pointer;font:800 1rem Mulish;color:var(--n);background:var(--cr);border:2px solid var(--gd);border-radius:999px;padding:10px 28px;margin:0 8px 10px 0;box-shadow:0 4px 0 var(--gd2);transition:.15s}
+.gb:hover{background:#fff6dc;transform:translateY(-2px)}.gb:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gd2)}
+.gb.d{background:var(--n);color:var(--cr)}
+/* hero */
+header{min-height:100vh;max-width:1100px;margin:auto;padding:80px 5% 40px 104px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:20px}
+.ar{display:inline-flex;align-items:center;gap:10px;background:rgba(236,229,216,.12);border:1px solid var(--gd);border-radius:999px;padding:4px 18px 4px 6px;margin-bottom:10px}
+.ar b{background:var(--gd);color:var(--n);border-radius:999px;padding:0 12px;font-family:Marcellus}
+header h1{font-size:clamp(5.5rem,16vw,11rem);line-height:.95;background:linear-gradient(#fff6d8,#e9c97a 55%,#b8985a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 20px rgba(0,0,0,.5))}
+.fn{font:1.9rem Marcellus;letter-spacing:.12em;color:var(--cr);margin:-4px 0 16px}
+.lead{max-width:470px;color:#d6daf0;margin-bottom:22px}
+.vis{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:min(78vh,620px)}
+.vis::before{content:"";position:absolute;inset:8% 0 0;background:radial-gradient(circle,rgba(62,197,245,.35),transparent 65%)}
+.orb{--d:min(460px,82vw);position:absolute;left:50%;top:48%;width:var(--d);height:var(--d);margin:calc(var(--d)/-2) 0 0 calc(var(--d)/-2);border:2px solid rgba(211,188,142,.5);border-radius:50%;animation:spin 50s linear infinite}
+.orb::before{content:"";position:absolute;inset:26px;border:1px dashed rgba(211,188,142,.4);border-radius:50%}
+.orb i{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px;background:var(--c);box-shadow:0 0 16px var(--c);transform:rotate(var(--a)) translateY(calc(var(--d)/-2)) rotate(45deg)}
+.fu{position:relative;max-height:76vh;max-width:100%;filter:drop-shadow(0 10px 30px rgba(0,0,0,.6));animation:fl 5s ease-in-out infinite}
+.pm{position:absolute;left:2%;top:14%;width:98px;height:98px;border-radius:50%;border:3px solid var(--gd);background:#fff center/cover;box-shadow:0 0 28px rgba(62,197,245,.7);overflow:hidden;animation:fl 3.6s ease-in-out infinite;display:grid;place-items:center;color:var(--n);font:.8rem Marcellus}
+.pm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* attribut */
+.at{display:grid;grid-template-columns:1.1fr .9fr}
+.rows{padding:22px 8px}.rows h3,.ab h3{font-size:1.7rem;padding:0 20px 8px}
+.rows div{display:flex;justify-content:space-between;gap:16px;padding:9px 20px}.rows div:nth-child(odd){background:rgba(59,66,85,.09)}.rows dt{font-weight:800}.rows dd{text-align:right}
+.ab{padding:22px 24px;border-left:2px solid rgba(184,152,90,.5)}.ab h3{padding-left:0}
+.ab q{display:block;margin-top:14px;padding-left:14px;border-left:4px solid var(--gd);font-family:Marcellus;font-size:1.2rem;quotes:none}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.st div{text-align:center;padding:12px 6px;background:var(--n);color:var(--cr);border-radius:14px;border:2px solid var(--gd)}.st b{display:block;font:2.4rem Marcellus;color:#f6e7bf;line-height:1.1}
+/* talenta */
+.tl{display:grid;grid-template-columns:290px 1fr}
+.tls{padding:14px;border-right:2px solid rgba(184,152,90,.5);display:grid;gap:8px;align-content:start}
+.tb{display:flex;align-items:center;gap:12px;width:100%;padding:8px 12px 8px 8px;background:transparent;border:2px solid transparent;border-radius:40px;font:800 1rem Mulish;color:var(--n);cursor:pointer;text-align:left;transition:.2s}
+.tb:hover{background:rgba(59,66,85,.1)}.tb.on{background:var(--n);color:var(--cr);border-color:var(--gd)}
+.ci{flex:none;display:grid;place-items:center;width:50px;height:50px;border-radius:50%;font-size:1.5rem;background:var(--n);border:3px solid var(--e)}.tb.on .ci{background:var(--e)}
+.td{padding:30px 32px;display:flex;flex-direction:column;gap:12px}
+.td .ci{width:92px;height:92px;font-size:2.8rem;background:var(--e);box-shadow:0 0 0 6px rgba(184,152,90,.35),0 8px 24px var(--e)}
+.td h3{font-size:2.3rem;line-height:1}
+.lv{display:flex;justify-content:space-between;font-weight:800}.br{height:14px;background:rgba(59,66,85,.18);border-radius:999px;overflow:hidden;border:2px solid var(--gd2)}.br b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--e),var(--gd));transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.say{display:flex;gap:12px;align-items:center;margin-top:6px;background:#fff;border:2px solid var(--gd);border-radius:16px;padding:10px 14px}
+.say .pm{position:relative;left:auto;top:auto;width:54px;height:54px;flex:none;animation:none;box-shadow:none}
+/* wish */
+.wb{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;padding:28px}
+.fr{padding:6px;border-radius:16px;background:var(--rg);box-shadow:0 0 40px color-mix(in srgb,var(--rc) 45%,transparent)}
+.r5{--rc:#f6c75b;--rg:linear-gradient(160deg,#8a5a2a,#f0c872 45%,#8a5a2a)}.r4{--rc:#b78cff;--rg:linear-gradient(160deg,#4a3392,#c4a2ff 45%,#4a3392)}
+.fi{position:relative;aspect-ratio:3/4;background:linear-gradient(160deg,#2a3358,#4a5a98);border-radius:12px;overflow:hidden;display:grid;place-items:center;font-size:5rem}
+.fi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fi .cp{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 10px;background:linear-gradient(transparent,rgba(10,14,34,.92));color:var(--cr);font-size:1rem;line-height:1.3}
+.cp h3{font-size:1.5rem;color:#fff}.sr{color:var(--rc);letter-spacing:.1em;text-shadow:0 0 10px var(--rc)}
+.wr{display:flex;flex-direction:column;justify-content:center;gap:16px}
+.ths{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.th{position:relative;aspect-ratio:1;border:0;padding:4px;border-radius:12px;background:var(--rg);cursor:pointer;opacity:.7;transition:.2s}
+.th:hover,.th.on{opacity:1;transform:translateY(-4px)}.th.on{box-shadow:0 0 0 3px var(--n),0 0 18px var(--rc)}
+.th .fi{aspect-ratio:auto;height:100%;font-size:2.2rem;border-radius:9px}
+#wo{position:fixed;inset:0;z-index:100;background:radial-gradient(circle,#1d2750,#070a1a);display:none;align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:20px;text-align:center;overflow:hidden}#wo.open{display:flex}
+.mt{position:absolute;left:50%;top:50%;width:6px;height:200px;background:linear-gradient(transparent,var(--rc));box-shadow:0 0 30px var(--rc);border-radius:6px;animation:mt 1.5s ease-in forwards}
+@keyframes mt{from{transform:translate(-55vw,-60vh) rotate(38deg)}to{transform:translate(0,0) rotate(38deg) scaleY(1.6)}}
+.fx{position:absolute;inset:0;background:#fff;animation:fx 1s ease-out forwards;pointer-events:none}@keyframes fx{from{opacity:1}to{opacity:0}}
+.rc{width:min(300px,76vw);animation:pop .6s cubic-bezier(.3,1.5,.5,1)}@keyframes pop{from{transform:scale(.4) rotate(-8deg);opacity:0}}
+.rs i{font-style:normal;display:inline-block;font-size:2rem;color:var(--rc);text-shadow:0 0 12px var(--rc);animation:pop .4s backwards}
+#wo p{color:#d6daf0;max-width:360px}
+/* pencapaian */
+.pg{padding:20px 26px;display:flex;align-items:center;gap:18px;margin-bottom:18px}.pg b{font:1.9rem Marcellus;flex:none}.pg .br{flex:1}
+.ac{display:flex;align-items:center;gap:18px;padding:16px 22px;margin-bottom:14px}
+.ac .ci{--e:var(--gd);width:58px;height:58px;background:var(--gd)}
+.ac h3{font-size:1.35rem}.ac p{font-size:.95rem}
+.ac .rw{margin-left:auto;flex:none;display:flex;align-items:center;gap:8px;font-weight:800}
+.ac .rw span{background:var(--n);color:#f6e7bf;border-radius:999px;padding:2px 16px}
+.ac .rw .ck{font-style:normal;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#7cc66c;color:#fff;border:2px solid #fff;box-shadow:0 0 0 2px var(--gd2)}
+/* misi */
+.q{display:flex;align-items:center;gap:20px;width:100%;margin-bottom:14px;padding:18px 24px;text-align:left;font:inherit;color:var(--n);cursor:pointer;border:2px solid var(--gd);border-radius:18px;background:linear-gradient(#f4eee1,#e6dfd0);box-shadow:0 8px 24px rgba(0,0,0,.35);transition:.2s}
+.q:hover{transform:translateX(8px)}
+.q .dm{flex:none;width:44px;height:44px;border:3px solid var(--gd2);transform:rotate(45deg);display:grid;place-items:center;background:var(--cr);margin:0 6px;transition:.3s}
+.q .dm::after{content:"";width:14px;height:14px;background:var(--n);opacity:0;transform:scale(.3);transition:.3s}
+.q.on{background:linear-gradient(#fff3cf,#ecd9a0)}.q.on .dm{background:var(--gd)}.q.on .dm::after{opacity:1;transform:scale(1)}
+.q h3{font-size:1.5rem;line-height:1.2}.q p{font-size:.95rem}.q small{font-weight:800;color:var(--gd2)}
+#toast{position:fixed;z-index:110;left:50%;top:-110px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(19,25,54,.95) 20%,rgba(19,25,54,.95) 80%,transparent);padding:16px 80px;text-align:center;color:#f6e7bf;font:1.5rem Marcellus;transition:top .5s}
+#toast.on{top:20px}
+/* surat */
+.ml{display:flex;align-items:center;gap:18px;padding:18px 24px;margin-bottom:14px;transition:.2s}.ml:hover{transform:translateX(8px)}
+.ml .ci{--e:var(--gd);background:var(--gd);flex:none}.ml h3{font-size:1.4rem}.ml b{word-break:break-all}
+.ml .gb{margin:0 0 0 auto;flex:none;font-size:.9rem;padding:6px 20px}
+footer{text-align:center;padding:50px 5% 60px 104px;color:#9aa3cc;font-size:.9rem}footer b{display:block;font:1.8rem Marcellus;color:#f6e7bf;margin-bottom:6px}
 @media(max-width:820px){
-.about,.goalwrap{grid-template-columns:1fr}
-.hc{text-align:center;align-items:center;justify-content:flex-start;padding-top:110px}.tags{justify-content:center}
-.chars{right:50%;transform:translateX(50%)}.chars .ch{height:36vh}.chars .pai{left:-34%;top:0}
-#burger{display:grid}
-.links{position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;background:var(--bg);padding:12px;border:1px solid var(--line);border-radius:20px;display:none}.links.open{display:flex}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important}.rv{opacity:1;transform:none}}
+section,header,footer{padding-left:5%;padding-right:5%}section{padding-bottom:20px}
+#rail{top:auto;bottom:10px;left:50%;transform:translateX(-50%);flex-direction:row;padding:6px;gap:4px;border-radius:40px}#rail a{width:40px;height:40px;font-size:1.1rem}#rail a::after{display:none}
+header,.at,.tl,.wb{grid-template-columns:1fr}header{padding-top:70px}.vis{min-height:48vh}.ab{border-left:0;border-top:2px solid rgba(184,152,90,.5)}.tls{border-right:0;border-bottom:2px solid rgba(184,152,90,.5)}.td{padding:22px}
+.ac{flex-wrap:wrap}.ac .rw{margin-left:76px}.ml .gb{display:none}footer{padding-bottom:90px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ===== v2: lebih hidup ===== */
+body::before{content:"";position:fixed;inset:-20%;z-index:0;pointer-events:none;background:conic-gradient(from 0deg at 70% 30%,rgba(62,197,245,.22),rgba(175,142,193,.22),rgba(116,194,168,.16),rgba(249,185,75,.15),rgba(62,197,245,.22));filter:blur(90px);animation:spin 70s linear infinite}
+section{position:relative}
+section[data-e]::before{content:"";position:absolute;right:3%;top:30px;width:230px;height:230px;background:var(--gh);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:.1;pointer-events:none;animation:fl 7s ease-in-out infinite}
+.fo{position:fixed;bottom:-20px;z-index:0;pointer-events:none;width:var(--s);height:var(--s);border-radius:50%;background:radial-gradient(#fff6d8,#f6c75b 45%,transparent 70%);opacity:0;animation:rise var(--t) linear infinite var(--d)}
+@keyframes rise{10%{opacity:.9}100%{transform:translate(var(--x),-110vh);opacity:0}}
+#sp2{position:fixed;top:0;left:0;height:4px;width:0;z-index:120;background:linear-gradient(90deg,#3ec5f5,#f6c75b);box-shadow:0 0 12px #f6c75b}
+.pn::before{content:"";position:absolute;inset:6px;border:1px solid rgba(184,152,90,.55);border-radius:13px;pointer-events:none}
+.pn::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,248,220,.6),transparent 65%)}
+.pn:hover::after{opacity:1}
+.rv{opacity:0;transform:translateY(44px) scale(.96);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+.sh.in h2{animation:hin .9s ease-out}@keyframes hin{from{clip-path:inset(0 100% 0 0);letter-spacing:.25em}to{clip-path:inset(0 0 0 0)}}
+.gb{position:relative;overflow:hidden}
+.gb::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.8) 50%,transparent 60%);transform:translateX(-120%)}
+.gb:hover::after{transform:translateX(120%);transition:transform .6s}
+header a.gb:first-of-type{animation:up .8s .7s backwards,gp 2.4s 1.6s infinite}@keyframes gp{50%{box-shadow:0 4px 0 var(--gd2),0 0 26px rgba(246,199,91,.9)}}
+header>div:first-child>*{animation:up .8s cubic-bezier(.2,.9,.3,1) backwards}
+header>div:first-child>:nth-child(n+3){animation-delay:.4s}header>div:first-child>:nth-child(n+5){animation-delay:.7s}
+@keyframes up{from{opacity:0;transform:translateY(30px)}}
+header>div:first-child>h1{background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%) 150% 0/250% 100% no-repeat,linear-gradient(#fff6d8,#e9c97a 55%,#b8985a);-webkit-background-clip:text;background-clip:text;color:transparent;animation:hz 1.1s cubic-bezier(.2,1.4,.4,1) backwards,hs 4s 1.5s infinite}
+@keyframes hz{from{opacity:0;transform:scale(1.5);filter:blur(14px)}}@keyframes hs{to{background-position:-50% 0,0 0}}
+.vis{animation:vin 1.3s .2s cubic-bezier(.2,.9,.3,1) backwards}@keyframes vin{from{opacity:0;transform:translateX(80px) scale(.9)}}
+.fr{position:relative;overflow:hidden}
+.fr::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.5) 50%,transparent 60%);transform:translateX(-120%);animation:shn 3.5s infinite}@keyframes shn{60%,100%{transform:translateX(120%)}}
+.td.sw{animation:swp .45s}@keyframes swp{from{opacity:0;transform:translateX(26px)}}.td.sw .ci{animation:pop .6s cubic-bezier(.3,1.5,.5,1)}
+.ac{transition:transform .25s}.ac:hover{transform:translateX(10px)}.ml:hover .ci{animation:wg .5s}@keyframes wg{25%{transform:rotate(-16deg) scale(1.15)}75%{transform:rotate(16deg) scale(1.15)}}
+#wp{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(circle,rgba(246,199,91,.97),rgba(19,25,54,.98) 70%)}
+#wp.go{display:flex;animation:wpi .5s ease-out forwards}#wp.out{display:flex;animation:wpo .7s ease-in forwards}
+@keyframes wpi{from{clip-path:circle(0% at 50% 50%)}to{clip-path:circle(150% at 50% 50%)}}@keyframes wpo{from{clip-path:circle(150% at 50% 50%)}to{clip-path:circle(0% at 50% 50%)}}
+.wr1{position:absolute;width:230px;height:230px;border:3px dashed #fff6d8;border-radius:50%;animation:spin 3s linear infinite}
+.wi{font-size:5.5rem;animation:wiy 1.3s ease-in-out}@keyframes wiy{0%{transform:translateX(-60vw) rotate(-30deg) scale(.4)}60%{transform:translateX(0) rotate(0) scale(1.3)}100%{transform:scale(1)}}
+#wp p{font:1.8rem Marcellus;color:#fff6d8;margin-top:14px;text-align:center;padding:0 20px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+#rw{position:fixed;inset:0;z-index:150;background:rgba(7,10,26,.82);display:grid;place-items:center;padding:20px;animation:fx2 .3s}#rw.bye{opacity:0;transition:opacity .5s}@keyframes fx2{from{opacity:0}}
+.rwc{width:min(380px,100%);text-align:center;color:var(--n);background:linear-gradient(#f4eee1,#e6dfd0);border:2px solid var(--gd);border-radius:20px;padding:30px;box-shadow:0 0 60px rgba(246,199,91,.5);animation:pop .5s cubic-bezier(.3,1.5,.5,1)}
+.rwi{font-size:4.5rem;animation:fl 1s ease-in-out infinite}.rwc h3{font-size:1.6rem;margin:6px 0 14px}.rwc p{margin-top:8px;font-weight:800}
+#gd{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;align-items:flex-end;gap:8px;cursor:pointer}
+.gbub{background:#fff;color:var(--n);border:2px solid var(--gd);border-radius:16px 16px 4px 16px;padding:8px 14px;max-width:210px;font-weight:800;font-size:.88rem;line-height:1.3;box-shadow:0 6px 20px rgba(0,0,0,.4)}.gbub.pop{animation:bp .4s cubic-bezier(.3,1.6,.5,1)}@keyframes bp{from{transform:scale(.5);opacity:0}}
+#gd .pm{position:relative;left:auto;top:auto;width:76px;height:76px;flex:none}
+@media(max-width:820px){section[data-e]::before{width:120px;height:120px}#gd{bottom:68px;right:8px}.gbub{max-width:140px;font-size:.75rem}#gd .pm{width:54px;height:54px}}
+/* ===== v3: gaya premium ===== */
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}.ic.f{fill:currentColor}
+.gb{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(#fcf7eb,#e4d9bf)}.gb.d{background:linear-gradient(#4f5876,#2d3447)}.gb .ic{font-size:1.2rem}
+#rail{background:linear-gradient(#f4eee1,#dcd2bd);box-shadow:0 10px 30px rgba(0,0,0,.5),inset 0 0 0 3px rgba(255,255,255,.45)}
+#rail a{color:#f6e7bf;background:linear-gradient(#4f5876,#2d3447)}#rail a.on{color:var(--n);background:linear-gradient(#f8e3a8,#c9a45a)}
+.ci{color:#f6e7bf}.tb.on .ci,.td .ci,.ac .ci,.ml .ci{color:var(--n)}.fi{color:rgba(246,231,191,.85)}.wi{color:#fff6d8}.rwi{color:var(--gd2)}
+.pn{background:repeating-linear-gradient(45deg,rgba(59,66,85,.03) 0 2px,transparent 2px 7px),linear-gradient(#f9f3e6,#e2d9c6)}
+.sh h2{background:linear-gradient(#fffbe8,#f0d388 55%,#c9a45a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 12px rgba(0,0,0,.55))}
+.ar{background:linear-gradient(90deg,rgba(246,199,91,.28),rgba(236,229,216,.06));backdrop-filter:blur(6px)}
+.st div{background:linear-gradient(#4f5876,#2d3447)}
+.ac{border-left:8px solid var(--gd2)}.ac .ci{box-shadow:0 0 0 4px rgba(184,152,90,.35),0 0 18px rgba(246,199,91,.65)}
+.td{position:relative;overflow:hidden}.td::before{content:"";position:absolute;right:-50px;bottom:-50px;width:250px;height:250px;border-radius:50%;border:34px solid var(--e);opacity:.13}
+footer{margin-top:60px;border-top:1px solid rgba(211,188,142,.35);background:linear-gradient(transparent,rgba(8,11,30,.65))}
+.vis::after{content:"";position:absolute;inset:-25%;pointer-events:none;background:repeating-conic-gradient(from 0deg at 50% 48%,rgba(255,240,180,.17) 0 4deg,transparent 4deg 14deg);-webkit-mask-image:radial-gradient(circle at 50% 48%,#000,transparent 60%);mask-image:radial-gradient(circle at 50% 48%,#000,transparent 60%);animation:spin 100s linear infinite}
+.orb,.fu,.pm{z-index:1}
+#scene{position:absolute;top:0;left:0;right:0;height:112vh;z-index:0;overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+#scene>*{position:absolute;left:-5%;right:-5%}
+#scene .moon{left:auto;right:14%;top:8%;width:min(190px,26vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fffdf0,#f6e7bf 60%,#d9c28a);box-shadow:0 0 80px 30px rgba(246,231,191,.35),0 0 200px 90px rgba(120,160,255,.25)}
+.cl{height:90px;background:radial-gradient(closest-side,rgba(255,255,255,.3),transparent);filter:blur(6px);animation:dr 45s linear infinite alternate}@keyframes dr{from{transform:translateX(-12vw)}to{transform:translateX(18vw)}}
+.m1,.m2,.m3{bottom:0}.m1{height:48%;background:linear-gradient(#3d4d92,#1d2552);opacity:.8;clip-path:polygon(0 70%,8% 52%,15% 62%,26% 30%,36% 58%,47% 40%,58% 64%,70% 26%,80% 55%,90% 42%,100% 60%,100% 100%,0 100%)}
+.m2{height:36%;background:linear-gradient(#2c3872,#171d40);clip-path:polygon(0 62%,12% 40%,22% 58%,34% 34%,46% 60%,60% 36%,72% 58%,86% 38%,100% 56%,100% 100%,0 100%)}
+.m3{height:21%;background:linear-gradient(#1a2148,#131936);clip-path:polygon(0 55%,15% 30%,30% 52%,48% 28%,66% 54%,82% 32%,100% 52%,100% 100%,0 100%)}
+/* ===== v4: loading screen & polesan ===== */
+body.ld-on{overflow:hidden}
+body.ld-on header>div:first-child>*,body.ld-on .vis{animation-play-state:paused}
+::selection{background:#f6c75b;color:#3b4255}html{scrollbar-color:#d3bc8e #131936}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#131936}::-webkit-scrollbar-thumb{background:linear-gradient(#f6c75b,#b8985a);border-radius:10px}
+#ld{position:fixed;inset:0;z-index:300;color:#f6e7bf;cursor:default}#ld.rdy{cursor:pointer}
+.cu{position:absolute;top:0;bottom:0;width:50%;background:radial-gradient(circle at 50% 42%,#33458f 0,#171d45 45%,#070a1c 100%);background-size:200% 100%;transition:transform 1s cubic-bezier(.7,0,.2,1)}
+.cu.l{left:0;background-position:left}.cu.r{right:0;background-position:right}
+#ld.open .cu.l{transform:translateX(-101%)}#ld.open .cu.r{transform:translateX(101%)}
+#ld.open::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle,rgba(255,240,180,.95),transparent 60%);animation:fx .9s ease-out forwards}
+.ldc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px;text-align:center;transition:opacity .5s,transform .6s}
+#ld.open .ldc{opacity:0;transform:scale(1.35)}
+.ldm{position:relative;width:min(220px,52vw);aspect-ratio:1;margin-bottom:14px}.ldm svg{position:relative;width:100%;height:100%;filter:drop-shadow(0 0 18px rgba(246,199,91,.7))}
+.ldm::before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle,rgba(246,199,91,.4),transparent 62%);animation:lp 2.4s ease-in-out infinite}@keyframes lp{50%{opacity:.4;transform:scale(.85)}}
+.ldo{--d:min(340px,84vw);top:50%;animation-duration:16s}
+.r1,.r2{transform-origin:100px 100px;animation:spin 22s linear infinite}.r2{animation-direction:reverse}
+.ldst{transform-origin:100px 100px;animation:lp 2.4s ease-in-out infinite}
+.ldt{font:clamp(2rem,6vw,3.2rem) Marcellus;line-height:1.1;background:linear-gradient(#fffbe8,#f0d388 55%,#c9a45a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lds{color:#b9c0e0;letter-spacing:.3em;font-family:Marcellus}
+.ldp{position:relative;width:min(540px,84vw);margin-top:46px}
+.ldw{position:absolute;left:0;top:-62px;transform:translateX(-50%)}.ldw .pm{position:relative;left:auto;top:auto;width:52px;height:52px;border-width:2px}
+.ldk{height:14px;border:2px solid #d3bc8e;border-radius:999px;background:rgba(255,255,255,.08);box-shadow:0 0 24px rgba(246,199,91,.25)}
+.ldf{position:relative;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#3ec5f5,#f6c75b)}
+.ldf::after{content:"";position:absolute;right:-15px;top:50%;width:30px;height:30px;margin-top:-15px;background:#fff6d8;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%)}
+.ldi{display:flex;justify-content:space-between;gap:16px;margin-top:14px;font-size:.95rem;color:#b9c0e0;text-align:left}.ldi b{font:1.2rem Marcellus;color:#f6e7bf}
+.ldg{display:none;margin-top:30px;font:1.6rem Marcellus;letter-spacing:.2em;animation:bl 1.6s ease-in-out infinite}@keyframes bl{50%{opacity:.3}}
+#ld.rdy .ldp{display:none}#ld.rdy .ldg{display:block}
+.mq{position:relative;z-index:1;overflow:hidden;white-space:nowrap;border-block:2px solid var(--gd);background:linear-gradient(90deg,#1b2350,#2e3f86,#1b2350);padding:12px 0;font:1.4rem Marcellus;color:#f6e7bf}
+.mq div{display:inline-block;animation:mv2 34s linear infinite}@keyframes mv2{to{transform:translateX(-50%)}}
+.mq span{margin:0 26px}.mq span::before{content:"";display:inline-block;width:10px;height:10px;background:var(--gd);transform:rotate(45deg);margin-right:26px}
 </style>
 </head>
-<body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8686cc"/><stop offset="1" stop-color="#cdb0dc"/></linearGradient>
-<linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6674b6"/><stop offset="1" stop-color="#9db2d8"/></linearGradient>
-<linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5cbc76"/><stop offset="1" stop-color="#2c7650"/></linearGradient>
-<symbol id="book" viewBox="0 0 24 24"><path d="M3 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H3zM21 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/></symbol>
-<symbol id="ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18M3 12h18"/></symbol>
-<symbol id="volley" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c0 6 4 9 9 9M12 3c0 6-4 9-9 9M12 21c0-6 4-9 9-9"/></symbol>
-<symbol id="palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.500 0 2-1 1.500-2s0-2 1.500-2h2a3 3 0 0 0 3-3A9 9 0 0 0 12 3zM7.500 11h.01M10 7.500h.01M14.500 7.500h.01M17 11h.01"/></symbol>
-<symbol id="game" viewBox="0 0 24 24"><path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5 2l-2-2H9l-2 2a3 3 0 0 1-5-2v-3a4 4 0 0 1 4-4zM7 11v4M5 13h4M16 12h.01M18 14h.01"/></symbol>
-<symbol id="trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v2a3 3 0 0 0 4 3M16 6h4v2a3 3 0 0 1-4 3M12 13v4M8 20h8M10 17h4"/></symbol>
-<symbol id="medal" viewBox="0 0 24 24"><circle cx="12" cy="15" r="5"/><path d="M8 3l4 7 4-7"/></symbol>
-<symbol id="flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h12l-2 4 2 4H5"/></symbol>
-<symbol id="brush" viewBox="0 0 24 24"><path d="M4 20c3 0 4-1 4-3a3 3 0 0 1 3-3l7-9 3 3-9 7a3 3 0 0 1-3 3c-1 2-3 2-5 2z"/></symbol>
-<symbol id="cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></symbol>
-<symbol id="star" viewBox="0 0 24 24"><path d="M12 3l2.700 5.600 6.100.9-4.400 4.300 1 6.100L12 17l-5.400 2.900 1-6.100L3.200 9.500l6.100-.9z" fill="currentColor"/></symbol>
-<symbol id="rocket" viewBox="0 0 24 24"><path d="M12 3c4 2 6 6 5 11l-3 3h-4l-3-3c-1-5 1-9 5-11zM9 17l-3 4M15 17l3 4M12 9h.01"/></symbol>
-<symbol id="x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></symbol>
-<symbol id="music" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM19 16a3 3 0 1 1-3-3 3 3 0 0 1 3 3z"/></symbol>
-<symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
-<symbol id="sparkle" viewBox="0 0 24 24"><path d="M12 3l1.800 5.200L19 10l-5.200 1.800L12 17l-1.800-5.200L5 10l5.200-1.800zM19 17l.7 1.800 1.800.7-1.800.7L19 22l-.7-1.800-1.800-.7 1.800-.7z"/></symbol>
-<symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.500 1.500M17.500 17.500L19 19M5 19l1.500-1.500M17.500 6.500L19 5"/></symbol>
-<symbol id="moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></symbol>
-<symbol id="menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-<symbol id="up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
-<symbol id="down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
-<symbol id="dl" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
-<symbol id="prev" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
-<symbol id="next" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
-<symbol id="play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></symbol>
-</defs></svg>
-
-<div id="loading"><svg class="i orb"><use href="#sparkle"/></svg><div class="duoW" data-duoW></div><p id="ltip">Memuat dunia Teyvat...</p><div class="lbar"><b id="lfill"></b></div><div id="lpct">0%</div></div>
-<div id="welcome"><div class="ring"></div><div class="duoW" data-duoW></div><h1>Selamat datang, Traveler!</h1><p>Portofolio Agam Raditya Pratama</p><button class="btn" id="enter"><i data-ic="play"></i> Mulai Petualangan</button></div>
-
-<div class="stars" id="stars"></div>
-<div class="clouds" id="clouds" aria-hidden="true"></div>
-
-<nav>
-<a href="#home" class="brand"><img src="impact.png" alt="" onerror="this.style.opacity=0">Agam</a>
-<ul class="links" id="links">
-<li><a href="#home">Beranda</a></li><li><a href="#profil">Profil</a></li><li><a href="#hobi">Hobi</a></li><li><a href="#galeri">Galeri</a></li><li><a href="#prestasi">Prestasi</a></li><li><a href="#goals">Cita-cita</a></li><li><a href="#kontak">Kontak</a></li>
-<li><button id="theme" aria-label="Ganti tema" title="Mode gelap / terang"><i data-ic="moon"></i></button></li>
-</ul>
-<button id="burger" aria-label="Buka menu"><i data-ic="menu"></i></button>
-</nav>
+<body class="ld-on">
+<div id="ld"><div class="cu l"></div><div class="cu r"></div>
+<div class="ldc"><div class="ldm"><div class="orb ldo" id="lo"></div><svg viewBox="0 0 200 200"><g fill="none" stroke="#d3bc8e" stroke-width="2"><circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="80" stroke-dasharray="3 7"/><rect class="r1" x="45" y="45" width="110" height="110"/><rect class="r2" x="45" y="45" width="110" height="110"/></g><path class="ldst" fill="#f6c75b" d="M100 52l9 39 39 9-39 9-9 39-9-39-39-9 39-9z"/></svg></div>
+<h2 class="ldt">Agam Raditya Pratama</h2><p class="lds">Portofolio Traveler</p>
+<div class="ldp"><div class="ldw" id="ldw"><div class="pm">P<img src="karya3.png" alt=""></div></div><div class="ldk"><div class="ldf" id="ldf"></div></div><div class="ldi"><span id="ldtp">Memuat dunia Teyvat...</span><b id="ldpc">0%</b></div></div>
+<p class="ldg">Klik di mana saja untuk memulai</p></div></div>
+<nav id="rail"><a href="#home" data-l="Beranda"><i data-i="compass"></i></a><a href="#profil" data-l="Profil"><i data-i="user"></i></a><a href="#hobi" data-l="Talenta"><i data-i="sword"></i></a><a href="#galeri" data-l="Wish"><i data-i="star"></i></a><a href="#prestasi" data-l="Pencapaian"><i data-i="trophy"></i></a><a href="#cita" data-l="Misi"><i data-i="scroll"></i></a><a href="#kontak" data-l="Surat"><i data-i="mail"></i></a></nav>
 
 <header id="home">
-<div class="sky"></div><div class="sun"></div><div class="rays"></div><div id="hcl"></div>
-<svg class="ly" style="bottom:30%;height:50%;--d:4" viewBox="0 0 1440 420" preserveAspectRatio="none"><path d="M0 330L120 260 260 300 420 210 560 280 700 70 840 250 980 200 1120 290 1280 230 1440 300V420H0z" fill="url(#m1)"/><path d="M700 70L650 160 690 148 720 175 750 150z" fill="#fff" opacity=".85"/><path d="M0 365L200 305 380 350 600 295 820 345 1040 300 1240 340 1440 305V420H0z" fill="url(#m2)"/><path d="M0 395Q240 345 480 383T960 377 1440 365V420H0z" fill="#5f9a74"/></svg>
-<svg class="ly" style="bottom:27%;height:38%;left:28%;width:66%;--d:9" viewBox="0 0 600 300"><ellipse cx="300" cy="272" rx="292" ry="26" fill="url(#gr)"/><rect x="50" y="206" width="500" height="62" fill="#cdb8a6"/><path d="M50 206h500" stroke="#b5a08e" stroke-width="3"/><g><rect x="78" y="168" width="52" height="42" fill="#e4d3c0"/><path d="M72 170l32-34 32 34z" fill="#b8524a"/><rect x="146" y="150" width="62" height="60" fill="#e8d9c6"/><path d="M138 152l39-40 39 40z" fill="#c25a4d"/><rect x="228" y="176" width="46" height="34" fill="#dccab5"/><path d="M222 178l29-28 29 28z" fill="#a8483f"/><rect x="316" y="80" width="38" height="130" fill="#efe2d0"/><path d="M308 82l27-70 27 70z" fill="#5a7ac0"/><path d="M335 12v-12" stroke="#e8c675" stroke-width="2"/><rect x="372" y="160" width="56" height="50" fill="#e6d5c1"/><path d="M364 162l36-36 36 36z" fill="#c9763f"/><rect x="440" y="180" width="38" height="30" fill="#dccab5"/><path d="M434 182l25-24 25 24z" fill="#a8483f"/></g><path d="M505 232l12-100h6l12 100z" fill="#e9dcc9"/><path d="M509 134l11-22 11 22z" fill="#b8524a"/><g class="bl" stroke="#f3e8d4" stroke-width="5" stroke-linecap="round"><path d="M520 126V62M520 126V190M520 126H456M520 126H584"/><path d="M524 66h14M516 186h-14M458 122v-14M582 130v14" stroke-width="9"/></g><g fill="#2f7a50"><circle cx="44" cy="236" r="20"/><circle cx="296" cy="238" r="16"/><circle cx="486" cy="236" r="18"/><circle cx="566" cy="232" r="22"/></g></svg>
-<i class="bird" style="top:22%;--t:26s;--d:-4s">&#8964;</i><i class="bird" style="top:30%;font-size:1rem;--t:34s;--d:-18s">&#8964;</i>
-<div class="lake" id="lake"><i></i></div>
-<svg class="ly" style="bottom:0;height:34%;--d:18" viewBox="0 0 1440 300" preserveAspectRatio="none"><path d="M0 70Q120 40 210 110L270 300H0z" fill="#5a7a6c"/><path d="M0 210Q300 140 600 215T1200 195 1440 175V300H0z" fill="url(#gr)"/><g fill="#3a9a5a"><ellipse cx="1260" cy="200" rx="170" ry="80"/><ellipse cx="1120" cy="252" rx="130" ry="60"/><ellipse cx="500" cy="285" rx="200" ry="50"/></g><g fill="#80d28e" opacity=".75"><ellipse cx="1300" cy="170" rx="90" ry="40"/><ellipse cx="160" cy="252" rx="110" ry="36"/></g><g fill="#fff" opacity=".9"><circle cx="90" cy="236" r="4"/><circle cx="140" cy="258" r="3"/><circle cx="330" cy="240" r="4"/><circle cx="420" cy="262" r="3"/><circle cx="1180" cy="230" r="4"/><circle cx="1010" cy="250" r="3"/></g><g fill="#ffd1e6"><circle cx="110" cy="262" r="3"/><circle cx="380" cy="250" r="3"/><circle cx="1230" cy="248" r="3"/></g></svg>
-<div class="fade"></div><div id="fl"></div>
-<div class="chars"><div class="pai" data-pai></div><img class="ch" src="impact.png" alt="Furina" onerror="this.style.opacity=0"></div>
-<div class="hc">
-<p class="hi">HALO, TRAVELER! AKU</p>
-<h1>Agam Raditya Pratama</h1>
-<div class="tags"><span>Dipanggil Agam</span><span>Kelas 9 Utsman</span><span>SMPIT Assyifa Boarding School</span></div>
-<p class="lead">Pelajar yang suka membaca, berolahraga, menggambar, dan menjelajahi dunia Teyvat di Genshin Impact. Selamat datang di portofolio digitalku!</p>
-<div><a href="#kontak" class="btn"><i data-ic="mail"></i> Hubungi Aku</a><button class="btn ghost" id="download"><i data-ic="dl"></i> Unduh Profil</button></div>
+<div>
+<p class="ar"><b>AR 9</b>Kelas 9 Utsman</p>
+<h1>Agam</h1><p class="fn">Raditya Pratama</p>
+<p class="lead">Traveler dari SMPIT Assyifa Boarding School yang suka membaca, main basket dan voli, menggambar, dan menjelajahi Teyvat di Genshin Impact.</p>
+<a class="gb" href="#profil"><i data-i="compass"></i>Mulai petualangan</a><a class="gb d" href="#kontak"><i data-i="mail"></i>Hubungi aku</a><button class="gb d" id="dl"><i data-i="dl"></i>Unduh profil</button>
 </div>
-<a href="#profil" class="scroll" aria-label="Gulir ke bawah"><i data-ic="down"></i></a>
+<div class="vis"><div class="orb" id="orb"></div><div class="pm">Paimon<img src="karya3.png" alt="Paimon"></div><img class="fu" src="impact.png" alt="Furina"></div>
 </header>
 
-<section id="profil" data-k="BAB I" data-t="Profil Traveler" data-s="Kartu identitas petualang">
-<div class="about">
-<div class="duo" data-duo data-b="Halo, aku Agam! Senang bertemu denganmu!"></div>
-<div class="col">
-<div class="panel cr"><h3>Data Diri</h3><dl><dt>Nama</dt><dd>Agam Raditya Pratama</dd><dt>Panggilan</dt><dd>Agam</dd><dt>Kelas</dt><dd>9 Utsman</dd><dt>Sekolah</dt><dd>SMPIT Assyifa Boarding School</dd><dt>Game favorit</dt><dd>Genshin Impact</dd></dl></div>
-<div class="panel cr"><h3>Tentang Aku</h3><p>Aku Agam, siswa kelas 9 Utsman di SMPIT Assyifa Boarding School. Di sela belajar dan kegiatan asrama, aku menyalurkan semangat lewat buku, olahraga, gambar, dan game. Seperti Traveler di Teyvat, aku ingin terus belajar dan berkembang setiap hari.</p></div>
-</div></div>
-</section>
+<main>
+<section id="profil"><div class="sh"><h2>Atribut Karakter</h2><p>Data diri Traveler.</p></div>
+<div class="pn at"><dl class="rows"><h3>Data diri</h3><div><dt>Nama</dt><dd>Agam Raditya Pratama</dd></div><div><dt>Panggilan</dt><dd>Agam</dd></div><div><dt>Kelas</dt><dd>9 Utsman</dd></div><div><dt>Sekolah</dt><dd>SMPIT Assyifa Boarding School</dd></div><div><dt>Game favorit</dt><dd>Genshin Impact</dd></div></dl>
+<div class="ab"><h3>Tentang aku</h3><p>Di sela belajar dan kegiatan asrama, aku menyalurkan semangat lewat buku, olahraga, gambar, dan game.</p><q>Seperti Traveler di Teyvat, aku ingin terus belajar dan berkembang setiap hari.</q>
+<div class="st"><div><b>9</b>Kelas</div><div><b>5</b>Juara 1</div><div><b>6</b>Gambar</div></div></div></div></section>
 
-<section id="hobi" data-k="BAB II" data-t="Hobi" data-s="Arahkan kursor atau ketuk kartu, lalu dengarkan kata Paimon">
-<div class="duo pbig guide" data-duo data-b="Pilih salah satu hobinya Agam!" data-id="say"></div>
-<div class="grid">
-<div class="card cr" tabindex="0" style="--e:#7fd6e6" data-say="Agam suka baca buku! Setiap halaman seperti petualangan baru."><div class="ico"><i data-ic="book"></i></div><h3>Membaca Buku</h3><p>Menambah ilmu dan imajinasi, seperti membuka halaman baru di kisah Teyvat.</p></div>
-<div class="card cr" tabindex="0" style="--e:#ff9a5c" data-say="Basket itu seru! Lincah, cepat, dan harus kompak."><div class="ico"><i data-ic="ball"></i></div><h3>Main Basket</h3><p>Melatih kelincahan, kerja sama tim, dan semangat pantang menyerah.</p></div>
-<div class="card cr" tabindex="0" style="--e:#c9a0ff" data-say="Voli bareng teman paling asyik. Ayo smash!"><div class="ico"><i data-ic="volley"></i></div><h3>Main Voli</h3><p>Seru dimainkan bersama teman, mengajarkan kekompakan dan sportivitas.</p></div>
-<div class="card cr" tabindex="0" style="--e:#6fb6ff" data-say="Menggambar bikin imajinasi Agam hidup di atas kertas. Paimon juga digambar lho!"><div class="ico"><i data-ic="palette"></i></div><h3>Menggambar</h3><p>Menuangkan ide dan kreativitas ke dalam gambar.</p></div>
-<div class="card cr" tabindex="0" style="--e:#8fe08a" data-say="Genshin Impact! Menjelajah Teyvat bareng Paimon adalah favorit Agam."><div class="ico"><i data-ic="game"></i></div><h3>Main Game</h3><p>Terutama Genshin Impact: menjelajah, bertualang, dan menyusun tim terbaik.</p></div>
-</div>
-<div class="hd" style="margin:70px 0 30px"><h2>Tingkat Semangat</h2><p class="sub">Seberapa Agam menikmati tiap hobi</p></div>
-<div class="panel cr" style="max-width:700px;margin:auto" id="skills">
-<div class="skill"><div><span><i data-ic="game"></i>Genshin Impact</span><span class="pct">0%</span></div><div class="bar"><b data-w="95"></b></div></div>
-<div class="skill"><div><span><i data-ic="book"></i>Membaca</span><span class="pct">0%</span></div><div class="bar"><b data-w="85"></b></div></div>
-<div class="skill"><div><span><i data-ic="palette"></i>Menggambar</span><span class="pct">0%</span></div><div class="bar"><b data-w="80"></b></div></div>
-<div class="skill"><div><span><i data-ic="ball"></i>Basket</span><span class="pct">0%</span></div><div class="bar"><b data-w="80"></b></div></div>
-<div class="skill"><div><span><i data-ic="volley"></i>Voli</span><span class="pct">0%</span></div><div class="bar"><b data-w="75"></b></div></div>
-</div>
-</section>
+<section id="hobi"><div class="sh"><h2>Talenta</h2><p>Pilih hobi untuk melihat detail dan tingkat semangatnya.</p></div>
+<div class="pn tl"><div class="tls" id="tls"></div><div class="td" id="td"></div></div></section>
 
-<!-- Taruh gambar karya di folder yang sama: karya1.png sampai karya6.png (1 Furina, 2 Hu Tao, 3 Paimon, 4 Venti, 5 Raiden, 6 Columbina). Judul dan deskripsi diubah di "const works". karya3.png juga dipakai sebagai Paimon pendamping. -->
-<section id="galeri" data-k="BAB III" data-t="Galeri Karya" data-s="Klik karya untuk melihat lebih besar dan membaca ceritanya"><div class="gal" id="gal"></div></section>
+<section id="galeri"><div class="sh"><h2>Wish Gambar</h2><p>Pilih karya dari koleksiku, atau coba keberuntunganmu dengan Wish.</p></div>
+<div class="pn wb"><div class="fr r5" id="fr"><div class="fi" id="fi"></div></div>
+<div class="wr"><div class="ths" id="ths"></div><p id="fd"></p><div><button class="gb" id="wb">Wish x1</button></div></div></div></section>
 
-<section id="prestasi" data-k="BAB IV" data-t="Prestasi" data-s="Penghargaan yang berhasil kuraih">
-<div class="stat"><span><i data-ic="medal"></i> 5x Juara 1</span></div>
-<div class="grid">
-<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="trophy"></i></div><h3>Liga Pelajar Assyifa</h3><p>Meraih gelar juara dalam kompetisi Liga Pelajar Assyifa.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
-<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="palette"></i></div><h3>Poster Ramadhan</h3><p>Lomba poster bertema Ramadhan.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
-<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="flag"></i></div><h3>Estafet Sarung</h3><p>Lomba estafet sarung yang seru dan penuh kekompakan.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
-<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="medal"></i></div><h3>Assyifa League Champion</h3><p>Juara dalam kompetisi Assyifa League.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
-<div class="card cr medal" tabindex="0"><div class="ico"><i data-ic="brush"></i></div><h3>Poster Hari Santri</h3><p>Lomba poster bertema Hari Santri.</p><div class="st5"></div><span class="rank">Juara 1</span></div>
-</div>
-</section>
+<section id="prestasi"><div class="sh"><h2>Pencapaian</h2><p>Penghargaan yang berhasil kuraih.</p></div>
+<div class="pn pg"><b id="pc">0 / 5</b><div class="br" style="--e:var(--gd)"><b id="pb"></b></div></div><div id="ach"></div></section>
 
-<section id="goals" data-k="BAB V" data-t="Goals / Cita-cita" data-s="Misi utama yang ingin kucapai">
-<div class="goalwrap">
-<div class="goals">
-<div class="goal"><div class="ico"><i data-ic="cap"></i></div><div><small>MISI 1</small><h3>Lulus dengan Hasil Terbaik</h3><p>Menyelesaikan kelas 9 dengan nilai bagus dan akhlak yang baik.</p></div></div>
-<div class="goal"><div class="ico"><i data-ic="star"></i></div><div><small>MISI 2</small><h3>Mengembangkan Bakat</h3><p>Terus berlatih menggambar dan olahraga agar semakin mahir.</p></div></div>
-<div class="goal"><div class="ico"><i data-ic="rocket"></i></div><div><small>MISI 3</small><h3>Meraih Cita-cita Masa Depan</h3><p>Menjadi orang yang berilmu, sukses, dan bermanfaat bagi keluarga serta sesama.</p></div></div>
-</div>
-<div class="duo flip" data-duo></div>
-</div>
-</section>
+<section id="cita"><div class="sh"><h2>Misi Utama</h2><p>Tiga misi yang ingin kuselesaikan. Klik untuk menandai selesai.</p></div><div id="qs"></div></section>
 
-<section id="kontak" class="contact" data-k="BAB VI" data-t="Kontak" data-s="Ayo berteman, kirim pesan kapan saja">
-<div class="grid">
-<a class="card cr" href="https://x.com/Agaamm_0" target="_blank" rel="noopener"><div class="ico"><i data-ic="x"></i></div><h3>X</h3><b>@Agaamm_0</b></a>
-<a class="card cr" href="https://www.tiktok.com/@agamm_radityap05" target="_blank" rel="noopener"><div class="ico"><i data-ic="music"></i></div><h3>TikTok</h3><b>@agamm_radityap05</b></a>
-<a class="card cr" href="mailto:agam.raditya105@smp.belajar.id"><div class="ico"><i data-ic="mail"></i></div><h3>Email</h3><b>agam.raditya105@smp.belajar.id</b></a>
-</div>
-<div class="duo wave" data-duo data-b="Sampai jumpa di Teyvat! Jangan lupa hubungi Agam ya!"></div>
-</section>
+<section id="kontak"><div class="sh"><h2>Surat</h2><p>Kirim pesan kapan saja, aku senang berteman.</p></div>
+<a class="pn ml" href="https://x.com/Agaamm_0" target="_blank" rel="noopener"><span class="ci"><i data-i="x"></i></span><div><h3>Surat lewat X</h3><b>@Agaamm_0</b></div><span class="gb">Buka</span></a>
+<a class="pn ml" href="https://www.tiktok.com/@agamm_radityap05" target="_blank" rel="noopener"><span class="ci"><i data-i="music"></i></span><div><h3>Surat lewat TikTok</h3><b>@agamm_radityap05</b></div><span class="gb">Buka</span></a>
+<a class="pn ml" href="mailto:agam.raditya105@smp.belajar.id"><span class="ci"><i data-i="mail"></i></span><div><h3>Surat lewat Email</h3><b>agam.raditya105@smp.belajar.id</b></div><span class="gb">Buka</span></a></section>
+</main>
 
-<footer><div class="fi"><img src="impact.png" alt="" onerror="this.style.opacity=0"><div class="pai" data-pai></div></div>
-&copy; 2026 Agam Raditya Pratama &middot; SMPIT Assyifa Boarding School<br>Tema dan karakter terinspirasi dari Genshin Impact &copy; HoYoverse. Font: Google Fonts.</footer>
+<footer><b>Sampai jumpa di Teyvat, Traveler!</b>&copy; 2026 Agam Raditya Pratama, SMPIT Assyifa Boarding School<br>Terinspirasi dari Genshin Impact &copy; HoYoverse.</footer>
 
-<div id="lb" role="dialog" aria-modal="true" aria-label="Detail karya"><div class="lbbox">
-<button class="lbx" id="lbx" aria-label="Tutup"><i data-ic="x"></i></button>
-<button class="lbn p" id="lbp" aria-label="Sebelumnya"><i data-ic="prev"></i></button>
-<button class="lbn n" id="lbn" aria-label="Berikutnya"><i data-ic="next"></i></button>
-<div class="lbimg" id="lbimg"></div><div class="lbtext"><h3 id="lbt"></h3><p id="lbd"></p></div></div></div>
-<button id="top" aria-label="Kembali ke atas"><img src="impact.png" alt="" onerror="this.style.opacity=0"><span><i data-ic="up"></i></span></button>
+<div id="wo"></div><div id="toast">Misi selesai!</div>
 
 <script>
 const $=id=>document.getElementById(id);
-const IC=n=>'<svg class="i"><use href="#'+n+'"/></svg>';
-const PAI='<img src="karya3.png" alt="Paimon" onerror="this.parentNode.classList.add(\'nf\')">';
-const FUR='<img class="ch" src="impact.png" alt="Furina" onerror="this.style.opacity=0">';
-const fill=()=>{document.querySelectorAll('i[data-ic]').forEach(e=>{e.outerHTML=IC(e.dataset.ic)});
-document.querySelectorAll('[data-pai]').forEach(e=>e.innerHTML=PAI);
-document.querySelectorAll('[data-duoW]').forEach(e=>e.innerHTML=FUR+'<div class="pai" style="--w:96px;margin-bottom:30px">'+PAI+'</div>');
-document.querySelectorAll('[data-duo]').forEach(e=>{e.innerHTML=(e.dataset.b?'<div class="bubble"'+(e.dataset.id?' id="'+e.dataset.id+'"':'')+'>'+e.dataset.b+'</div>':'')+'<div class="pair">'+FUR+'<div class="pai">'+PAI+'</div></div>'});
-document.querySelectorAll('section[data-t]').forEach(s=>{s.insertAdjacentHTML('afterbegin','<div class="hd"><small>'+s.dataset.k+'</small><h2>'+s.dataset.t+'</h2><p class="sub">'+s.dataset.s+'</p><div class="dv">'+IC('sparkle')+'</div></div>')});
-document.querySelectorAll('.st5').forEach(e=>e.innerHTML=IC('star').repeat(5))};
-fill();
-// Bintang jatuh & partikel cahaya & kilau danau
-const st=$('stars');for(let i=0;i<22;i++){const s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.animationDuration=(8+Math.random()*12)+'s';s.style.animationDelay=(-Math.random()*15)+'s';st.appendChild(s)}
-const fl=$('fl');for(let i=0;i<30;i++){const e=document.createElement('i');e.className='fl';e.style.cssText='left:'+Math.random()*100+'%;--s:'+(3+Math.random()*5)+'px;--t:'+(7+Math.random()*9)+'s;--d:'+(-Math.random()*14)+'s;--x:'+((Math.random()-.5)*200)+'px;--c:'+(i%3?'#ffe9a8':'#7fd6e6');fl.appendChild(e)}
-const lk=$('lake');for(let i=0;i<26;i++){const e=document.createElement('b');e.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--t:'+(1.5+Math.random()*3)+'s;--d:'+(-Math.random()*4)+'s';lk.appendChild(e)}
-// Parallax beranda
-const hm=$('home');hm.addEventListener('pointermove',e=>{const r=hm.getBoundingClientRect();hm.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5)*2);hm.style.setProperty('--my',((e.clientY-r.top)/r.height-.5)*2)});
-addEventListener('scroll',()=>hm.style.setProperty('--sy',Math.min(scrollY,innerHeight)));
-// Awan realistis (kanvas): di beranda dan di dasar layar yang bergeser saat scroll
-(function(){
-const rnd=s=>()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
-const rgba=(h,a)=>'rgba('+[1,3,5].map(i=>parseInt(h.substr(i,2),16)).join(',')+','+a+')';
-const PAL={light:{shade:'#9db3d1',base:'#e8f0fa',hi:'#ffffff'},dark:{shade:'#1d2650',base:'#4a5688',hi:'#9aa6dc'},gold:{shade:'#d79aa0',base:'#ffe0a8',hi:'#fffbe6'}};
-const cache={};
-function sprite(seed,k){const key=seed+k;if(cache[key])return cache[key];const pal=PAL[k],W=900,H=480,c=document.createElement('canvas');c.width=W;c.height=H;
-const g=c.getContext('2d'),r=rnd(seed),pts=[];
-for(let i=0;i<70;i++){const x=W*(.1+.8*r()),p=Math.sin(Math.PI*(x-W*.1)/(W*.8)),rad=45+r()*75*(.45+p);pts.push({x,y:H*.7-p*H*.36*(.35+.65*r()),rad})}
-const puff=(x,y,rad,col,a)=>{const gr=g.createRadialGradient(x,y,rad*.1,x,y,rad);gr.addColorStop(0,rgba(col,a));gr.addColorStop(.55,rgba(col,a*.75));gr.addColorStop(1,rgba(col,0));g.fillStyle=gr;g.beginPath();g.arc(x,y,rad,0,7);g.fill()};
-pts.forEach(p=>puff(p.x,p.y+p.rad*.28,p.rad*1.05,pal.shade,.9));pts.forEach(p=>puff(p.x,p.y,p.rad,pal.base,.9));
-pts.forEach(p=>{if(p.y<H*.58)puff(p.x-p.rad*.15,p.y-p.rad*.32,p.rad*.6,pal.hi,.75)});
-return cache[key]=c.toDataURL('image/png')}
-// Awan emas di langit beranda
-[[11,'6%','2%',58,.95],[23,'10%','42%',50,.85],[37,'26%','-6%',44,.7],[41,'24%','62%',48,.75]].forEach(a=>{const im=document.createElement('img');im.alt='';im.src=sprite(a[0],'gold');im.style.cssText='top:'+a[1]+';left:'+a[2]+';width:'+a[3]+'vw;opacity:'+a[4]+';animation-delay:'+(-a[0])+'s';$('hcl').appendChild(im)});
-// Awan dasar layar
-const box=$('clouds'),N=4,rows=[{seed:31,sc:.75,drop:.30,op:{light:.75,dark:.55},sp:.35,idle:.012,dir:-1},{seed:77,sc:1,drop:.46,op:{light:1,dark:.85},sp:.6,idle:.02,dir:1}],items=[];
-rows.forEach((row,ri)=>{row.el=document.createElement('div');row.el.className='crow';for(let j=0;j<N*2;j++){const im=document.createElement('img');im.alt='';row.el.appendChild(im);items.push({im,seed:row.seed+(j%N)*17,row,j})}box.appendChild(row.el)});
-const th=()=>document.body.classList.contains('light')?'light':'dark';
-function paint(){const t=th();items.forEach(it=>it.im.src=sprite(it.seed,t));rows.forEach(r=>r.el.style.opacity=r.op[t])}
-setTimeout(paint,50);new MutationObserver(paint).observe(document.body,{attributes:true,attributeFilter:['class']});
-function layout(){const W=Math.min(innerWidth*.5,560);rows.forEach(r=>{r.w=W*r.sc;r.step=r.w*.68;r.P=r.step*N});items.forEach(it=>{it.im.style.width=it.row.w+'px';it.im.style.left=(it.j*it.row.step)+'px';it.im.style.bottom=(-it.row.w*.533*it.row.drop)+'px'})}
-layout();addEventListener('resize',layout);
-let target=scrollY,now=scrollY;addEventListener('scroll',()=>target=scrollY,{passive:true});
-(function frame(tm){now+=(target-now)*.1;rows.forEach(r=>{const off=now*r.sp+tm*r.idle,m=((off%r.P)+r.P)%r.P;r.el.style.transform='translate3d('+(r.dir<0?-m:m-r.P)+'px,0,0)'});requestAnimationFrame(frame)})(0);
-})();
-// Loading & welcome
-(function(){const L=$('loading'),f=$('lfill'),p=$('lpct'),tp=$('ltip'),tips=['Memuat dunia Teyvat...','Menyiapkan petualangan...','Mengumpulkan Mora...','Hampir siap, Traveler!'];
-let ok=document.readyState==='complete';addEventListener('load',()=>ok=true);setTimeout(()=>ok=true,4000);const t0=performance.now();
-const s=t=>{let v=Math.min((t-t0)/2600,1)*100;if(!ok)v=Math.min(v,92);f.style.width=v+'%';p.textContent=Math.floor(v)+'%';tp.textContent=tips[Math.min(3,Math.floor(v/26))];
-if(v>=100)setTimeout(()=>L.classList.add('hide'),350);else requestAnimationFrame(s)};requestAnimationFrame(s)})();
-$('enter').onclick=()=>$('welcome').classList.add('hide');
-// Menu, tema, atas
-const links=$('links');$('burger').onclick=()=>links.classList.toggle('open');links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
-const tb=$('theme');tb.onclick=()=>{document.body.classList.toggle('light');tb.innerHTML=IC(document.body.classList.contains('light')?'sun':'moon')};
-const tp=$('top');addEventListener('scroll',()=>tp.classList.toggle('show',scrollY>400));tp.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-const secs=[...document.querySelectorAll('section,header')],navA=[...links.querySelectorAll('a')];
-addEventListener('scroll',()=>{let c=secs[0].id;secs.forEach(s=>{if(scrollY>=s.offsetTop-140)c=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))});
-// Paimon berbicara
-const say=$('say');document.querySelectorAll('#hobi .card[data-say]').forEach(c=>{const f=()=>say.textContent=c.dataset.say;['mouseenter','focus','click'].forEach(e=>c.addEventListener(e,f))});
-// Bar semangat
-const skills=[...document.querySelectorAll('.skill')];
-function run(sk,d){const b=sk.querySelector('b'),p=sk.querySelector('.pct'),to=+b.dataset.w,t0=performance.now()+d;cancelAnimationFrame(sk._r);
-const s=t=>{const k=Math.min(Math.max((t-t0)/1400,0),1),e=1-Math.pow(1-k,3);b.style.width=to*e+'%';p.textContent=Math.round(to*e)+'%';if(k<1)sk._r=requestAnimationFrame(s)};sk._r=requestAnimationFrame(s)}
-new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)skills.forEach((s,i)=>run(s,i*180));else skills.forEach(s=>{cancelAnimationFrame(s._r);s.querySelector('b').style.width='0';s.querySelector('.pct').textContent='0%'})}),{threshold:.25}).observe($('skills'));
-// Galeri karya
-const works=[
-{t:'Furina',d:'Gambar Furina dari Genshin Impact, sang Hydro Archon.',img:'karya1.png'},
-{t:'Hu Tao',d:'Gambar Hu Tao dari Genshin Impact, Direktur Wangsheng Funeral Parlor.',img:'karya2.png'},
-{t:'Paimon',d:'Gambar Paimon, teman perjalanan terbaik Traveler.',img:'karya3.png'},
-{t:'Venti',d:'Gambar Venti dari Genshin Impact, sang Bard dari Mondstadt.',img:'karya4.png'},
-{t:'Raiden Shogun',d:'Gambar Raiden Shogun dari Genshin Impact, penguasa Inazuma.',img:'karya5.png'},
-{t:'Columbina',d:'Gambar Columbina dari Genshin Impact.',img:'karya6.png'}];
-const lb=$('lb');let cur=0;
-works.forEach((w,i)=>{const b=document.createElement('button');b.className='art';b.type='button';
-b.innerHTML='<div class="ph">'+IC('sparkle')+'<small>Gambar belum ditambahkan</small></div><img class="pic" src="'+w.img+'" alt="'+w.t+'" onerror="this.style.display=\'none\'"><div class="cap"><h3>'+w.t+'</h3><p>'+w.d+'</p></div>';
-b.onclick=()=>openLb(i);$('gal').appendChild(b)});
-function openLb(i){cur=(i+works.length)%works.length;const w=works[cur];$('lbimg').innerHTML=IC('sparkle');
-const im=new Image();im.alt=w.t;im.onload=()=>{$('lbimg').innerHTML='';$('lbimg').appendChild(im)};im.src=w.img;
-$('lbt').textContent=w.t;$('lbd').textContent=w.d;lb.classList.add('open')}
-const closeLb=()=>lb.classList.remove('open');
-$('lbx').onclick=closeLb;$('lbp').onclick=()=>openLb(cur-1);$('lbn').onclick=()=>openLb(cur+1);
-lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
-addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')openLb(cur-1);if(e.key==='ArrowRight')openLb(cur+1)});
-// Muncul saat scroll
-const io=new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');o.unobserve(e.target);setTimeout(()=>e.target.classList.remove('rv','in'),900)}),{threshold:.12});
-document.querySelectorAll('.card,.panel,.goal,.art,.stat,.hd,.duo').forEach((e,i)=>{e.classList.add('rv');e.style.transitionDelay=(i%4)*70+'ms';io.observe(e)});
-// Unduh profil
-$('download').onclick=()=>{const t=`PROFIL SINGKAT
-Nama     : Agam Raditya Pratama (Agam)
-Kelas    : 9 Utsman
-Sekolah  : SMPIT Assyifa Boarding School
-Hobi     : Membaca buku, basket, voli, menggambar, main game (Genshin Impact)
-Prestasi : Juara 1 Liga Pelajar Assyifa, Poster Ramadhan, Estafet Sarung, Assyifa League Champion, Poster Hari Santri
-X        : @agaamm_0
-TikTok   : @agam_radityap05
-Email    : agam.raditya105@smp.belajar.id`;
+document.addEventListener('error',e=>{if(e.target.tagName==='IMG')e.target.style.display='none'},true);
+// bintang berkilau & orbit elemen
+for(let i=0;i<34;i++){const s=document.createElement('i');s.className='sp';s.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--s:'+(6+Math.random()*12)+'px;--t:'+(2+Math.random()*4)+'s;--d:'+(-Math.random()*5)+'s';document.body.prepend(s)}
+['#f4784f','#3ec5f5','#74c2a8','#af8ec1','#a5c83b','#9fd6e3','#f9b94b'].forEach((c,i)=>{const e=document.createElement('i');e.style.cssText='--c:'+c+';--a:'+i*51.43+'deg';$('orb').appendChild(e)});
+// menu kiri
+const links=[...document.querySelectorAll('#rail a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{threshold:.45});
+document.querySelectorAll('header,section').forEach(s=>io.observe(s));
+// talenta
+const T=[['<i data-i="book"></i>','Membaca buku','Menambah ilmu dan imajinasi, seperti membuka halaman baru di kisah Teyvat.','#3ec5f5',85,'Agam suka baca buku! Setiap halaman seperti petualangan baru.'],
+['<i data-i="ball"></i>','Main basket','Melatih kelincahan, kerja sama tim, dan semangat pantang menyerah.','#f4784f',80,'Basket itu seru! Lincah, cepat, dan harus kompak.'],
+['<i data-i="volley"></i>','Main voli','Seru dimainkan bersama teman, mengajarkan kekompakan dan sportivitas.','#af8ec1',75,'Voli bareng teman paling asyik. Ayo smash!'],
+['<i data-i="palette"></i>','Menggambar','Menuangkan ide dan kreativitas ke dalam gambar.','#74c2a8',80,'Menggambar bikin imajinasi Agam hidup di atas kertas. Paimon juga digambar lho!'],
+['<i data-i="game"></i>','Main game','Terutama Genshin Impact: menjelajah, bertualang, dan menyusun tim terbaik.','#f9b94b',95,'Genshin Impact! Menjelajah Teyvat bareng Paimon adalah favorit Agam.']];
+T.forEach((t,i)=>{const b=document.createElement('button');b.className='tb';b.style.setProperty('--e',t[3]);b.innerHTML='<span class="ci">'+t[0]+'</span>'+t[1];b.onclick=()=>pick(i);$('tls').appendChild(b)});
+function pick(i){const t=T[i];document.querySelectorAll('.tb').forEach((b,j)=>b.classList.toggle('on',j===i));const d=$('td');d.style.setProperty('--e',t[3]);
+d.innerHTML='<span class="ci">'+t[0]+'</span><h3>'+t[1]+'</h3><p>'+t[2]+'</p><div class="lv"><span>Tingkat semangat Lv. '+Math.round(t[4]/10)+'</span><span>'+t[4]+'%</span></div><div class="br"><b id="tbar"></b></div><div class="say"><div class="pm">P<img src="karya3.png" alt="Paimon"></div><p><b>Paimon:</b> '+t[5]+'</p></div>';
+setTimeout(()=>$('tbar').style.width=t[4]+'%',30)}pick(4);
+// wish
+const W=[['Furina','Furina, sang Hydro Archon.','karya1.png','<i data-i="drop"></i>',5],['Hu Tao','Hu Tao, Direktur Wangsheng Funeral Parlor.','karya2.png','<i data-i="flame"></i>',5],['Paimon','Paimon, teman perjalanan terbaik Traveler.','karya3.png','<i data-i="star"></i>',4],['Venti','Venti, sang Bard dari Mondstadt.','karya4.png','<i data-i="leaf"></i>',5],['Raiden Shogun','Raiden Shogun, penguasa Inazuma.','karya5.png','<i data-i="bolt"></i>',5],['Columbina','Columbina dari Genshin Impact.','karya6.png','<i data-i="sparkle"></i>',4]];
+const st=n=>'★'.repeat(n),im=w=>w[3]+'<img src="'+w[2]+'" alt="'+w[0]+'">';
+function feat(i){const w=W[i];$('fr').className='fr r'+w[4];$('fi').innerHTML=im(w)+'<div class="cp"><div class="sr">'+st(w[4])+'</div><h3>'+w[0]+'</h3></div>';$('fd').textContent='Gambar '+w[1];document.querySelectorAll('.th').forEach((b,j)=>b.classList.toggle('on',j===i))}
+W.forEach((w,i)=>{const b=document.createElement('button');b.className='th r'+w[4];b.setAttribute('aria-label',w[0]);b.innerHTML='<div class="fi">'+im(w)+'</div>';b.onclick=()=>feat(i);$('ths').appendChild(b)});feat(0);
+const wo=$('wo');let tm;
+$('wb').onclick=()=>{const i=Math.floor(Math.random()*W.length),w=W[i];wo.className='open r'+w[4];wo.innerHTML='<div class="mt"></div>';
+tm=setTimeout(()=>{wo.innerHTML='<div class="fx"></div><div class="rc fr"><div class="fi">'+im(w)+'<div class="cp"><h3>'+w[0]+'</h3></div></div></div><div class="rs">'+[...Array(w[4])].map((_,k)=>'<i style="animation-delay:'+(.4+k*.15)+'s">★</i>').join('')+'</div><p>'+w[1]+'</p><button class="gb" id="wn">Lanjut</button>';
+$('wn').onclick=()=>{wo.className='';feat(i)}},1500)};
+addEventListener('keydown',e=>{if(e.key==='Escape'){clearTimeout(tm);wo.className=''}});
+// pencapaian
+[['<i data-i="trophy"></i>','Liga Pelajar Assyifa','Meraih gelar juara dalam kompetisi Liga Pelajar Assyifa.'],['<i data-i="palette"></i>','Poster Ramadhan','Lomba poster bertema Ramadhan.'],['<i data-i="flag"></i>','Estafet Sarung','Lomba estafet sarung yang seru dan penuh kekompakan.'],['<i data-i="medal"></i>','Assyifa League Champion','Juara dalam kompetisi Assyifa League.'],['<i data-i="brush"></i>','Poster Hari Santri','Lomba poster bertema Hari Santri.']].forEach(a=>{const d=document.createElement('div');d.className='pn ac';d.innerHTML='<span class="ci">'+a[0]+'</span><div><h3>'+a[1]+'</h3><p>'+a[2]+'</p></div><div class="rw"><span>Juara 1</span><b class="ck"><i data-i="check"></i></b></div>';$('ach').appendChild(d)});
+new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting)return;o.disconnect();const t0=performance.now();(function f(x){const k=Math.min((x-t0)/1400,1);$('pc').textContent=Math.round(5*k)+' / 5';$('pb').style.width=k*100+'%';if(k<1)requestAnimationFrame(f)})(t0)},{threshold:.6}).observe($('pc'));
+// misi
+const toast=$('toast');
+[['Lulus dengan hasil terbaik','Menyelesaikan kelas 9 dengan nilai bagus dan akhlak yang baik.'],['Mengembangkan bakat','Terus berlatih menggambar dan olahraga agar semakin mahir.'],['Meraih cita-cita masa depan','Menjadi orang yang berilmu, sukses, dan bermanfaat bagi keluarga serta sesama.']].forEach((q,i)=>{const b=document.createElement('button');b.className='q';b.type='button';b.innerHTML='<span class="dm"></span><span><small>Misi '+(i+1)+'</small><h3>'+q[0]+'</h3><p>'+q[1]+'</p></span>';
+b.onclick=()=>{b.classList.toggle('on');if(b.classList.contains('on')){toast.textContent='Misi selesai: '+q[0];toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),2200)}};$('qs').appendChild(b)});
+// unduh
+$('dl').onclick=()=>{const t='PROFIL SINGKAT\nNama     : Agam Raditya Pratama (Agam)\nKelas    : 9 Utsman\nSekolah  : SMPIT Assyifa Boarding School\nHobi     : Membaca buku, basket, voli, menggambar, main game (Genshin Impact)\nPrestasi : Juara 1 Liga Pelajar Assyifa, Poster Ramadhan, Estafet Sarung, Assyifa League Champion, Poster Hari Santri\nX        : @Agaamm_0\nTikTok   : @agamm_radityap05\nEmail    : agam.raditya105@smp.belajar.id';
 const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/plain'}));a.download='Profil-Agam-Raditya-Pratama.txt';a.click()};
+// ===== v2: animasi & efek =====
+const colors=['#f6c75b','#3ec5f5','#f4784f','#74c2a8','#af8ec1','#fff3c4'];
+function burst(x,y,n=16){const r=document.createElement('i');r.style.cssText='position:fixed;z-index:200;pointer-events:none;left:'+x+'px;top:'+y+'px;width:20px;height:20px;border:3px solid #f6c75b;border-radius:50%';document.body.appendChild(r);r.animate([{transform:'translate(-50%,-50%) scale(1)',opacity:1},{transform:'translate(-50%,-50%) scale(7)',opacity:0}],{duration:600}).onfinish=()=>r.remove();
+for(let i=0;i<n;i++){const s=document.createElement('i');s.className='sp';const a=Math.PI*2*i/n+Math.random()*.5,d=50+Math.random()*80;s.style.cssText='left:'+x+'px;top:'+y+'px;--s:'+(8+Math.random()*12)+'px;animation:none;opacity:1;z-index:200;background:'+colors[i%6];document.body.appendChild(s);
+s.animate([{transform:'translate(-50%,-50%) scale(1) rotate(0)',opacity:1},{transform:'translate(calc(-50% + '+Math.cos(a)*d+'px),calc(-50% + '+Math.sin(a)*d+'px)) scale(0) rotate(180deg)',opacity:0}],{duration:700+Math.random()*400,easing:'cubic-bezier(.2,.8,.3,1)'}).onfinish=()=>s.remove()}}
+document.addEventListener('click',e=>{if(e.target.closest('.gb,.th,.tb,.q,#rail a,.ml,#gd'))burst(e.clientX,e.clientY)});
+document.addEventListener('pointermove',e=>{const p=e.target.closest&&e.target.closest('.pn');if(p){const r=p.getBoundingClientRect();p.style.setProperty('--mx',e.clientX-r.left+'px');p.style.setProperty('--my',e.clientY-r.top+'px')}});
+if(matchMedia('(pointer:fine)').matches){let lt=0;addEventListener('pointermove',e=>{const n=performance.now();if(n-lt<45)return;lt=n;const s=document.createElement('i');s.className='sp';s.style.cssText='left:'+e.clientX+'px;top:'+e.clientY+'px;--s:'+(7+Math.random()*8)+'px;animation:none;z-index:199;background:'+colors[Math.floor(Math.random()*6)];document.body.appendChild(s);s.animate([{transform:'translate(-50%,-50%) scale(1)',opacity:.9},{transform:'translate(-50%,calc(-50% + 26px)) scale(0) rotate(90deg)',opacity:0}],{duration:700}).onfinish=()=>s.remove()})}
+// partikel cahaya & progres scroll
+for(let i=0;i<18;i++){const e=document.createElement('i');e.className='fo';e.style.cssText='left:'+Math.random()*100+'%;--s:'+(5+Math.random()*9)+'px;--t:'+(9+Math.random()*10)+'s;--d:'+(-Math.random()*15)+'s;--x:'+((Math.random()-.5)*160)+'px';document.body.prepend(e)}
+const pb=document.createElement('div');pb.id='sp2';document.body.appendChild(pb);addEventListener('scroll',()=>pb.style.width=scrollY/(document.body.scrollHeight-innerHeight)*100+'%',{passive:true});
+// transisi portal
+const wp=document.createElement('div');wp.id='wp';document.body.appendChild(wp);
+function warp(t,ic,tx){wp.innerHTML='<div class="wr1"></div><div class="wi">'+ic+'</div><p>'+tx+'</p>';wp.className='go';setTimeout(()=>document.querySelector(t).scrollIntoView({behavior:'instant'}),900);setTimeout(()=>{wp.className='out';setTimeout(()=>wp.className='',700)},1500)}
+document.querySelector('header a[href="#profil"]').onclick=e=>{e.preventDefault();warp('#profil','<i data-i="compass"></i>','Memasuki Teyvat...')};
+document.querySelector('header a[href="#kontak"]').onclick=e=>{e.preventDefault();warp('#kontak','<i data-i="mail"></i>','Mengirim surat untuk Agam...')};
+// animasi unduh
+const od=$('dl').onclick;
+function rain(){for(let i=0;i<40;i++){const e=document.createElement('i');e.innerHTML='<i data-i="'+['gem','sparkle','coin'][i%3]+'"></i>';e.style.cssText='position:fixed;z-index:160;top:-40px;color:#f6c75b;left:'+Math.random()*100+'vw;font-size:'+(18+Math.random()*18)+'px;font-style:normal;pointer-events:none';document.body.appendChild(e);e.animate([{transform:'translateY(0) rotate(0)'},{transform:'translateY(110vh) rotate('+(Math.random()*720-360)+'deg)'}],{duration:1500+Math.random()*1500,delay:Math.random()*600,easing:'ease-in',fill:'backwards'}).onfinish=()=>e.remove()}}
+$('dl').onclick=()=>{if($('rw'))return;const m=document.createElement('div');m.id='rw';m.innerHTML='<div class="rwc"><div class="rwi"><i data-i="gift"></i></div><h3 id="rt">Menyiapkan profil...</h3><div class="br" style="--e:#f6c75b"><b id="rbb"></b></div><p id="rpp">0%</p></div>';document.body.appendChild(m);const t0=performance.now();
+(function f(x){const k=Math.min((x-t0)/1500,1);$('rbb').style.width=k*100+'%';$('rpp').textContent=Math.round(k*100)+'%';if(k<1)return requestAnimationFrame(f);
+$('rt').textContent='Profil terunduh!';$('rpp').textContent='Hadiah diterima. Terima kasih sudah mampir, Traveler!';$('rbb').parentNode.style.display='none';m.querySelector('.rwi').innerHTML='<i data-i="gem"></i>';od();rain();setTimeout(()=>{m.classList.add('bye');setTimeout(()=>m.remove(),500)},2600)})(t0)};
+// talenta: transisi
+const op=pick;pick=i=>{op(i);const d=$('td');d.classList.remove('sw');void d.offsetWidth;d.classList.add('sw')};
+// maskot Paimon
+const L={home:'Halo, Traveler! Selamat datang di portofolio Agam!',profil:'Ini data diri Agam. Kelas 9 Utsman, lho!',hobi:'Klik hobinya, nanti Paimon yang cerita!',galeri:'Ayo coba Wish! Siapa tahu dapat bintang 5!',prestasi:'Wah, 5 kali juara 1! Hebat banget!',cita:'Klik misinya kalau sudah selesai ya!',kontak:'Jangan lupa kirim surat ke Agam!'};
+const gd=document.createElement('div');gd.id='gd';gd.innerHTML='<div class="gbub pop" id="gt">'+L.home+'</div><div class="pm">P<img src="karya3.png" alt="Paimon"></div>';document.body.appendChild(gd);
+const gt=$('gt'),say=s=>{gt.textContent=s;gt.classList.remove('pop');void gt.offsetWidth;gt.classList.add('pop')};
+const gio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)say(L[e.target.id])}),{threshold:.45});
+document.querySelectorAll('header,section').forEach(s=>gio.observe(s));
+gd.onclick=()=>{const v=Object.values(L);say(v[Math.floor(Math.random()*v.length)])};
+// hiasan & muncul saat scroll
+[['profil','#3ec5f5'],['hobi','#f4784f'],['galeri','#f6c75b'],['prestasi','#af8ec1'],['cita','#74c2a8'],['kontak','#9fd6e3']].forEach(a=>{$(a[0]).dataset.e=1;$(a[0]).style.setProperty('--gh',a[1])});
+const rvo=new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.unobserve(e.target);e.target.classList.add('in');setTimeout(()=>{e.target.classList.remove('rv','in');e.target.style.transitionDelay=''},1300)}),{threshold:.12});
+document.querySelectorAll('.sh,.pn,.q').forEach((e,i)=>{e.classList.add('rv');e.style.transitionDelay=(i%3)*100+'ms';rvo.observe(e)});
+// ===== v3: ikon SVG & pemandangan =====
+const P={compass:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z" fill="currentColor"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.5 3.6-7 8-7s8 2.5 8 7"/>',sword:'<path d="M5 19l9-9M14 10l5-6 1 1-6 5M7 13l4 4M4 20l2-2M19 4l-5 6"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.100L12 17l-5.400 2.900 1-6.100L3.200 9.500l6.100-.9z"/>',trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v2a3 3 0 0 0 4 3M16 6h4v2a3 3 0 0 1-4 3M12 13v4M8 20h8M10 17h4"/>',scroll:'<path d="M6 3h11a2 2 0 0 1 2 2v13a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V4zM9 8h7M9 12h7M9 16h4"/>',mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',book:'<path d="M3 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H3zM21 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/>',ball:'<circle cx="12" cy="12" r="9"/><path d="M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18M3 12h18"/>',volley:'<circle cx="12" cy="12" r="9"/><path d="M12 3c0 6 4 9 9 9M12 3c0 6-4 9-9 9M12 21c0-6 4-9 9-9"/>',palette:'<path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2s0-2 1.500-2h2a3 3 0 0 0 3-3A9 9 0 0 0 12 3zM7.500 11h.01M10 7.500h.01M14.500 7.500h.01M17 11h.01"/>',game:'<path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5 2l-2-2H9l-2 2a3 3 0 0 1-5-2v-3a4 4 0 0 1 4-4zM7 11v4M5 13h4M16 12h.01M18 14h.01"/>',drop:'<path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/>',flame:'<path d="M12 3c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-6 1-10z"/>',leaf:'<path d="M5 19C5 9 11 4 20 4c0 9-5 15-15 15zM5 19l8-8"/>',bolt:'<path d="M13 2L5 14h6l-1 8 8-12h-6z"/>',sparkle:'<path d="M12 3l1.800 5.200L19 10l-5.200 1.800L12 17l-1.800-5.200L5 10l5.200-1.800zM19 17l.7 1.800 1.800.7-1.800.7L19 22l-.7-1.800-1.800-.7 1.800-.7z"/>',flag:'<path d="M5 21V4M5 4h12l-2 4 2 4H5"/>',medal:'<circle cx="12" cy="15" r="5"/><path d="M8 3l4 7 4-7"/>',brush:'<path d="M4 20c3 0 4-1 4-3a3 3 0 0 1 3-3l7-9 3 3-9 7a3 3 0 0 1-3 3c-1 2-3 2-5 2z"/>',x:'<path d="M4 4l16 16M20 4L4 20"/>',music:'<path d="M9 18V6l10-2v12M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM19 16a3 3 0 1 1-3-3 3 3 0 0 1 3 3z"/>',gift:'<rect x="3" y="8" width="18" height="5"/><path d="M5 13v8h14v-8M12 8v13M12 8c-3 0-5-1-5-3s3-2 5 3c2-5 5-5 5-3s-2 3-5 3"/>',gem:'<path d="M6 3h12l4 6-10 12L2 9zM2 9h20M9 3l-2 6 5 12 5-12-2-6"/>',coin:'<circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h5a2 2 0 0 1 0 4H9"/>',check:'<path d="M5 12l5 5 9-10"/>',dl:'<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>'},FL={star:1,bolt:1,drop:1,flame:1,sparkle:1};
+const hy=()=>document.querySelectorAll('i[data-i]').forEach(e=>{const n=e.dataset.i;e.outerHTML='<svg class="ic'+(FL[n]?' f':'')+'" viewBox="0 0 24 24">'+(P[n]||'')+'</svg>'});
+hy();new MutationObserver(hy).observe(document.body,{childList:true,subtree:true});
+const sc=document.createElement('div');sc.id='scene';sc.innerHTML='<div class="moon"></div><div class="cl" style="top:16%;width:40%"></div><div class="cl" style="top:30%;width:30%;opacity:.7;animation-delay:-20s"></div><div class="m1"></div><div class="m2"></div><div class="m3"></div>';document.body.prepend(sc);
+const ly=[['.m1',.12],['.m2',.2],['.m3',.3],['.moon',.25]].map(a=>[sc.querySelector(a[0]),a[1]]);
+addEventListener('scroll',()=>ly.forEach(l=>l[0].style.transform='translateY('+scrollY*l[1]+'px)'),{passive:true});
+// ===== v4: loading screen =====
+(function(){const L=$('ld'),f=$('ldf'),w=$('ldw'),pc=$('ldpc'),tp=$('ldtp');
+['#f4784f','#3ec5f5','#74c2a8','#af8ec1','#a5c83b','#9fd6e3','#f9b94b'].forEach((c,i)=>{const e=document.createElement('i');e.style.cssText='--c:'+c+';--a:'+i*51.43+'deg';$('lo').appendChild(e)});
+for(let i=0;i<26;i++){const e=document.createElement('i');e.className='sp';e.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--s:'+(6+Math.random()*12)+'px;--t:'+(2+Math.random()*4)+'s;--d:'+(-Math.random()*5)+'s;z-index:1';L.querySelector('.ldc').appendChild(e)}
+const tips=['Memuat dunia Teyvat...','Tips: klik Paimon di pojok kanan bawah untuk dialog acak.','Tips: coba tombol Wish di galeri untuk mendapat gambar acak.','Tips: klik misi di bagian Misi Utama untuk menandainya selesai.','Tips: arahkan kursor ke panel untuk melihat cahaya mengikutinya.'];
+let ok=document.readyState==='complete',ti=0;addEventListener('load',()=>ok=true);setTimeout(()=>ok=true,5000);
+const tt=setInterval(()=>{ti=(ti+1)%tips.length;tp.textContent=tips[ti]},1900),t0=performance.now();
+(function s(t){let v=Math.min((t-t0)/3600,1);v=(1-Math.pow(1-v,2))*100;if(!ok)v=Math.min(v,90);f.style.width=v+'%';w.style.left=v+'%';pc.textContent=Math.floor(v)+'%';if(v>=100){clearInterval(tt);L.classList.add('rdy');return}requestAnimationFrame(s)})(t0);
+function go(){if(!L.classList.contains('rdy')||L.classList.contains('open'))return;L.classList.add('open');setTimeout(()=>burst(innerWidth/2,innerHeight/2,30),500);setTimeout(()=>{document.body.classList.remove('ld-on');L.remove()},1100)}
+L.addEventListener('click',go);addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')go()});
+})();
+// pita nama hobi
+const mq=document.createElement('div');mq.className='mq';mq.setAttribute('aria-hidden','true');mq.innerHTML='<div>'+['Membaca buku','Main basket','Main voli','Menggambar','Genshin Impact','Juara 1'].map(x=>'<span>'+x+'</span>').join('').repeat(8)+'</div>';document.querySelector('header').after(mq);
 </script>
 </body>
 </html>
